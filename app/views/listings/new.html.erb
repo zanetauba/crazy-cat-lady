@@ -1,0 +1,12 @@
+      <%= simple_form_for @listing do |f| %>
+        <div class="form-inputs">
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <%= f.input :price_per_day %>
+        <%= f.input :location %>
+
+      </div>
+        <div class="form-actions">
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      </div>
+      <% end %>
