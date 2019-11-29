@@ -3,43 +3,45 @@ class ListingsController < ApplicationController
 
 
   def index         # GET /bookings
-    @bookings = Booking.all
+    @listings = Listing.all
   end
 
   def show          # GET /bookings/:id
   end
 
   def new           # GET /bookings/new
-    @booking = Booking.new
+    @listing = Listing.new
   end
 
   def create        # POST /bookings
-    @booking = Booking.new(params[:booking])
-    @booking.save
+    @listing = Listing.new(listing_params)
+    @listing.user_id = current_user.id
+    @listing.save
   end
 
   def edit          # GET /bookings/:id/edit
   end
 
   def update        # PATCH /bookings/:id
-    @booking.update(params[:booking])
+    @listing.update(params[:listing])
   end
 
   def destroy       # DELETE /bookings/:id
-    @booking.destroy
+    @listing.destroy
   end
 
 
 private
 
-  def booking_params
-    params.require(:booking).permit(:starting_at, :ending_at)
-
-  def set_booking
-    @booking = Booking.find(params[:id])
+  def listing_params
+    params.require(:listing).permit(:title, :description, :price_per_day, :location)
   end
 
-end
+  def set_listing
+    @listing = Listing.find(params[:id])
+  end
+
+
 
 
 end
