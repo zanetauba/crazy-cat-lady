@@ -7,6 +7,7 @@ class ListingsController < ApplicationController
   end
 
   def show          # GET /bookings/:id
+    @listing = Listing.find(params[:id])
   end
 
   def new           # GET /bookings/new
