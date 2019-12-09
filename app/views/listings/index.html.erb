@@ -1,0 +1,31 @@
+<div class="main">
+  <h1 class="page-title"></h1>
+  <p class="page-description"></p>
+
+  <div class="row">
+    <% @listings.each do |listing| %>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+      <%= link_to listing do  %>
+        <div class="listing-card">
+          <div class="card">
+            <div class="card-content">
+              <div class="content">
+                <h3 class="title"><%= listing.title %></h3>
+                <p class="description">
+                 <ul>
+                  <li><%=listing.description%></li>
+                  <li>Location: <%=listing.location%></li>
+                  <li>Hosted by: <%=listing.user.email%></li>
+                  <li>$ <%=listing.price_per_day%> per day</li>
+                 </ul>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
+
+ </div>
