@@ -5,5 +5,8 @@
         <p><i class="fas fa-user-alt"></i> <%=@listing.description%></p>
         <p><i class="fas fa-dollar-sign"></i> <%=@listing.price_per_day%> per day</p>
         <p>hosted by: <%=@listing.user.email%></p>
+        <% @listing.listing_photos.each do |lp| %>
+          <p>photo: <%=lp.url%>
+        <%end%>
     </div>
 </div>

@@ -17,7 +17,11 @@ class ListingsController < ApplicationController
   def create        # POST /bookings
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user.id
-    @listing.save
+    if @listing.save
+      redirect_to new_listing_listing_photo_path(@listing)
+    else
+      render 'new'
+    end
   end
 
   def edit          # GET /bookings/:id/edit
