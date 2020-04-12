@@ -38,6 +38,6 @@ private
   end
 
   def listing_photo_params
-    params.require(:listing_photo).permit(:url, :quote_id)
+    params.require(:listing_photo).permit(:url, :listing_id)
   end
 end
