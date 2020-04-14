@@ -1,0 +1,5 @@
+<%= simple_form_for [@listing, @booking]  do |f| %>
+    <%= f.input :starting_at %>
+    <%= f.input :ending_at %>
+  <%= f.submit "Save", class: "btn btn-default btn-primary" %>
+<% end %>
