@@ -7,7 +7,6 @@
 
   <div class="row">
     <% @listings.each do |listing| %>
-    <% listing.listing_photos.each do |listing_photo| %>
       <div class="col-xs-12 col-sm-6 col-md-3">
       <%= link_to listing do  %>
         <div class="listing-card">
@@ -21,8 +20,9 @@
                   <li>Location: <%=listing.location%></li>
                   <li>Hosted by: <%=listing.user.email%></li>
                   <li>$ <%=listing.price_per_day%> per day</li>
-                  <li> <%= listing_photo.url%></li>
-                 </ul>
+                  <% listing.photos.each do |photo| %>
+                  <li><%=cl_image_tag photo.key, height: 70, width: 80, crop: :fill %></li>
+                  </ul>
                 </p>
               </div>
             </div>
@@ -35,3 +35,6 @@
   </div>
 
  </div>
+
+
+
