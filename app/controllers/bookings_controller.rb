@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     @booking.listing = @listing
     @booking.user = current_user
     @booking.save
-    redirect_to bookings_path
+    redirect_to booking_path(@booking)
   end
 
   def confirm
