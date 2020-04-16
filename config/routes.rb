@@ -4,11 +4,7 @@ Rails.application.routes.draw do
 
 
   root to: "listings#index"
-  resources :listings do
-    resources :listing_photos
-  end
-
-  resources :listing_photos
+  resources :listings
   resources :pets
 
   resources :listings do
