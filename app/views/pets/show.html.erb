@@ -2,6 +2,7 @@
     <div class="details">
         <h4><%=@pet.name%></h4>
         <p>owner: <%=@pet.user.email%></p>
-        <p>photo: <%=@pet.photo_url%></p>
+        <p><%=cl_image_tag @pet.photo_url.key, height: 300, width: 400, crop: :fill%></p>
+
     </div>
 </div>
