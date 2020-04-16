@@ -14,7 +14,7 @@
                 <p class="description">
                  <ul>
                   <li><%=pet.user.email%></li>
-                  <li><%=pet.photo_url%></li>
+                  <li><%=cl_image_tag pet.photo_url.key, height: 80, width: 100, crop: :fill%></li>
                  </ul>
                 </p>
               </div>
