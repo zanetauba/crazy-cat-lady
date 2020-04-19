@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
-<!-- Active URL: https://kitt.lewagon.com/db/606 -->
+<!-- Active URL: https://kitt.lewagon.com/db/5653 -->
 <sql>
 <datatypes db="postgresql">
   <group label="Numeric" color="rgb(238,238,170)">
@@ -103,18 +103,9 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="user" row="id" />
 </row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="984" y="290" name="listing_photo">
-<row name="id" null="1" autoincrement="1">
+<row name="photos" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="listing_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="listing" row="id" />
-</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>

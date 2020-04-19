@@ -4,7 +4,7 @@
         <p><i class="fas fa-map-marker-alt"></i> <%=@listing.location%></p>
         <p><i class="fas fa-user-alt"></i> <%=@listing.description%></p>
         <p><i class="fas fa-dollar-sign"></i> <%=@listing.price_per_day%> per day</p>
-        <p>hosted by: <%=@listing.user.email%></p>
+        <p>hosted by: <%=@listing.user.name%> <%=@listing.user.surname%></p>
         <% @listing.photos.each do |photo| %>
           <p><%=cl_image_tag photo.key %>
         <%end%>
