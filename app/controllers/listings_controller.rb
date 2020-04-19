@@ -3,7 +3,14 @@ class ListingsController < ApplicationController
 
 
   def index         # GET /bookings
-    @listings = Listing.all
+    @listings = Listing.geocoded
+
+    @markers = @listings.map do |listing|
+      {
+        lat: listing.latitude,
+        lng: listing.longitude
+      }
+    end
   end
 
   def show          # GET /bookings/:id
