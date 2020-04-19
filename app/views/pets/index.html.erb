@@ -13,7 +13,7 @@
                 <h3 class="title"><%= pet.name %></h3>
                 <p class="description">
                  <ul>
-                  <li><%=pet.user.email%></li>
+                  <li>owner: <%=pet.user.name%> <%=pet.user.surname%></li>
                   <li><%=cl_image_tag pet.photo_url.key, height: 80, width: 100, crop: :fill%></li>
                  </ul>
                 </p>

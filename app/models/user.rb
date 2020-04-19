@@ -3,6 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :authentication_keys => [:email, :name, :surname]
+  validates :email, uniqueness: true
+  validates :name, presence: true
+  validates :surname, presence: true
+  #attr_accesible :name, :username
   has_many :pets
   has_many :listings
   has_many :bookings, dependent: :destroy

@@ -18,7 +18,7 @@
                  <ul>
                   <li><%=listing.description%></li>
                   <li>Location: <%=listing.location%></li>
-                  <li>Hosted by: <%=listing.user.email%></li>
+                  <li>Hosted by: <%=listing.user.name%> <%=listing.user.surname%></li>
                   <li>$ <%=listing.price_per_day%> per day</li>
                   <% listing.photos.each do |photo| %>
                   <li><%=cl_image_tag photo.key, height: 70, width: 80, crop: :fill %></li>

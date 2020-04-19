@@ -1,7 +1,7 @@
 <div class = "grid">
     <div class="details">
         <h4><%=@pet.name%></h4>
-        <p>owner: <%=@pet.user.email%></p>
+        <p>owner: <%=@pet.user.name%> <%=@pet.user.surname%></p>
         <p><%=cl_image_tag @pet.photo_url.key, height: 300, width: 400, crop: :fill%></p>
 
     </div>
