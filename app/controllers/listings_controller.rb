@@ -2,9 +2,12 @@ class ListingsController < ApplicationController
 
 
 
-  def index         # GET /bookings
-    @listings = Listing.geocoded
-
+  def index
+    if current_user.present?
+      @listings = Listing.geocoded - current_user.hosted_listings
+    else
+      @listings = Listing.geocoded
+    end
     @markers = @listings.map do |listing|
       {
         lat: listing.latitude,

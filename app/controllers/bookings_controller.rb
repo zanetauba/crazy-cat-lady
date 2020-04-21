@@ -1,14 +1,18 @@
 class BookingsController < ApplicationController
-     before_action :set_listing, only: [:new, :create, :destroy, :edit]
-     before_action :set_booking, only: [:show, :edit, :update, :destroy, :confirm]
+     before_action :set_listing, only: [:new, :create, :destroy, :edit, :final_price]
+     before_action :set_booking, only: [:show, :edit, :update, :destroy, :confirm, :final_price]
 
 
   def index
     @bookings = Booking.all
   end
 
+
+
   def show
     @booking = Booking.find(params[:id])
+    @amount_of_days = @booking.ending_at - @booking.starting_at
+    @to_pay = @amount_of_days.to_i * @booking.listing.price_per_day.to_i
   end
 
   def new
@@ -19,9 +23,13 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.listing = @listing
     @booking.user = current_user
-    @booking.save
-    redirect_to booking_path(@booking)
-  end
+    if @booking.starting_at < @booking.ending_at && @booking.starting_at > Date.today
+      @booking.save
+      redirect_to booking_path(@booking)
+    else
+      render 'new'
+    end
+    end
 
   def confirm
     @booking = Booking.find(params[:id])
