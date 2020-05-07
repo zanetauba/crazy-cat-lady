@@ -5,7 +5,4 @@ class Booking < ApplicationRecord
   validates :ending_at, presence: true
 
 
-
-
-
 end
