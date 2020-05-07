@@ -39,6 +39,15 @@ class BookingsController < ApplicationController
     redirect_to root_path
   end
 
+
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.update(accepted: true)
+
+    redirect_to dashboard_path
+  end
+
+
   private
 
   def set_listing

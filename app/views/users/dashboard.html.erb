@@ -1,0 +1,64 @@
+<div class="container">
+  <h1>My Dashboard</h1>
+
+
+<div class="row">
+    <div class="col-xs-6">
+      <h3>Attending</h3>
+      <% if @user.booked_listings.any? %>
+
+          <% @user.booked_listings.each do |listing| %>
+          <div class="display">
+           <%= cl_image_tag(listing.photos, height: 100, width: 100, class: 'radius') %>
+           <%= listing.title %>, <%= listing.description %>, <%= listing.location %>
+           <br>
+              <%= link_to "Show more",  listing_path(listing.id), class: "btn btn-success"  %>
+              <% if listing.bookings.first.accepted %>
+              <p>Status: <i class="fas fa-check-circle"> (confirmed)</i></p>
+              <% else %>
+              <p>Status: <i class="fas fa-clock"> (pending) </i></p>
+              <% end %>
+          </div>
+          <% end %>
+
+      <% else %>
+        <p>You don't have any booked listings.</p>
+        <%= link_to "Explore", listings_path %>
+      <% end %>
+    </div>
+
+
+    <div class="col-xs-6">
+      <h3>Hosting</h3>
+      <% if @user.hosted_listings.any? %>
+          <% @user.hosted_listings.each do |listing| %>
+            <div class="display">
+              <%= cl_image_tag(listing.photos, height: 100, width: 100, class: 'radius') %> <%= listing.title %><br>
+              <%= link_to "Show more",  listing_path(listing.id), class: "btn btn-success"  %>
+            </div>
+          <% end %>
+
+      <% else %>
+        <p>You are not currently hosting anybody.</p>
+        <%= link_to "Host a pet", new_listing_path %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-xs-6">
+  <h4>Incoming Requests:</h4>
+    <% if @requests.any? %>
+        <% @user.requests.each do |booking| %>
+          <div class="display">
+            <%= booking.user.email %>
+            <%= link_to "Confirm", accept_booking_path(booking), method: :post, class: 'btn btn-default btn-primary' %>
+        <% end %>
+    <% else %>
+    <div class="noreq"
+       <p>You don't have any incoming requests.</p>
+     </div>
+    <% end %>
+          </div>
+
+  </div>
+</div>
