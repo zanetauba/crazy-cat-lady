@@ -2,7 +2,7 @@
 class BookingsController < ApplicationController
      before_action :set_listing, only: [:new, :create, :destroy, :edit, :final_price]
      before_action :set_booking, only: [:show, :edit, :update, :destroy, :confirm, :final_price]
-
+     attr_accessor :show
 
   def index
     @bookings = Booking.all
@@ -38,6 +38,15 @@ class BookingsController < ApplicationController
 
     redirect_to root_path
   end
+
+
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.update(accepted: true)
+
+    redirect_to dashboard_path
+  end
+
 
   private
 

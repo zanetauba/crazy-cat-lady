@@ -15,4 +15,8 @@ class User < ApplicationRecord
   has_many :booked_listings, through: :bookings, source: :listing
   has_many :hosted_listings, class_name: 'Listing', dependent: :destroy
 
+
+   def requests # Booking request for meals I own
+    Booking.joins(:listing).where('listings.user_id' => id).where(accepted: false)
+   end
 end

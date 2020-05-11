@@ -1,0 +1,67 @@
+<div class="container">
+  <h1>My Dashboard</h1>
+
+
+<div class="row">
+    <div class="col-xs-6">
+      <h3>Attending</h3>
+      <% if @user.booked_listings.any? %>
+
+          <% @user.bookings.each do |booking| %>
+          <div class="display">
+           <%= cl_image_tag(booking.listing.photos, height: 100, width: 100, class: 'radius') %>
+           <%= booking.listing.title %>, <%= booking.listing.description %>, <%= booking.listing.location %>
+           <br>
+              <%= link_to "Show more",  booking_path(booking.id), class: "btn btn-success"  %>
+             <% if booking.accepted %>
+              <p>Status: <i class="fas fa-check-circle"> (confirmed)</i></p>
+              <% else %>
+              <p>Status: <i class="fas fa-clock"> (pending) </i></p>
+              <% end %>
+          </div>
+          <% end %>
+
+      <% else %>
+        <p>You don't have any booked listings.</p>
+        <%= link_to "Explore", listings_path %>
+      <% end %>
+    </div>
+
+
+    <div class="col-xs-6">
+      <h3>Hosting</h3>
+      <% if @user.hosted_listings.any? %>
+          <% @user.hosted_listings.each do |listing| %>
+          <% if listing.bookings.first.accepted %>
+            <div class="display">
+              <%= cl_image_tag(listing.photos, height: 100, width: 100, class: 'radius') %> <%= listing.title %>, guest: <%=listing.guests.first.name%>, starting at: <%= listing.guests.first.bookings.first.starting_at%>, ending at: <%= listing.guests.first.bookings.first.ending_at%>, to be paid: <%=@to_be_paid%><br>
+              <%= link_to "Show more",  listing_booking_path(listing.id, listing.bookings.first.id), class: "btn btn-success"  %>
+              <%= link_to "Show user",  listing_booking_path(listing.id, listing.bookings.first.id), class: "btn btn-success"  %>
+            </div>
+            <%end%>
+          <% end %>
+
+      <% else %>
+        <p>You are not currently hosting anybody.</p>
+        <%= link_to "Host a pet", new_listing_path %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-xs-6">
+  <h4>Incoming Requests:</h4>
+    <% if @requests.any? %>
+        <% @user.requests.each do |booking| %>
+          <div class="display">
+            <%= booking.user.email %>
+            <%= link_to "Confirm", accept_booking_path(booking), method: :post, class: 'btn btn-default btn-primary' %>
+        <% end %>
+    <% else %>
+    <div class="noreq"
+       <p>You don't have any incoming requests.</p>
+     </div>
+    <% end %>
+          </div>
+
+  </div>
+</div>
