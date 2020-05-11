@@ -2,7 +2,7 @@
 class BookingsController < ApplicationController
      before_action :set_listing, only: [:new, :create, :destroy, :edit, :final_price]
      before_action :set_booking, only: [:show, :edit, :update, :destroy, :confirm, :final_price]
-
+     attr_accessor :show
 
   def index
     @bookings = Booking.all

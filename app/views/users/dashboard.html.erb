@@ -34,8 +34,9 @@
           <% @user.hosted_listings.each do |listing| %>
           <% if listing.bookings.first.accepted %>
             <div class="display">
-              <%= cl_image_tag(listing.photos, height: 100, width: 100, class: 'radius') %> <%= listing.title %><br>
+              <%= cl_image_tag(listing.photos, height: 100, width: 100, class: 'radius') %> <%= listing.title %>, guest: <%=listing.guests.first.name%>, starting at: <%= listing.guests.first.bookings.first.starting_at%>, ending at: <%= listing.guests.first.bookings.first.ending_at%>, to be paid: <%=@to_be_paid%><br>
               <%= link_to "Show more",  listing_booking_path(listing.id, listing.bookings.first.id), class: "btn btn-success"  %>
+              <%= link_to "Show user",  listing_booking_path(listing.id, listing.bookings.first.id), class: "btn btn-success"  %>
             </div>
             <%end%>
           <% end %>
