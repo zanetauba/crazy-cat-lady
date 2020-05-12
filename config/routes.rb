@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :listings
   resources :pets
+  resources :bookings
 
   resources :listings do
     resources :bookings, only: [:new, :show, :create]

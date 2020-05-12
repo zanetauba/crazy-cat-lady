@@ -1,5 +1,5 @@
-<%= simple_form_for [@listing, @booking]  do |f| %>
-    <%= f.input :starting_at %>
-    <%= f.input :ending_at %>
+<%= simple_form_for [@listing, @booking] do |f| %>
+    <%= f.input :starting_at, as: :string, input_html: {id: "range_start"} %>
+    <%= f.input :ending_at, as: :string, input_html: {id: "range_end"} %>
   <%= f.submit "Save", class: "btn btn-default btn-primary" %>
 <% end %>
