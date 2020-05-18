@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :listings
   resources :pets
   resources :bookings
-
+  resources :users, only: [:profile]
   resources :listings do
     resources :bookings, only: [:new, :show, :create]
   end
