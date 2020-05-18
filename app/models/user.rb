@@ -19,4 +19,8 @@ class User < ApplicationRecord
    def requests # Booking request for meals I own
     Booking.joins(:listing).where('listings.user_id' => id).where(accepted: false)
    end
+
+   def booking_info
+    Booking.joins(:listing).where('listings.user_id' => id).where(accepted: true)
+   end
 end
