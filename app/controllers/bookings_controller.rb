@@ -32,12 +32,7 @@ class BookingsController < ApplicationController
     end
     end
 
-  def confirm
-    @booking = Booking.find(params[:id])
-    @booking.update(accepted: true)
 
-    redirect_to root_path
-  end
 
 
   def accept

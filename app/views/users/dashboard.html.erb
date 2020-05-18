@@ -9,7 +9,7 @@
 
           <% @user.bookings.each do |booking| %>
           <div class="display">
-           <%= cl_image_tag(booking.listing.photos, height: 100, width: 100, class: 'radius') %>
+           <%= cl_image_tag(booking.listing.photos.first.key, height: 100, width: 100, class: 'radius') %>
            <%= booking.listing.title %>, <%= booking.listing.description %>, <%= booking.listing.location %>
            <br>
               <%= link_to "Show more",  booking_path(booking.id), class: "btn btn-success"  %>
@@ -31,12 +31,12 @@
     <div class="col-xs-6">
       <h3>Hosting</h3>
       <% if @user.hosted_listings.any? %>
-          <% @user.hosted_listings.each do |listing| %>
-          <% if listing.bookings.first.accepted %>
+          <% @user.listings.each do |l| %>
+          <% if l.bookings.first %>
             <div class="display">
-              <%= cl_image_tag(listing.photos, height: 100, width: 100, class: 'radius') %> <%= listing.title %>, guest: <%=listing.guests.first.name%>, starting at: <%= listing.guests.first.bookings.first.starting_at%>, ending at: <%= listing.guests.first.bookings.first.ending_at%>, to be paid: <%=@to_be_paid%><br>
-              <%= link_to "Show more",  listing_booking_path(listing.id, listing.bookings.first.id), class: "btn btn-success"  %>
-              <%= link_to "Show user",  listing_booking_path(listing.id, listing.bookings.first.id), class: "btn btn-success"  %>
+              <%= cl_image_tag(l.photos.first.key, height: 100, width: 100, class: 'radius') %> <%= l.title %>, guest: <%=l.guests.first.name%>, starting at: <%= l.bookings.first.starting_at%>, ending at: <%= l.bookings.first.ending_at%>, to be paid: <%= (l.bookings.first.ending_at - l.bookings.first.starting_at).to_i * l.price_per_day.to_i %>, amount of days: <%= (l.bookings.first.ending_at - l.bookings.first.starting_at).to_i %>, price per day: <%= l.price_per_day %><br>
+              <%= link_to "Show more",  listing_booking_path(l.id, l.bookings.first.id), class: "btn btn-success"  %>
+
             </div>
             <%end%>
           <% end %>
