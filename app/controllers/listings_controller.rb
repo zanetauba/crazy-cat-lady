@@ -4,7 +4,7 @@ class ListingsController < ApplicationController
 
   def index
     if current_user.present?
-      @listings = Listing.geocoded - current_user.hosted_listings
+      @listings = Listing.geocoded
     else
       @listings = Listing.geocoded
     end

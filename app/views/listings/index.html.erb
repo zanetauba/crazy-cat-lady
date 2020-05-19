@@ -8,11 +8,15 @@
     <% @listings.each do |listing| %>
       <div class="col-xs-12 col-sm-6 col-md-3">
       <%= link_to listing do  %>
+
         <div class="listing-card">
           <div class="card">
             <div class="card-content">
               <div class="content">
                 <h3 class="title"><%= listing.title %></h3>
+                  <% if listing.user == current_user %>
+                     <p>this is your listing!</p>
+                  <%end%>
                 <p class="description">
                  <ul>
                   <li><%=listing.description%></li>
@@ -21,6 +25,7 @@
                   <li>$ <%=listing.price_per_day%> per day</li>
                   <% listing.photos.each do |photo| %>
                   <li><%=cl_image_tag photo.key, height: 70, width: 80, crop: :fill %></li>
+
                   </ul>
                 </p>
               </div>
