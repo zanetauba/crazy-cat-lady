@@ -7,14 +7,14 @@ class UsersController < ApplicationController
     #@booking = Booking.find(params[:id])
     @user = current_user
     @requests = @user.requests
-
-    if @user.listings.present?
-      @hosted_listings =  @user.listings
-      @booked_listings = @user.booking_info
-    end
+    @booking_info = @user.booking_info
+    #if @user.listings.present?
+      #@hosted_listings =  @user.listings
+     # @booked_listings = @user.booking_info
+    #end
   end
 
-  def profile
+  def show
     @user = User.find(params[:id])        # GET /bookings/:id
   end
 
