@@ -10,4 +10,6 @@
         <%end%>
     </div>
 </div>
+<% if @listing.user != current_user %>
 <%= link_to "Book this listing!",  new_listing_booking_path(@listing.id), class: "btn btn-success"  %>
+<% end %>
