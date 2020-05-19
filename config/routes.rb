@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
- devise_for :users
+ devise_for :users, :controllers => { registrations: 'registrations' }
   get 'dashboard', to: 'users#dashboard'
   root to: 'pages#home'
   resources :listings
   resources :pets
   resources :bookings
-
+  resources :users, only: [:profile]
   resources :listings do
     resources :bookings, only: [:new, :show, :create]
   end

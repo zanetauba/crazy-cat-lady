@@ -7,22 +7,22 @@ class UsersController < ApplicationController
     #@booking = Booking.find(params[:id])
     @user = current_user
     @requests = @user.requests
-    @hosted_listings =  @user.listings
-    @booked_listings = @user.booking_info
-    if @hosted_listings.present?
-     # @hosted_listings.each do |hl|
-      #  @booked_listings =  hl.bookings
-     #   @booked_listings.each do |bl|
-          @price_per_day = @hosted_listings.first.price_per_day
 
-            #@amount_of_days = @booked_listings.first.ending_at - @booked_listings.first.starting_at
-            @to_be_paid = @amount_of_days.to_i * @price_per_day.to_i
-         # end
-       # end
-      end
-end
-#private
+    if @user.listings.present?
+      @hosted_listings =  @user.listings
+      @booked_listings = @user.booking_info
+    end
+  end
 
+  def profile
+    @user = User.find(params[:id])        # GET /bookings/:id
+  end
+
+private
+
+  def user_params
+    params.require(:user).permit(:name, :surname, :email, :avatar)
+  end
   #def set_listing
    # @listing = Listing.find(params[:listing_id])
  # end

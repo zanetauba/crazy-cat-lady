@@ -20,7 +20,5 @@ class User < ApplicationRecord
     Booking.joins(:listing).where('listings.user_id' => id).where(accepted: false)
    end
 
-   def booking_info
-    Booking.joins(:listing).where('listings.user_id' => id).where(accepted: true)
-   end
+
 end

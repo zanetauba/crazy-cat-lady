@@ -35,7 +35,7 @@
           <% if l.bookings.first %>
             <div class="display">
               <%= cl_image_tag(l.photos.first.key, height: 100, width: 100, class: 'radius') %> <%= l.title %>, guest: <%=l.guests.first.name%>, starting at: <%= l.bookings.first.starting_at%>, ending at: <%= l.bookings.first.ending_at%>, to be paid: <%= (l.bookings.first.ending_at - l.bookings.first.starting_at).to_i * l.price_per_day.to_i %>, amount of days: <%= (l.bookings.first.ending_at - l.bookings.first.starting_at).to_i %>, price per day: <%= l.price_per_day %><br>
-              <%= link_to "Show more",  listing_booking_path(l.id, l.bookings.first.id), class: "btn btn-success"  %>
+              <%= link_to "Show guest",  user_path(l.guests.first.id), class: "btn btn-success"  %>
 
             </div>
             <%end%>
