@@ -10,8 +10,15 @@
           <% @user.bookings.each do |booking| %>
           <div class="display">
            <%= cl_image_tag(booking.listing.photos.first.key, height: 100, width: 100, class: 'radius') %>
-           <%= booking.listing.title %>, <%= booking.listing.description %>, <%= booking.listing.location %>
            <br>
+             Title: <%= booking.listing.title %>
+             <br>
+              description: <%= booking.listing.description %>
+              <br>
+              location: <%= booking.listing.location %>
+             <br>
+              To pay: <%= (booking.ending_at - booking.starting_at).to_i * booking.listing.price_per_day.to_i %>
+             <br>
               <%= link_to "Show more",  booking_path(booking.id), class: "btn btn-success"  %>
              <% if booking.accepted %>
               <p>Status: <i class="fas fa-check-circle"> (confirmed)</i></p>
@@ -33,7 +40,21 @@
       <% if @booking_info.any?%>
           <% @booking_info.each do |l| %>
             <div class="display">
-              <%= cl_image_tag(l.listing.photos.first.key, height: 100, width: 100, class: 'radius') %> <%= l.listing.title %>, guest: <%=l.user.name%>, starting at: <%= l.starting_at%>, ending at: <%= l.ending_at%>, to be paid: <%= (l.ending_at - l.starting_at).to_i * l.listing.price_per_day.to_i %>, amount of days: <%= (l.ending_at - l.starting_at).to_i %>, price per day: <%= l.listing.price_per_day %><br>
+              <%= cl_image_tag(l.listing.photos.first.key, height: 100, width: 100, class: 'radius') %>
+              <br>
+               title: <%= l.listing.title %>
+              <br>
+               guest: <%=l.user.name%>
+               <br>
+               starting at: <%= l.starting_at%>
+               <br>
+               ending at: <%= l.ending_at%>
+               <br>
+               to be paid: <%= (l.ending_at - l.starting_at).to_i * l.listing.price_per_day.to_i %>
+               <br>
+               amount of days: <%= (l.ending_at - l.starting_at).to_i %>
+               <br>
+                price per day: <%= l.listing.price_per_day %><br>
               <%= link_to "Show guest",  user_path(l.user.id), class: "btn btn-success"  %>
 
             </div>
@@ -51,7 +72,12 @@
     <% if @requests.any? %>
         <% @user.requests.each do |booking| %>
           <div class="display">
-            <%= booking.user.email %>
+            Guest:  <%= booking.user.name %> <%=booking.user.surname%>,
+            Starting at: <%= booking.starting_at %>,
+            Ending at: <%= booking.ending_at %>,
+            Amount of days: <%= (booking.ending_at - booking.starting_at).to_i %>,
+            To be paid: <%= (booking.ending_at - booking.starting_at).to_i * booking.listing.price_per_day.to_i %>
+
             <%= link_to "Confirm", accept_booking_path(booking), method: :post, class: 'btn btn-default btn-primary' %>
         <% end %>
     <% else %>
