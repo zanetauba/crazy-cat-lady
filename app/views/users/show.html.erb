@@ -1,7 +1,7 @@
 <% if @user.id == current_user.id%>
 <%= link_to "Add a new pet", new_pet_path, class: "btn btn-primary" %>
+<%= link_to "Edit your profile", edit_user_registration_path, class: "btn btn-primary" %>
 <%end%>
-
 
 <p><%=@user.name%> <%=@user.surname%></p>
 <p><%=@user.email%></p>
