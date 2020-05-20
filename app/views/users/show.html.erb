@@ -1,5 +1,35 @@
+<% if @user.id == current_user.id%>
+<%= link_to "Add a new pet", new_pet_path, class: "btn btn-primary" %>
+<%end%>
+
+
 <p><%=@user.name%> <%=@user.surname%></p>
 <p><%=@user.email%></p>
 <p><%=cl_image_tag @user.avatar.key, height: 300, width: 400, crop: :fill%></p>
 
+<% if @user.pets.any? %>
+<h3>Pets:</h3>
+ <div class="row">
+    <% @user.pets.each do |pet| %>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+      <%= link_to pet do  %>
+        <div class="listing-card">
+          <div class="card">
+            <div class="card-content">
+              <div class="content">
+                <h3 class="title"><%= pet.name %></h3>
+                <p class="description">
+                 <ul>
+                  <li>owner: <%=pet.user.name%> <%=pet.user.surname%></li>
+                  <li><%=cl_image_tag pet.photo_url.key, height: 80, width: 100, crop: :fill%></li>
+                 </ul>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    <%end%>
+<%end%>
 
