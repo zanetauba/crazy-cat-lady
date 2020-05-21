@@ -1,0 +1,6 @@
+<h4><%= listing.title %></h2>
+<p>hosted by: <%= listing.user.name %></p>
+<p>price per day: <%= listing.price_per_day %> </p>
+<p><%=cl_image_tag listing.photos.first.key, height: 70, width: 80, crop: :fill %></p>
+<p><%= link_to "Show more", listing_path(listing.id), class: "btn btn-success" %></p>
+
