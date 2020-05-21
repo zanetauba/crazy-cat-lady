@@ -2,6 +2,7 @@
   "name": "crazy-cat-lady",
   "private": true,
   "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^4.5.1",
     "@rails/webpacker": "^4.2.0",
     "bootstrap": "^4.4.0",
     "flatpickr": "^4.6.3",
