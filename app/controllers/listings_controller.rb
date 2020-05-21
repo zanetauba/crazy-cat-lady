@@ -16,6 +16,14 @@ class ListingsController < ApplicationController
 
   def show          # GET /bookings/:id
     @listing = Listing.find(params[:id])
+    @listings = Listing.geocoded
+    @markers = @listings.map do |listing|
+      {
+        lat: @listing.latitude,
+        lng: @listing.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { listing: @listing })
+      }
+    end
   end
 
   def new           # GET /bookings/new
