@@ -15,6 +15,9 @@
         <%end%>
     </div>
 </div>
-<% if @listing.user != current_user %>
-<%= link_to "Book this listing!",  new_listing_booking_path(@listing.id), class: "btn btn-success"  %>
+<% if @listing.user != current_user && @user.pets.any? %>
+  <%= link_to "Book this listing!",  new_listing_booking_path(@listing.id), class: "btn btn-success"  %>
+<% elsif @listing.user != current_user %>
+  <%= link_to "Add a pet to be able to book a listing", new_pet_path, class: "btn btn-primary" %>
+
 <% end %>

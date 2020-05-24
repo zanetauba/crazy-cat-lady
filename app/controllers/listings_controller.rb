@@ -14,7 +14,8 @@ class ListingsController < ApplicationController
     end
   end
 
-  def show          # GET /bookings/:id
+  def show
+    @user = current_user     # GET /bookings/:id
     @listing = Listing.find(params[:id])
     @listings = Listing.geocoded
     @markers = @listings.map do |listing|

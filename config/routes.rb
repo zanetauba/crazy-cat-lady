@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :show, :create]
   end
 
+
   resources :bookings, only: [:show] do
     member do
       post :accept

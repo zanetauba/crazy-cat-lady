@@ -8,8 +8,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :surname, presence: true
   validates :avatar, presence: true
-  has_one_attached :avatar
   has_many :pets
+  has_one_attached :avatar
   has_many :listings
   has_many :bookings, dependent: :destroy
   has_many :booked_listings, through: :bookings, source: :listing
@@ -23,5 +23,7 @@ class User < ApplicationRecord
    def booking_info # Booking request for meals I own
     Booking.joins(:listing).where('listings.user_id' => id).where(accepted: true)
    end
+
+
 
 end
