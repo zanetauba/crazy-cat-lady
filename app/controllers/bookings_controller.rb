@@ -34,7 +34,8 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.listing = @listing
     @booking.user = current_user
-    if @booking.starting_at < @booking.ending_at && @booking.starting_at > Date.today
+    @pets = @booking.user.pets
+    if @booking.starting_at < @booking.ending_at && @booking.starting_at >= Date.today && @booking.pet_id != nil
       @booking.save
       redirect_to booking_path(@booking)
     else
