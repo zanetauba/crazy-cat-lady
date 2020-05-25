@@ -5,7 +5,7 @@ class Booking < ApplicationRecord
   validates :ending_at, presence: true
   validates :pet_id, presence: true
 
-  #belongs_to :pet
+  belongs_to :pet
   #has_many :pets, through: :user, source: :pets
 
 

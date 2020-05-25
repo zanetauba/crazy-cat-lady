@@ -8,6 +8,10 @@ class UsersController < ApplicationController
     @user = current_user
     @requests = @user.requests
     @booking_info = @user.booking_info
+
+    #@pet_id_booking = @booking_info.pet_id
+    #@guest_pet = Pet.find(@pet_id_booking)
+
     #if @user.listings.present?
       #@hosted_listings =  @user.listings
      # @booked_listings = @user.booking_info

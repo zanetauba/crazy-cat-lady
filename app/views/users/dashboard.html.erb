@@ -17,6 +17,8 @@
               <br>
               location: <%= booking.listing.location %>
              <br>
+              pet: <%= booking.pet.name %>
+             <br>
               To pay: <%= (booking.ending_at - booking.starting_at).to_i * booking.listing.price_per_day.to_i %>
              <br>
               <%= link_to "Show more",  booking_path(booking.id), class: "btn btn-success"  %>
@@ -54,8 +56,11 @@
                <br>
                amount of days: <%= (l.ending_at - l.starting_at).to_i %>
                <br>
+               pet: <%= l.pet.name %>
+               <br>
                 price per day: <%= l.listing.price_per_day %><br>
-              <%= link_to "Show guest",  user_path(l.user.id), class: "btn btn-success"  %>
+              <%= link_to "Show guest pet",  pet_path(l.pet_id), class: "btn btn-success"  %>
+              <%= link_to "Show guest user",  user_path(l.user.id), class: "btn btn-success"  %>
 
             </div>
           <% end %>
@@ -73,6 +78,7 @@
         <% @user.requests.each do |booking| %>
           <div class="display">
             Guest:  <%= booking.user.name %> <%=booking.user.surname%>,
+            Guest Pet:  <%= booking.pet.name %> <%=booking.user.surname%>,
             Starting at: <%= booking.starting_at %>,
             Ending at: <%= booking.ending_at %>,
             Amount of days: <%= (booking.ending_at - booking.starting_at).to_i %>,
@@ -85,7 +91,7 @@
        <p>You don't have any incoming requests.</p>
      </div>
     <% end %>
-          </div>
 
+</div>
   </div>
 </div>
