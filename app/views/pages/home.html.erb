@@ -1,2 +1,8 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= form_tag listings_path, method: :get do %>
+  <%= number_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Maximum price per day"
+  %>
+  <%= submit_tag 'search', class: "btn btn-primary"  %>
+<% end %>
