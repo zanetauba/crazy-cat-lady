@@ -3,6 +3,23 @@ class ListingsController < ApplicationController
 
 
   def index
+  if params[:query].present?
+    sql_query = " \
+    listings.price_per_day <= :query \
+    "
+
+    @max_price = params[:query]
+    @listings = Listing.where(sql_query, query: "#{params[:query]}").geocoded
+
+        @markers = @listings.map do |listing|
+      {
+        lat: listing.latitude,
+        lng: listing.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { listing: listing })
+      }
+    end
+  else
+
       @listings = Listing.geocoded
 
     @markers = @listings.map do |listing|
@@ -13,6 +30,7 @@ class ListingsController < ApplicationController
       }
     end
   end
+end
 
   def show
     @user = current_user     # GET /bookings/:id
