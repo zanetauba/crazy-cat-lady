@@ -3,13 +3,14 @@ class ListingsController < ApplicationController
 
 
   def index
-  if params[:query].present?
+  if params[:max_price_query].present? && params[:location_query].present?
     sql_query = " \
-    listings.price_per_day <= :query \
+    listings.price_per_day <= :max_price_query \
     "
 
-    @max_price = params[:query]
-    @listings = Listing.where(sql_query, query: "#{params[:query]}").geocoded
+    @location_query = params[:location_query]
+    @max_distance = params[:distance_query]
+    @listings =  Listing.near(@location_query, @max_distance).where(sql_query, max_price_query: "#{params[:max_price_query]}").geocoded
 
         @markers = @listings.map do |listing|
       {
@@ -17,7 +18,10 @@ class ListingsController < ApplicationController
         lng: listing.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { listing: listing })
       }
-    end
+      end
+      if @listings.first.nil?
+        render 'shared/_empty-query'
+      end
   else
 
       @listings = Listing.geocoded
