@@ -18,6 +18,12 @@
     class: "form-control",
     placeholder: "Maximum distance in km"
   %>
-  <%= submit_tag 'search', class: "btn btn-primary"  %> <%= link_to "Show all",  listings_path, class: "btn btn-success"  %>
-
+<%= submit_tag 'search', class: "btn btn-primary"  %> <%= link_to "Show all",  listings_path, class: "btn btn-success"  %>
 <% end %>
+
+  <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
+    <p>No results found, please adjust your query or select "Show all" </p>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
