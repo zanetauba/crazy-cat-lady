@@ -18,6 +18,8 @@
               location: <%= booking.listing.location %>
              <br>
               pet: <%= booking.pet.name %>
+            <br>
+              dates: <%= booking.starting_at %> to <%= booking.ending_at %>
              <br>
               To pay: <%= (booking.ending_at - booking.starting_at).to_i * booking.listing.price_per_day.to_i %>
              <br>

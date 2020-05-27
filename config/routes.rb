@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   resources :users
 
   resources :listings do
-    resources :bookings, only: [:new, :show, :create]
-    resources :reviews, only: [:new, :create, :show]
+    resources :bookings, only: [:new, :show, :create] do
+      resources :reviews, only: [:new, :create, :show]
+    end
   end
 
 

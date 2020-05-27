@@ -3,47 +3,47 @@
 <p>Enjoy your stay from <%=@booking.starting_at%> until <%=@booking.ending_at%></p>
 <p>To pay: <%= @to_pay%></p>
 <p>Guest pet: <%= @guest_pet.name %> </p>
-<p>Guest owner: <%=@booking.user.name%></p>
+<p>Guest owner: <%=@user.name%></p>
 
 <% elsif @accepted_guest_past_stay %>
 <p>You stayed from <%=@booking.starting_at%> to <%=@booking.ending_at%></p>
 <p>Paid: <%= @to_pay%></p>
 <p>Guest pet: <%= @guest_pet.name %> </p>
-<p>Guest owner: <%=@booking.user.name%></p>
+<p>Guest owner: <%=@user.name%></p>
 
 <% elsif @pending_guest_future_stay %>
 <p>Your request is still pending </p>
 <p>You requested to stay from <%=@booking.starting_at%> until <%=@booking.ending_at%></p>
 <p>To pay: <%= @to_pay%></p>
 <p>Guest pet: <%= @guest_pet.name %> </p>
-<p>Guest owner: <%=@booking.user.name%></p>
+<p>Guest owner: <%=@user.name%></p>
 
 <% elsif @pending_guest_past_stay %>
 <p>You missed it! Your request was not accepted on time. </p>
 <p>You requested to stay from <%=@booking.starting_at%> until <%=@booking.ending_at%></p>
 <p>To pay: <%= @to_pay%></p>
 <p>Guest pet: <%= @guest_pet.name %> </p>
-<p>Guest owner: <%=@booking.user.name%></p>
+<p>Guest owner: <%=@user.name%></p>
 
 <% elsif @other_user_accepted_guest_future_stay%>
 
-<p><%=@booking.user.name%> will stay from <%=@booking.starting_at%> until <%=@booking.ending_at%></p>
+<p><%=@user.name%> will stay from <%=@booking.starting_at%> until <%=@booking.ending_at%></p>
 <p>To pay: <%= @to_pay%></p>
 <p>Guest pet: <%= @guest_pet.name %> </p>
 
 <% elsif @other_user_accepted_guest_past_stay %>
-<p><%=@booking.user.name%> stayed from <%=@booking.starting_at%> to <%=@booking.ending_at%></p>
+<p><%=@user.name%> stayed from <%=@booking.starting_at%> to <%=@booking.ending_at%></p>
 <p>Paid: <%= @to_pay%></p>
 <p>Guest pet: <%= @guest_pet.name %> </p>
 
 <% elsif @other_user_pending_guest_future_stay %>
-<p><%=@booking.user.name%>'s request is still pending </p>
+<p><%=@user.name%>'s request is still pending </p>
 <p>Requested to stay from <%=@booking.starting_at%> until <%=@booking.ending_at%></p>
 <p>To pay: <%= @to_pay%></p>
 <p>Guest pet: <%= @guest_pet.name %> </p>
 
 <% else @other_user_pending_guest_past_stay %>
-<p><%=@booking.user.name%> missed it! The request was not accepted on time. </p>
+<p><%=@user.name%> missed it! The request was not accepted on time. </p>
 <p>Requested to stay from <%=@booking.starting_at%> until <%=@booking.ending_at%></p>
 <p>To pay: <%= @to_pay%></p>
 <p>Guest pet: <%= @guest_pet.name %> </p>
@@ -51,9 +51,12 @@
 <%end%>
 <% if @able_to_review  %>
 
-<%= link_to "Rate a listing", new_listing_review_path(@booking.listing_id), class: "btn btn-primary" %>
+<%= link_to "Rate a listing", new_listing_booking_review_path(@booking.listing_id, @booking.id), class: "btn btn-primary" %>
 
 <% end %>
+
+
+
 
 
 

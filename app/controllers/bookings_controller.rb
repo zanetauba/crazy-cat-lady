@@ -16,18 +16,27 @@ class BookingsController < ApplicationController
     @pet_id_booking = @booking.pet_id
     @guest_pet = Pet.find(@pet_id_booking)
     @amount_of_days = @booking.ending_at - @booking.starting_at
+    @user = @booking.user
+    @listing = @booking.listing
     @to_pay = @amount_of_days.to_i * @booking.listing.price_per_day.to_i
-    @able_to_review = @booking.user == current_user && @booking.ending_at < Date.today && @booking.accepted
+
+
+
+
+    @already_rated = @booking.reviews.any?
+
+
+    @able_to_review = @user == current_user && @booking.ending_at < Date.today && @booking.accepted && @already_rated == false
     #vars for @booking.user == current.user:
-    @accepted_guest_future_stay = @booking.user == current_user && @booking.accepted? && @booking.ending_at >= Date.today
-    @accepted_guest_past_stay = @booking.user == current_user && @booking.accepted? && @booking.ending_at < Date.today
-    @pending_guest_future_stay = @booking.user == current_user && @booking.ending_at >= Date.today && @booking.starting_at >= Date.today && @booking.accepted == false
-    @pending_guest_past_stay = @booking.user == current_user  && @booking.starting_at < Date.today && @booking.accepted == false
+    @accepted_guest_future_stay = @user == current_user && @booking.accepted? && @booking.ending_at >= Date.today
+    @accepted_guest_past_stay = @user == current_user && @booking.accepted? && @booking.ending_at < Date.today
+    @pending_guest_future_stay = @user == current_user && @booking.ending_at >= Date.today && @booking.starting_at >= Date.today && @booking.accepted == false
+    @pending_guest_past_stay = @user == current_user  && @booking.starting_at < Date.today && @booking.accepted == false
     #vars for @booking.user != current.user:
-    @other_user_accepted_guest_future_stay = @booking.user == current_user && @booking.accepted? && @booking.ending_at >= Date.today
-    @other_user_accepted_guest_past_stay = @booking.user == current_user && @booking.accepted? && @booking.ending_at < Date.today
-    @other_user_pending_guest_future_stay = @booking.user == current_user && @booking.ending_at >= Date.today && @booking.starting_at >= Date.today && @booking.accepted == false
-    @other_user_pending_guest_past_stay = @booking.user == current_user  && @booking.starting_at < Date.today && @booking.accepted == false
+    @other_user_accepted_guest_future_stay = @user == current_user && @booking.accepted? && @booking.ending_at >= Date.today
+    @other_user_accepted_guest_past_stay = @user == current_user && @booking.accepted? && @booking.ending_at < Date.today
+    @other_user_pending_guest_future_stay = @user == current_user && @booking.ending_at >= Date.today && @booking.starting_at >= Date.today && @booking.accepted == false
+    @other_user_pending_guest_past_stay = @user == current_user  && @booking.starting_at < Date.today && @booking.accepted == false
   end
 
   def new
