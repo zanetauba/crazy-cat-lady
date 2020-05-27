@@ -20,7 +20,8 @@ class ListingsController < ApplicationController
       }
       end
       if @listings.first.nil?
-        render 'shared/_empty-query'
+        flash[:alert] = 'No results found, please adjust your query or select "Show all"'
+        render 'pages/home'
       end
   else
 

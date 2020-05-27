@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   resources :pets
   resources :bookings
   resources :users
+
   resources :listings do
     resources :bookings, only: [:new, :show, :create]
+    resources :reviews, only: [:new, :create, :show]
   end
 
 

@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :pets
   has_one_attached :avatar
   has_many :listings
+  has_many :reviews
   has_many :bookings, dependent: :destroy
   has_many :booked_listings, through: :bookings, source: :listing
   has_many :hosted_listings, class_name: 'Listing', dependent: :destroy
