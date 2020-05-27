@@ -15,6 +15,18 @@
         <%end%>
     </div>
 </div>
+
+<% if @listing.reviews.any? %>
+<h4>Reviews:</h4>
+<% @listing.reviews.each do |review| %>
+  <p><%=review.content%></p>
+  <p><%=review.rating%></p>
+  <% end %>
+<% else %>
+  <p>This listing doesn't have any reviews</p>
+ <% end %>
+
+
 <% if @listing.user != current_user && @user.pets.any? %>
   <%= link_to "Book this listing!",  new_listing_booking_path(@listing.id), class: "btn btn-success"  %>
 <% elsif @listing.user != current_user %>
