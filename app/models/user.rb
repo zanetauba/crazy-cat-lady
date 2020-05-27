@@ -15,6 +15,8 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :booked_listings, through: :bookings, source: :listing
   has_many :hosted_listings, class_name: 'Listing', dependent: :destroy
+  has_many :my_reviews, through: :listings, source: :reviews, dependent: :destroy
+
 
 
    def requests # Booking request for meals I own

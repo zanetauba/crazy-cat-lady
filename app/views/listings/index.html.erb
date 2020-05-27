@@ -19,6 +19,7 @@
                   <%end%>
                 <p class="description">
                  <ul>
+                  <li>average rating: <%=listing.reviews.average(:rating)%></li>
                   <li><%=listing.description%></li>
                   <li>Location: <%=listing.location%></li>
                   <li>Hosted by: <%=listing.user.name%> <%=listing.user.surname%></li>

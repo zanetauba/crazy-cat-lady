@@ -19,7 +19,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])        # GET /bookings/:id
+    @user = User.find(params[:id])
+    @average_user_rating = @user.my_reviews.average(:rating)
+    # GET /bookings/:id
   end
 
 private

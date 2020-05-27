@@ -17,7 +17,7 @@
 </div>
 
 <% if @listing.reviews.any? %>
-<h4>Reviews:</h4>
+<h4>Reviews (<%=@amount_of_reviews%>), average rating: <%= @average_rating %>:</h4>
 <% @listing.reviews.each do |review| %>
   <p><%=review.content%></p>
   <p><%=review.rating%></p>

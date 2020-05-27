@@ -4,6 +4,8 @@ class ListingsController < ApplicationController
 
   def index
   if params[:max_price_query].present? && params[:location_query].present?
+
+
     sql_query = " \
     listings.price_per_day <= :max_price_query \
     "
@@ -48,6 +50,9 @@ end
         infoWindow: render_to_string(partial: "info_window", locals: { listing: @listing })
       }
     end
+    @listing_reviews = @listing.reviews
+    @amount_of_reviews = @listing_reviews.count
+    @average_rating = @listing_reviews.average(:rating)
   end
 
   def new           # GET /bookings/new

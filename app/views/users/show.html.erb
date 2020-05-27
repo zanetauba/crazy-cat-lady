@@ -6,7 +6,7 @@
 <p><%=@user.name%> <%=@user.surname%></p>
 <p><%=@user.email%></p>
 <p><%=cl_image_tag @user.avatar.key, height: 300, width: 400, crop: :fill%></p>
-
+<p>average user's rating: <%= @average_user_rating %> </p>
 <% if @user.pets.any? %>
 <h3>Pets:</h3>
  <div class="row">
