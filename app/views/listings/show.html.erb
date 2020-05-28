@@ -18,6 +18,14 @@
 
 <% if @listing.reviews.any? %>
 <h4>Reviews (<%=@amount_of_reviews%>), average rating: <%= @average_rating %>:</h4>
+
+<div id="star-rating">
+  <% render_stars(@average_rating).each do |star| %>
+  <%= image_tag(star, width: '24') %>
+  <% end %>
+</div>
+
+
 <% @listing.reviews.each do |review| %>
   <p><%=review.content%></p>
   <p><%=review.rating%></p>
