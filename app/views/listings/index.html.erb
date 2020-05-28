@@ -17,6 +17,15 @@
                   <% if listing.user == current_user %>
                      <p>this is your listing!</p>
                   <%end%>
+                  <div id="star-rating">
+                    <% if listing.reviews.blank? %>
+                    <p>This listing hasn't been rated yet</p>
+                    <% else %>
+                    <% render_stars(listing.reviews.average(:rating)).each do |star| %>
+                    <%= image_tag(star, width: '24') %>
+                    <%end%>
+                    <% end %>
+                  </div>
                 <p class="description">
                  <ul>
                   <li>average rating: <%=listing.reviews.average(:rating)%></li>

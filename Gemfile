@@ -13,7 +13,7 @@ gem 'cloudinary', '~> 1.12.0'
 gem 'geocoder'
 gem 'jquery-rails'
 gem 'pg_search', '~> 2.3.0'
-
+gem 'bootstrap', '~> 4.0.0'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'sassc-rails'

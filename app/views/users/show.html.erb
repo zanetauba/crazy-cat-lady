@@ -6,7 +6,18 @@
 <p><%=@user.name%> <%=@user.surname%></p>
 <p><%=@user.email%></p>
 <p><%=cl_image_tag @user.avatar.key, height: 300, width: 400, crop: :fill%></p>
-<p>average user's rating: <%= @average_user_rating %> </p>
+<p>average user's rating: <%= @average_user_rating %> (<%= @number_of_ratings %>) </p>
+
+<div id="star-rating">
+  <% if @user.my_reviews.blank? %>
+  <p>This user hasn't been rated yet</p>
+  <% else %>
+  <% render_stars(@average_user_rating).each do |star| %>
+  <%= image_tag(star, width: '24') %>
+  <%end%>
+  <% end %>
+</div>
+
 <% if @user.pets.any? %>
 <h3>Pets:</h3>
  <div class="row">
