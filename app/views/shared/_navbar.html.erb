@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
+    <%= image_tag "https://res.cloudinary.com/zaneta111uba111shula111/image/upload/v1590862377/kitten.png" %>
+  <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -12,22 +12,18 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? && current_user.avatar%>
         <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        <li class="nav-item active">
+          <%= link_to "Dashboard", "/dashboard", class: "nav-link" %>
         </li>
+
         <li class="nav-item dropdown">
           <%= link_to user_path(current_user.id) do %>
-          <%=cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", 'aria-haspopup': true, 'aria-expanded': false %>
+            <%=cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
-
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
         </li>
+
       <% elsif user_signed_in? %>
         <li class="nav-item active">
           <%= link_to "Home", "#", class: "nav-link" %>

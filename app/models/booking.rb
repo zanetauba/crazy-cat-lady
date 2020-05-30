@@ -1,4 +1,6 @@
 class Booking < ApplicationRecord
+
+
   belongs_to :user
   belongs_to :listing
   validates :starting_at, presence: true
