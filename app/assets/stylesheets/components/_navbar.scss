@@ -10,3 +10,19 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  margin-left: 10px;
+}
+
+.nav-link {
+  color: black;
+  opacity: 0.7;
+}
+
+.nav-link:hover {
+  opacity: 1;
+}

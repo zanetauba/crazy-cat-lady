@@ -20,6 +20,8 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'public_activity'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
