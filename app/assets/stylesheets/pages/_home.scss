@@ -1,2 +1,21 @@
 // Specific CSS for your home-page
 
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  min-height: 86vh;
+  position: relative;
+ }
+
+.container-home form {
+  top: 45px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.type {
+  color: white;
+}
+

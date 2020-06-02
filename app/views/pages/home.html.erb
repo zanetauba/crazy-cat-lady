@@ -1,23 +1,50 @@
-<%= form_tag listings_path, method: :get do %>
-  <%= number_field_tag :max_price_query,
-    params[:query],
-    :required => true,
-    class: "form-control",
-    placeholder: "Maximum price per day"
-  %>
-  <%= text_field_tag :location_query,
-    params[:query],
-    :required => true,
-    class: "form-control",
-    placeholder: "Where?"
-  %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(https://res.cloudinary.com/zaneta111uba111shula111/image/upload/v1590929285/yerlin-matu-GtwiBmtJvaU-unsplash.jpg);">
+  <div class="container-home">
 
-    <%= number_field_tag :distance_query,
-    params[:query],
-    :required => true,
-    class: "form-control",
-    placeholder: "Maximum distance in km"
-  %>
-  <%= submit_tag 'search', class: "btn btn-primary"  %> <%= link_to "Show all",  listings_path, class: "btn btn-success"  %>
+    <%= form_tag listings_path, method: :get do %>
 
-<% end %>
+      <%= text_field_tag :location_query,
+        params[:query],
+        :required => true,
+        class: "form-control",
+        placeholder: "Location"
+      %>
+
+      <%= number_field_tag :distance_query,
+        params[:query],
+        :required => true,
+        class: "form-control",
+        placeholder: "Maximum distance (in km)"
+      %>
+
+
+      <%= number_field_tag :max_price_query,
+        params[:query],
+        :required => true,
+        class: "form-control",
+        placeholder: "Maximum price per day"
+      %>
+
+        <%= submit_tag 'Search', class: "btn btn-primary"  %>
+        <%= link_to "Show all",  listings_path, class: "btn btn-success"  %>
+
+    <% end %>
+  </div>
+
+  <h3 class="type">Find a hotel for your cat in: <span id="type"></span></h3>
+</div>
+<p><%=@locations%></p>
+
+
+
+<script>
+var js_locations = <%=raw @locations%>;
+var options = {
+  strings: js_locations,
+  typeSpeed: 80
+};
+
+var typed = new Typed('#type', options);
+
+</script>
+
