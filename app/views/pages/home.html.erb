@@ -30,21 +30,24 @@
 
     <% end %>
   </div>
-
-  <h3 class="type">Find a hotel for your cat in: <span id="type"></span></h3>
+  <div class="type-wrapper">
+  <h3 class="type">Find a hotel for your cat in: </h3>
+  <div class="js-wrapper"><h3 id="type"></h3></div>
 </div>
-<p><%=@locations%></p>
+</div>
 
 
 
 <script>
-var js_locations = <%=raw @locations%>;
-var options = {
-  strings: js_locations,
-  typeSpeed: 80
-};
+  var js_locations = <%=raw @locations%>;
+  var options = {
+    strings: js_locations,
+    typeSpeed: 75,
+    loop: true,
+    shuffle: true,
+    backDelay: 1500
+  };
 
-var typed = new Typed('#type', options);
-
+  var typed = new Typed('#type', options);
 </script>
 
