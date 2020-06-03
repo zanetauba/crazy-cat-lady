@@ -21,7 +21,8 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'public_activity'
-
+gem 'typedjq-rails'
+gem 'turbolinks', '~> 5.2.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
