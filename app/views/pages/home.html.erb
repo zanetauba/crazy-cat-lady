@@ -1,6 +1,9 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(https://res.cloudinary.com/zaneta111uba111shula111/image/upload/v1590929285/yerlin-matu-GtwiBmtJvaU-unsplash.jpg);">
   <div class="container-home">
 
+  <h5 class="small-device-title">Find a perfect hotel for your cat!</h5>
+
+
     <%= form_tag listings_path, method: :get do %>
 
       <%= text_field_tag :location_query,
@@ -25,10 +28,13 @@
         placeholder: "Maximum price per day"
       %>
 
+      <div class="btn-wrapper">
         <%= submit_tag 'Search', class: "btn btn-primary"  %>
         <%= link_to "Show all",  listings_path, class: "btn btn-success"  %>
+      </div>
 
     <% end %>
+
   </div>
   <div class="type-wrapper">
   <h3 class="type">Find a hotel for your cat in: </h3>
