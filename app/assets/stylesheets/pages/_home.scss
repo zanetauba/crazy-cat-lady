@@ -3,13 +3,12 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
   min-height: 86vh;
   position: relative;
  }
 
 .container-home form {
-  top: 45px;
+  padding-top: 190px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -21,14 +20,17 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 64px;
+  font-size: 36px;
   text-align: center;
-  padding-top: 280px;
+  margin-top: 35vh;
+  padding-bottom: 20px;
+  height: 100px;
 }
 
 .js-wrapper {
-  padding-top: 40px;
+  padding-top: 36px;
   text-transform: uppercase;
+  padding-bottom: 14vh;
 }
 
 .typed-cursor {
@@ -37,7 +39,75 @@
 
 #type {
   text-align: center;
-  font-weight: 700;
-  font-size: 90px;
+  font-weight: 600;
+  font-size: 40px;
   opacity: 0.65;
+  height: 42px;
+}
+
+.small-device-title {
+  display: none;
+}
+
+@media only screen and  (max-width: 1340px) and (min-width: 812px) {
+
+.container-home form {
+  position: relative;
+  padding-top: 20vh;
+}
+
+.type-wrapper {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 20vh;
+  height: 80px;
+}
+
+#type {
+  font-size: 28px;
+  height: 29px;
+}
+
+.js-wrapper {
+  padding-bottom: 10vh;
+}
+
+}
+
+
+@media only screen and  (max-width: 812px)  {
+
+.type-wrapper {
+  display: none;
+}
+
+.container-home {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding-top: 6vh;
+}
+
+ form {
+  position: relative;
+  top: 5vh;
+}
+
+.container-home form {
+  padding-top: 8vh;
+  padding-bottom: 10vh;
+}
+
+.small-device-title {
+  display: block;
+  text-align: center;
+  padding-top: 10vh;
+  color: white;
+  font-size: 20px;
+}
+
 }

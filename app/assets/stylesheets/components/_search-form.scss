@@ -6,6 +6,7 @@
   min-height: 40px;
   width: 19vw;
   margin: 0 12px;
+  font-size: 14px;
 }
 
 .btn-primary, .btn-success {
@@ -13,4 +14,36 @@
   font-weight: 500;
   color: white;
   margin: 0 10px;
+}
+
+
+@media only screen  and (max-width: 1340px) and (min-width: 812px) {
+
+.form-control {
+  width: 70vw;
+  margin-top: 18px;
+  position: relative;
+}
+
+.btn-primary, .btn-success {
+  width: 15vw;
+  margin-top: 18px;
+}
+
+}
+
+@media only screen and  (max-width: 812px) {
+
+.form-control {
+  width: 70vw;
+  margin-top: 18px;
+  position: relative;
+}
+
+.btn-primary, .btn-success {
+  width: 22vw;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
 }
