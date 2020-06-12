@@ -4,34 +4,41 @@
 
 <div class="row">
     <div class="col-xs-6">
-      <h3>Attending</h3>
+      <h3 class="title-cards">Attending</h3>
       <% if @user.booked_listings.any? %>
 
           <% @user.bookings.each do |booking| %>
+           <%= link_to booking_path(booking.id) do  %>
+
           <div class="display">
-           <%= cl_image_tag(booking.listing.photos.first.key, height: 100, width: 100, class: 'radius') %>
-           <br>
-             Title: <%= booking.listing.title %>
-             <br>
-              description: <%= booking.listing.description %>
-              <br>
-              location: <%= booking.listing.location %>
-             <br>
-              pet: <%= booking.pet.name %>
-            <br>
-              dates: <%= booking.starting_at %> to <%= booking.ending_at %>
-             <br>
-              To pay: <%= (booking.ending_at - booking.starting_at).to_i * booking.listing.price_per_day.to_i %>
-             <br>
-              <%= link_to "Show more",  booking_path(booking.id), class: "btn btn-success"  %>
+           <%= cl_image_tag(booking.pet.photo_url.key, height: 100, width: 100, class: 'radius') %>
+             <p class="title-dashboard"><%= booking.listing.title %></p>
+             <ul class="decription-dashboard list-unstyled">
+              <li><i class="fas fa-calendar-alt"></i>
+
+ <%= booking.starting_at %> to <%= booking.ending_at %></li>
+              <li><i class="fas fa-pound-sign"></i>
+
+ <%= (booking.ending_at - booking.starting_at).to_i * booking.listing.price_per_day.to_i %></li>
+              <li><i class="fas fa-search-location"></i>
+ <%= booking.listing.location %></li>
+              <li><i class="fas fa-cat"></i>
+<%= booking.pet.name %></li>
+
+              <li><i class="fas fa-info-circle"></i><%= booking.listing.description %></li>
+           </ul>
+          <%= cl_image_tag(booking.listing.photos.first.key, class: "img-dashboard") %>
+
+            <div class="status-wrapper">
              <% if booking.accepted %>
-              <p>Status: <i class="fas fa-check-circle"> (confirmed)</i></p>
+              <div class="status accepted">Status: <i class="fas fa-check-circle"> (confirmed)</i></div>
               <% else %>
-              <p>Status: <i class="fas fa-clock"> (pending) </i></p>
+              <div class="status pending">Status: <i class="fas fa-clock"> (pending) </i></div>
               <% end %>
+            </div>
           </div>
           <% end %>
-
+<%end%>
       <% else %>
         <p>You don't have any booked listings.</p>
         <%= link_to "Explore", listings_path %>
