@@ -1,6 +1,6 @@
 
 class BookingsController < ApplicationController
-     before_action :set_listing, only: [:new, :create, :destroy, :edit, :final_price]
+     before_action :set_listing, only: [:new, :create, :edit, :final_price]
      before_action :set_booking, only: [:show, :edit, :update, :destroy, :confirm, :final_price]
      #before_action :set_pet, only: :show
      attr_accessor :show
@@ -73,6 +73,11 @@ class BookingsController < ApplicationController
     redirect_to dashboard_path
   end
 
+
+
+  def destroy
+    @booking.destroy
+  end
 
   private
 

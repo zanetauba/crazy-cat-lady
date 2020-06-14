@@ -8,6 +8,8 @@ class UsersController < ApplicationController
     @user = current_user
     @requests = @user.requests
     @booking_info = @user.booking_info
+    @upcoming_bookings = @user.bookings.where(['ending_at >= ?', DateTime.now])
+    @expired_bookings = @user.bookings.where(['ending_at < ?', DateTime.now])
 
     #@pet_id_booking = @booking_info.pet_id
     #@guest_pet = Pet.find(@pet_id_booking)
