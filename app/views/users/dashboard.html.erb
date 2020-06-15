@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container container-dashboard">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
       <h5 class="title-cards">Your upcoming bookings:</h5>
@@ -78,10 +78,9 @@
 
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
       <h5 class="title-cards">You are hosting:</h5>
-
-        <% if @booking_info.any?%>
-          <% @booking_info.each do |l| %>
-            <div class="display">
+        <% if @upcoming_hostings.any?%>
+          <% @upcoming_hostings.each do |l| %>
+            <div class="display upcoming-hostings">
               <%= cl_image_tag(l.pet.photo_url.key, height: 100, width: 100, class: 'radius') %>
               <p class="title-dashboard"><%= l.listing.title %></p>
               <ul class="decription-dashboard list-unstyled">
@@ -97,9 +96,7 @@
               </ul>
               <%= cl_image_tag(l.listing.photos.first.key, class: "img-dashboard") %>
 
-              <%= link_to "Cancel this booking",  {:controller => :bookings, :action => 'destroy', :id => l.id }, :method => :delete, class: "btn btn-success"  %>
-              <%= link_to "Show guest pet",  pet_path(l.pet_id), class: "btn btn-success"  %>
-              <%= link_to "Show guest user",  user_path(l.user.id), class: "btn btn-success"  %>
+              <%= link_to "Cancel this booking",  {:controller => :bookings, :action => 'destroy', :id => l.id }, :method => :delete, class: "btn btn-outline-danger btn-cancel"  %>
             </div>
           <% end %>
 
@@ -109,29 +106,63 @@
             <%= link_to "Create a new listing", new_listing_path, class: "btn btn-show-more" %>
           </div>
         <% end %>
-    </div>
-  </div>
 
-  <div class="col-xs-12">
-  <h4>Incoming Requests:</h4>
+
+
+
+     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <h5 class="title-cards">You hosted:</h5>
+          <% if @expired_hostings.any?%>
+            <% @expired_hostings.each do |l| %>
+              <div class="display expired-hostings">
+                <%= cl_image_tag(l.pet.photo_url.key, height: 100, width: 100, class: 'radius') %>
+                <p class="title-dashboard"><%= l.listing.title %></p>
+                <ul class="decription-dashboard list-unstyled">
+                  <li><i class="fas fa-calendar-alt"></i><%=l.starting_at%> to <%= l.ending_at%></li>
+                  <li><i class="fas fa-pound-sign"></i> <%= (l.ending_at - l.starting_at).to_i * l.listing.price_per_day.to_i %></li>
+                  <li class="link-to"><i class="fas fa-cat"></i>
+                    <%= link_to pet_path(l.pet.id) do  %>
+                      <%= l.pet.name %>
+                    <%end%>
+                    <%= link_to user_path(l.user.id) do  %>
+                      (owner: <%=l.user.name%>)</li>
+                    <%end%>
+                </ul>
+                <%= cl_image_tag(l.listing.photos.first.key, class: "img-dashboard") %>
+
+              </div>
+            <% end %>
+
+          <% else %>
+            <div class="no-content">
+              <p>You haven't hosted anybody yet</p>
+              <%= link_to "Create a new listing", new_listing_path, class: "btn btn-show-more" %>
+            </div>
+          <% end %>
+      </div>
+  </div>
+</div>
+  <div class="requests">
+  <h5 class="title-cards incoming-cards">Incoming Requests:</h5>
     <% if @requests.any? %>
         <% @user.requests.each do |booking| %>
-          <div class="display">
-            Guest:  <%= booking.user.name %> <%=booking.user.surname%>,
-            Guest Pet:  <%= booking.pet.name %> <%=booking.user.surname%>,
-            Starting at: <%= booking.starting_at %>,
-            Ending at: <%= booking.ending_at %>,
-            Amount of days: <%= (booking.ending_at - booking.starting_at).to_i %>,
-            To be paid: <%= (booking.ending_at - booking.starting_at).to_i * booking.listing.price_per_day.to_i %>
-
-            <%= link_to "Confirm", accept_booking_path(booking), method: :post, class: 'btn btn-default btn-primary' %>
-        <% end %>
+          <div class="display-requests">
+            <p>
+            <i class="fas fa-cat"></i><%= link_to pet_path(booking.pet.id) do  %><%= booking.pet.name %><%end%> (owner: <%= link_to user_path(booking.user.id) do  %><%= booking.user.name %> <%=booking.user.surname%> <%end%>) |
+            <i class="fas fa-calendar-alt"></i> <%= booking.starting_at %> to <%= booking.ending_at %> |
+            <i class="fas fa-pound-sign"></i><%= (booking.ending_at - booking.starting_at).to_i * booking.listing.price_per_day.to_i %>
+            </p>
+            <%= link_to "Confirm", accept_booking_path(booking), method: :post, class: 'btn btn-success' %>
       </div>
+              <% end %>
+
     <% else %>
-    <div class="no-content no-requests"
-       <p>You don't have any incoming requests.</p>
+    <div class="no-requests">
+      <p>You don't have any incoming requests.</p>
      </div>
     <% end %>
+</div>
+
 
 </div>
   </div>
