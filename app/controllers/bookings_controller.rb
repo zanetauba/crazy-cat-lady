@@ -58,6 +58,7 @@ class BookingsController < ApplicationController
     if @booking.starting_at < @booking.ending_at && @booking.starting_at >= Date.today && @booking.pet_id != nil
       @booking.save
       redirect_to booking_path(@booking)
+
     else
       render 'new'
     end
@@ -67,16 +68,28 @@ class BookingsController < ApplicationController
 
 
   def accept
-    @booking = Booking.find(params[:id])
+        @booking = Booking.find(params[:id])
+
+    @able_to_accept = @booking.ending_at > Date.today && @booking.starting_at >= Date.today
+    if @able_to_accept
     @booking.update(accepted: true)
 
     redirect_to dashboard_path
+    flash[:notice] = 'The booking has been accepted'
+    else
+    redirect_to dashboard_path
+    flash[:alert] = 'The booking cannot be accepted (It starts or ends in the past)'
+  end
   end
 
 
 
   def destroy
     @booking.destroy
+
+    redirect_to dashboard_path
+    flash[:notice] = 'The booking has been deleted'
+
   end
 
   private

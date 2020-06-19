@@ -9,6 +9,15 @@
   margin-bottom: 50px;
 }
 
+.row {
+  padding-left: 50px;
+}
+
+.requests {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
 .container-dashboard {
   padding-top: 80px;
   padding-bottom: 50px;
@@ -22,10 +31,12 @@
   height: 410px;
 }
 
-.expired {
-  height: 500px;
+.btn-cancel.btn-review{
+  margin-left: 88px;
 }
-
+.btn-review:hover {
+  color: white;
+}
 
  a {
   color: inherit;
@@ -42,6 +53,24 @@ a:hover{
     font-size: 28px;
     font-weight: 700;
     padding-left: 20px;
+}
+
+
+.review-blocked{
+  color: grey;
+  text-align: center;
+  font-size: 13px;
+  padding-top: 10px;
+}
+
+.review-blocked:hover {
+  color: grey;
+}
+
+.review-blocked > .fas {
+  color: red;
+  font-size: 15px;
+  padding-right: 6px;
 }
 
 .title-cards {
@@ -164,7 +193,7 @@ li {
 }
 
 .display-requests {
-  height: 125px;
+  height: 115px;
   padding: 20px;
   border-radius: 5px;
   background: white;
@@ -184,6 +213,10 @@ li {
   color: $orange;
 }
 
+.btn-outline-radius {
+  border-radius: 20px;
+  font-size: 14px;
+}
 
 .btn-cancel {
   font-size: 14px;
@@ -191,4 +224,8 @@ li {
   margin-top: 13px;
   text-align: center;
   margin-left: 75px;
+}
+
+.col-xs-12, .col-xl-6, .col-sm-12, .col-md-6, .col-lg-6 {
+  padding-left: 0px;
 }
