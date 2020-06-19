@@ -1,3 +1,11 @@
+/*main divs*/
+.container.container-dashboard{
+
+    min-width: 70vw;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
 .display {
   height: 530px;
   width: 350px;
@@ -10,17 +18,15 @@
 }
 
 .row {
-  padding-left: 50px;
+  min-width: 70vw;
 }
+
 
 .requests {
   padding-left: 30px;
   padding-right: 30px;
-}
+    min-width: 70vw;
 
-.container-dashboard {
-  padding-top: 80px;
-  padding-bottom: 50px;
 }
 
 .upcoming-hostings {
@@ -31,60 +37,7 @@
   height: 410px;
 }
 
-.btn-cancel.btn-review{
-  margin-left: 88px;
-}
-.btn-review:hover {
-  color: white;
-}
-
- a {
-  color: inherit;
-}
-
-a:hover{
-  color: inherit;
-  text-decoration: none;
-}
-
-.title-dashboard {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 28px;
-    font-weight: 700;
-    padding-left: 20px;
-}
-
-
-.review-blocked{
-  color: grey;
-  text-align: center;
-  font-size: 13px;
-  padding-top: 10px;
-}
-
-.review-blocked:hover {
-  color: grey;
-}
-
-.review-blocked > .fas {
-  color: red;
-  font-size: 15px;
-  padding-right: 6px;
-}
-
-.title-cards {
-  margin-bottom: 40px;
-  background-color: $orange;
-  padding: 20px 30px;
-  color: white;
-  width: 350px;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-  border-radius: 5px;
-  text-align: center;
-}
-
-.incoming-cards {
+.requests > .incoming-cards {
   width: inherit;
 }
 
@@ -100,29 +53,65 @@ li {
 }
 }
 
-.btn-show-more {
-  color: $orange;
-  border-color: $orange;
-  border-width: 2px;
-  border-radius: 20px;
-  font-size: 14px;
-  width: 180px;
+
+
+
+
+.no-content {
+  height: 130px;
+  width: 350px;
+  padding: 20px;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+  margin-bottom: 50px;
   text-align: center;
-  justify-self: center;
+  position: relative;
+  color: grey;
 }
 
-.btn-show-more:hover {
-    background-color: $orange;
-    color: white;
+.no-requests {
+  height: 70px;
+  text-align: center;
+  justify-text: center;
+  padding: 20px;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+  color: grey;
 }
 
-.decription-dashboard .fas, .display-requests .fas {
-  font-size: 20px;
+.display-requests {
+  height: 115px;
+  padding: 20px;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+  margin-bottom: 25px;
+  text-align: center;
+  justify-text: center;
+  color: grey;
+
+}
+
+.display-requests p a:hover {
   color: $orange;
-  padding-right: 10px;
 }
 
 
+.col-xs-12, .col-xl-6, .col-sm-12, .col-md-6, .col-lg-6 {
+  padding-left: 0px;
+}
+
+.col-xs-12.col-sm-12.col-md-12.col-lg-6.col-xl-6.dashboard-column {
+  padding-left: 160px;
+  padding-right: 20px;
+}
+
+.left-column{
+  margin-right: 0px;
+}
+/*contents inside cards*/
 
 .status {
   display: flex;
@@ -148,18 +137,12 @@ li {
 }
 
 
-
 .img-dashboard {
   height: 180px;
   width: 310px;
   object-fit: cover;
 
   }
-
-.show-more {
-  text-align: center;
-  padding-top: 16px;
-}
 
 .radius {
   border-radius: 50%;
@@ -170,48 +153,80 @@ li {
     object-fit: cover;
 }
 
-.no-content {
-  height: 130px;
-  width: 350px;
-  padding: 20px;
-  border-radius: 5px;
-  background: white;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-  margin-bottom: 50px;
-  text-align: center;
-  position: relative;
-}
 
-.no-requests {
-  height: 70px;
-  text-align: center;
-  justify-text: center;
-  padding: 20px;
-  border-radius: 5px;
-  background: white;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-}
-
-.display-requests {
-  height: 115px;
-  padding: 20px;
-  border-radius: 5px;
-  background: white;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-  margin-bottom: 25px;
-  text-align: center;
-  justify-text: center;
-  color: grey;
-
-}
-
-.display-requests p a:hover {
-  color: $orange;
-}
 
 .link-to a:hover, .link-to-card:hover {
   color: $orange;
 }
+
+
+ a {
+  color: inherit;
+  &:hover{
+  color: inherit;
+  text-decoration: none;
+}
+}
+
+
+
+.title-dashboard {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 700;
+    padding-left: 20px;
+}
+
+
+.review-blocked{
+  color: grey;
+  text-align: center;
+  font-size: 13px;
+  padding-top: 10px;
+  &:hover {
+  color: grey;
+}
+}
+
+
+.title-cards {
+  margin-bottom: 40px;
+  background-color: $orange;
+  padding: 20px 30px;
+  color: white;
+  width: 350px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+  border-radius: 5px;
+  text-align: center;
+}
+
+
+/*buttons*/
+
+.btn-show-more {
+  color: $orange;
+  border-color: $orange;
+  border-width: 2px;
+  border-radius: 20px;
+  font-size: 14px;
+  width: 180px;
+  text-align: center;
+  justify-self: center;
+  &:hover {
+    background-color: $orange;
+    color: white;
+}
+}
+
+
+.btn-cancel.btn-review{
+  margin-left: 88px;
+  &:hover {
+  color: white;
+}
+}
+
 
 .btn-outline-radius {
   border-radius: 20px;
@@ -226,6 +241,163 @@ li {
   margin-left: 75px;
 }
 
-.col-xs-12, .col-xl-6, .col-sm-12, .col-md-6, .col-lg-6 {
-  padding-left: 0px;
+
+
+/*Font awesome*/
+
+.decription-dashboard .fas, .display-requests .fas {
+  font-size: 20px;
+  color: $orange;
+  padding-right: 10px;
 }
+
+
+
+.review-blocked > .fas {
+  color: red;
+  font-size: 15px;
+  padding-right: 6px;
+}
+
+
+
+
+
+@media only screen and  (max-width: 1340px) and (min-width: 992px) {
+
+.display-requests > .btn-outline-radius {
+  margin-top: 0px;
+}
+
+.btn.btn-success.btn-outline-radius {
+  width: inherit;
+}
+
+.container.container-dashboard {
+  padding-bottom: 80px;
+}
+
+.col-xs-12.col-sm-12.col-md-12.col-lg-6.col-xl-6.dashboard-column{
+  padding-left: 100px;
+}
+
+}
+
+
+
+  @media only screen and  (max-width: 992px) and (min-width: 550px) {
+
+  .title-cards {
+    margin-bottom: 45px;
+  }
+
+  .display-requests{
+    font-size: 14px;
+  }
+
+  .btn.btn-success.btn-outline-radius {
+  width: inherit;
+}
+
+.display-requests > .btn-outline-radius {
+  margin-top: 2px;
+  font-size: 13px;
+}
+
+.container.container-dashboard {
+  padding-bottom: 50px;
+}
+
+.decription-dashboard .fas, .display-requests .fas {
+  font-size: 15px;
+}
+
+
+.display-requests {
+  height: 125px;
+}
+
+.col-xs-12.col-sm-12.col-md-12.col-lg-6.col-xl-6.dashboard-column {
+  padding-left: 18vw;
+  padding-right: 0px;
+}
+
+}
+
+
+
+@media only screen and  (max-width: 550px)  {
+
+.display-requests{
+    font-size: 12px;
+  }
+
+.display-requests > .btn-outline-radius {
+  margin-top: 0px;
+  font-size: 12px;
+}
+
+.display-requests > p {
+  margin-bottom: 10px;
+}
+
+.display-requests {
+  height: 132px;
+}
+
+.decription-dashboard .fas, .display-requests .fas {
+  font-size: 14px;
+}
+
+  .btn.btn-success.btn-outline-radius {
+  width: inherit;
+}
+
+.title-cards {
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.col-xs-12.col-sm-12.col-md-12.col-lg-6.col-xl-6.dashboard-column {
+  padding-left: 11vw;
+}
+
+.container.container-dashboard {
+  padding-top: 40px;
+  padding-bottom: 20px;
+
+}
+
+.display, .title-cards, .no-content{
+  width: 270px;
+}
+
+.img-dashboard {
+  width: 230px;
+}
+
+.btn-cancel {
+  margin-left: 45px;
+}
+
+.radius {
+  width: 90px;
+  height: 90px;
+}
+
+.no-content {
+  height: 145px;
+  margin-bottom: 10px;
+}
+
+.no-requests {
+  font-size: 12px;
+  width: 75vw;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+.requests {
+  padding-left: 20px
+}
+}
+
