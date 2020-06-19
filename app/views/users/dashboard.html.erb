@@ -17,7 +17,7 @@
                     <li><i class="fas fa-info-circle"></i><%= booking.listing.description %></li>
                   </ul>
                   <%= cl_image_tag(booking.listing.photos.first.key, class: "img-dashboard") %>
-                  <%= link_to "Cancel this booking",  {:controller => :bookings, :action => 'destroy', :id => booking.id }, :method => :delete, class: "btn btn-outline-danger btn-cancel"  %>
+                  <%= link_to "Cancel this booking",  delete_booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-cancel"  %>
 
                   <div class="status-wrapper">
                     <% if booking.accepted %>
@@ -42,7 +42,7 @@
           <% @expired_bookings.each do |booking| %>
 
             <%= link_to booking_path(booking.id) do  %>
-                <div class="display expired link-to-card">
+                <div class="display link-to-card">
                   <%= cl_image_tag(booking.pet.photo_url.key, height: 100, width: 100, class: 'radius') %>
                   <p class="title-dashboard"><%= booking.listing.title %></p>
                   <ul class="decription-dashboard list-unstyled">
@@ -53,7 +53,12 @@
                     <li><i class="fas fa-info-circle"></i><%= booking.listing.description %></li>
                   </ul>
                   <%= cl_image_tag(booking.listing.photos.first.key, class: "img-dashboard") %>
-
+                   <%if booking.reviews.any? == false && booking.accepted%>
+                     <%= link_to "Add a review", new_listing_booking_review_path(booking.listing_id, booking.id), class: "btn btn-outline-primary btn-cancel btn-review" %>
+                   <% elsif booking.reviews.any? == false && booking.accepted == false %>
+                   <p class="review-blocked"><i class="fas fa-exclamation-circle"></i>You can't review a booking that was not accepted</p>
+                   <%else%>
+<%= link_to "Show my review", listing_booking_review_path(booking.listing_id, booking.id, booking.reviews.first.id), class: "btn btn-outline-success btn-cancel btn-review" %>                   <%end%>
                   <div class="status-wrapper">
                     <% if booking.accepted %>
                       <div class="status accepted">Status: <i class="fas fa-check-circle"> (confirmed)</i></div>
@@ -96,7 +101,7 @@
               </ul>
               <%= cl_image_tag(l.listing.photos.first.key, class: "img-dashboard") %>
 
-              <%= link_to "Cancel this booking",  {:controller => :bookings, :action => 'destroy', :id => l.id }, :method => :delete, class: "btn btn-outline-danger btn-cancel"  %>
+              <%= link_to "Cancel this booking",  delete_booking_path(l), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-cancel"  %>
             </div>
           <% end %>
 
@@ -143,18 +148,39 @@
   </div>
 </div>
   <div class="requests">
-  <h5 class="title-cards incoming-cards">Incoming Requests:</h5>
-    <% if @requests.any? %>
-        <% @user.requests.each do |booking| %>
+    <%if @requests.any? %>
+    <% if @requests_to_accept.any? %>
+              <h5 class="title-cards incoming-cards">Incoming Requests:</h5>
+
+        <% @requests_to_accept.each do |booking| %>
+
           <div class="display-requests">
             <p>
             <i class="fas fa-cat"></i><%= link_to pet_path(booking.pet.id) do  %><%= booking.pet.name %><%end%> (owner: <%= link_to user_path(booking.user.id) do  %><%= booking.user.name %> <%=booking.user.surname%> <%end%>) |
             <i class="fas fa-calendar-alt"></i> <%= booking.starting_at %> to <%= booking.ending_at %> |
             <i class="fas fa-pound-sign"></i><%= (booking.ending_at - booking.starting_at).to_i * booking.listing.price_per_day.to_i %>
             </p>
-            <%= link_to "Confirm", accept_booking_path(booking), method: :post, class: 'btn btn-success' %>
-      </div>
+            <%= link_to "Confirm", accept_booking_path(booking), method: :post, data: { confirm: 'Are you sure?' }, class: 'btn btn-success btn-outline-radius' %>
+
+              </div>
               <% end %>
+              <%end%>
+     <% if @expired_requests.any? %>
+               <h5 class="title-cards incoming-cards">Expired Requests:</h5>
+
+        <% @expired_requests.each do |booking| %>
+
+          <div class="display-requests">
+            <p>
+            <i class="fas fa-cat"></i><%= link_to pet_path(booking.pet.id) do  %><%= booking.pet.name %><%end%> (owner: <%= link_to user_path(booking.user.id) do  %><%= booking.user.name %> <%=booking.user.surname%> <%end%>) |
+            <i class="fas fa-calendar-alt"></i> <%= booking.starting_at %> to <%= booking.ending_at %> |
+            <i class="fas fa-pound-sign"></i><%= (booking.ending_at - booking.starting_at).to_i * booking.listing.price_per_day.to_i %>
+            </p>
+              <%= link_to "Remove",  delete_booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-outline-radius"  %>
+
+              </div>
+              <% end %>
+              <%end%>
 
     <% else %>
     <div class="no-requests">

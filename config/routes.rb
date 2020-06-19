@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   resources :pets
   resources :bookings
   resources :users
+  delete "/bookings/:id" => "bookings#destroy", as: 'delete_booking'
 
   resources :listings do
-    resources :bookings, only: [:new, :show, :create] do
+    resources :bookings, only: [:new, :show, :create, :destroy] do
       resources :reviews, only: [:new, :create, :show]
     end
   end
