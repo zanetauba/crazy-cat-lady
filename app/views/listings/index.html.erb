@@ -1,59 +1,88 @@
-<%= link_to "Add a new pet", new_pet_path, class: "btn btn-primary" %>
 
-<div class="main">
-  <h1 class="page-title"></h1>
-  <p class="page-description"></p>
-
+<div class="container container-dashboard">
   <div class="row">
-    <% @listings.each do |listing| %>
-      <div class="col-xs-12 col-sm-6 col-md-3">
-      <%= link_to listing do  %>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 index-listings-wrapper">
 
-        <div class="listing-card">
-          <div class="card">
-            <div class="card-content">
-              <div class="content">
-                <h3 class="title"><%= listing.title %></h3>
-                  <% if listing.user == current_user %>
-                     <p>this is your listing!</p>
-                  <%end%>
-                  <div id="star-rating">
-                    <% if listing.reviews.blank? %>
-                    <p>This listing hasn't been rated yet</p>
-                    <% else %>
-                    <% render_stars(listing.reviews.average(:rating)).each do |star| %>
-                    <%= image_tag(star, width: '24') %>
-                    <%end%>
-                    <% end %>
+        <% @listings.each do |listing| %>
+            <div class="display-listing">
+
+              <div id="carousel-listing-<%=listing.id%>" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+                  <div class="carousel-item active">
+                    <%=cl_image_tag listing.photos.first.key, height: 300, width: 650, crop: :fill, class: 'd-block img-fluid'%>
                   </div>
-                <p class="description">
-                 <ul>
-                  <li>average rating: <%=listing.reviews.average(:rating)%></li>
-                  <li><%=listing.description%></li>
-                  <li>Location: <%=listing.location%></li>
-                  <li>Hosted by: <%=listing.user.name%> <%=listing.user.surname%></li>
-                  <li>$ <%=listing.price_per_day%> per day</li>
-                  <% listing.photos.each do |photo| %>
-                  <li><%=cl_image_tag photo.key, height: 70, width: 80, crop: :fill %></li>
+                  <% listing.photos.slice(1..-1).each do |photo| %>
+                  <div class="carousel-item">
+                    <%=cl_image_tag photo.key, height: 300, width: 650, crop: :fill, class: 'd-block img-fluid'%>
+                  </div>
+                  <%end%>
+                  </div>
+                <a class="carousel-control-prev" href="#carousel-listing-<%=listing.id%>" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel-listing-<%=listing.id%>" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
 
-                  </ul>
-                </p>
+
+              <div class="listing-description">
+
+                <div class="column-listing left-column">
+                <%= link_to listing_path(listing.id) do  %>
+                  <h4 class="title"><%= listing.title %></h4>
+                <%end%>
+
+                    <ul class="list-unstyled">
+                      <li class="listing-list"><i class="fas fa-search-location"></i><%=listing.location%></li>
+                      <li class="listing-list"><i class="fas fa-user-alt"></i><%=listing.user.name%> <%=listing.user.surname%></li>
+                      <li class="limited-text listing-list"><i class="fas fa-info-circle"></i><%=listing.description%></li>
+                    </ul>
+                </div>
+
+                <div class="column-listing right-column">
+                  <div id="star-rating">
+                  <% if listing.reviews.blank? %>
+                    <p class="info-icon"><i class="fas fa-question-circle"></i>This listing hasn't been rated yet</p>
+                  <% else %>
+                    <div class="star-rating-wrapper">
+                      <div class="stars">
+                        <% render_stars(listing.reviews.average(:rating)).each do |star| %>
+                          <%= image_tag(star, width: '20') %>
+                        <%end%>
+                      </div>
+                      <p class="average-rating"><span><%=listing.reviews.average(:rating)%></span> (<%=listing.reviews.count%>)</p>
+                    </div>
+                  <% end %>
+                  </div>
+                  <% if listing.user == current_user %>
+                    <p class="info-icon"><i class="fas fa-exclamation-triangle"></i>This is your listing!</p>
+                  <%end%>
+                  <div class="price-wrapper">
+                    <p><i class="fas fa-pound-sign"></i><span class="price"> <%=listing.price_per_day%></span> per day</p>
+                  </div>
+              </div>
               </div>
             </div>
-          </div>
-        </div>
-      <% end %>
+
+         <%end%>
       </div>
-    <%end%>
-    <% end %>
+
+
+
+
+
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <div id="map"
+         data-markers="<%= @markers.to_json %>"
+         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      </div>
+
   </div>
+</div>
 
- </div>
-
-
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 
