@@ -1,3 +1,7 @@
+.container.container-dashboard.container-listings {
+  padding-top: 30px;
+}
+
 .index-listings-wrapper {
   background-color: white;
   min-width: 35vw;
@@ -137,3 +141,47 @@
   padding-bottom: 14px;
   padding-top: 12px;
 }
+
+.query-bar {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border-radius: 8px;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 26vw;
+  margin: 0 auto;
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+  margin-bottom: 30px;
+
+p{
+  margin: 0px 0px;
+}
+
+}
+
+.query-field {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+}
+
+.small-field {
+  font-size: 12px;
+  color: grey;
+}
+
+.query-field-middle {
+  border-left: 1px solid rgba(0,0,0,0.2);
+  border-right: 1px solid rgba(0,0,0,0.2);
+  padding-right: 20px;
+  padding-left: 20px;
+
+}
+
+
