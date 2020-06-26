@@ -12,6 +12,7 @@ class ListingsController < ApplicationController
 
     @location_query = params[:location_query]
     @max_distance = params[:distance_query]
+    @max_price = params[:max_price_query]
     @listings =  Listing.near(@location_query, @max_distance).where(sql_query, max_price_query: "#{params[:max_price_query]}").geocoded
 
         @markers = @listings.map do |listing|
