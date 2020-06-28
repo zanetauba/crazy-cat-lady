@@ -20,6 +20,8 @@
   <%end%>
   <div class="row">
 
+
+
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 index-listings-wrapper">
 
         <% @listings.each do |listing| %>
@@ -49,7 +51,7 @@
 
               <div class="listing-description">
 
-                <div class="column-listing left-column">
+                <div class="column-listing listings-left-column">
                 <%= link_to listing_path(listing.id) do  %>
                   <h4 class="title"><%= listing.title %></h4>
                 <%end%>
@@ -61,7 +63,7 @@
                     </ul>
                 </div>
 
-                <div class="column-listing right-column">
+                <div class="column-listing listings-right-column">
                   <div id="star-rating">
                   <% if listing.reviews.blank? %>
                     <p class="info-icon"><i class="fas fa-question-circle"></i>This listing hasn't been rated yet</p>
@@ -100,7 +102,9 @@
          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       </div>
 
-  </div>
+
+
+    </div>
 </div>
 
 
