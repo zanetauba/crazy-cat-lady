@@ -64,7 +64,14 @@
   padding-right: 3px;
 }
 
-.title {
+h4.title {
+  padding-bottom: 0px;
+  margin-bottom: 14px;
+    overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
   color: black;
   &:hover{
     color: $orange;
