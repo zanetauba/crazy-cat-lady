@@ -1,10 +1,63 @@
 .mapboxgl-popup {
-  max-width: 200px;
+  width: 250px;
+}
+
+.mapboxgl-popup .info-icon > .fas {
+  font-size: 12px;
+  padding-right: 5px;
+}
+
+.mapboxgl-popup .info-icon {
+  font-size: 12px;
+  padding-top: 10px;
+  margin-bottom: 0px;
+}
+
+.mapboxgl-popup .star-rating-wrapper {
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+
+.mapboxgl-popup p.title-map-card {
+  font-size: 18px;
+  margin-bottom: 6px;
+  padding-right: 12px;
+  padding-left: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
+  &:hover {
+    color: $orange;
+  }
+
+}
+
+.map-card-info {
+  padding-top: 14px;
+  padding-bottom: 16px;
+}
+
+.price-map-card {
+  font-weight: 700;
+  margin-bottom: 0px;
+  padding-top: 8px;
+}
+
+.price-map-card span {
+  font-weight: 300;
+}
+
+.mapboxgl-popup .d-block {
+  border-radius: 0px;
 }
 
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
+  padding: 0 0;
 }
 
 #map {
@@ -12,4 +65,11 @@
   min-height: 100vh;
   position: sticky;
   top: 0;
+}
+
+
+.mapboxgl-popup-close-button {
+  z-index: 100;
+  color: white;
+  font-size: 20px;
 }
