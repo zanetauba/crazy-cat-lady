@@ -1,3 +1,4 @@
+/*main divs*/
 .container.container-dashboard.container-listings {
   padding-top: 30px;
 }
@@ -8,24 +9,6 @@
   padding: 20px 20px;
 }
 
-
-.limited-text {
-   overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-line-clamp: 3; /* number of lines to show */
-   -webkit-box-orient: vertical;
-    font-style: italic;
-    font-weight: 200;
-
-}
-
-
-.d-block {
-  object-fit: cover;
-  border-radius: 8px;
-
-}
 
 .display-listing {
   margin: 20px 20px;
@@ -44,22 +27,41 @@
   padding-bottom: 10px;
 }
 
+#small-map-listings {
+  display: none;
+}
+
+
+
+
+/*contents inside cards*/
+.limited-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
+  font-style: italic;
+  font-weight: 200;
+}
+
+
 .column-listing {
-    width: 15vw;
-    color: grey;
-    font-weight: 400;
-    font-size: 14px;
+  width: 15vw;
+  color: grey;
+  font-weight: 400;
+  font-size: 14px;
 
 }
 
-.right-column {
+.listings-right-column {
   text-align: right;
   padding-top: 8px;
   padding-right: 10px;
   padding-left: 3px;
 }
 
-.left-column {
+.listings-left-column {
   padding-left: 10px;
   padding-right: 3px;
 }
@@ -67,7 +69,7 @@
 h4.title {
   padding-bottom: 0px;
   margin-bottom: 14px;
-    overflow: hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 3; /* number of lines to show */
@@ -79,12 +81,9 @@ h4.title {
 }
 
 
-
 .price {
   font-weight: 700;
 }
-
-
 
 .listing-list {
   padding: 4px 0px;
@@ -93,8 +92,6 @@ h4.title {
 .stars {
   padding-right: 10px
 }
-
-
 
 
 .average-rating {
@@ -114,23 +111,6 @@ h4.title {
 
 }
 
-.listing-description .fas {
-  font-size: 18px;
-  color: $orange;
-  padding-right: 10px;
-}
-
-.listing-description .fas.fa-pound-sign {
-  padding-right: 3px;
-  font-size: 20px
-}
-
-.info-icon > .fas {
-  font-size: 14px;
-  padding-right: 5px;
-  color: #efcb00;
-}
-
 .info-icon {
   font-size: 14px;
   font-weight: 300;
@@ -148,6 +128,53 @@ h4.title {
   padding-bottom: 14px;
   padding-top: 12px;
 }
+
+
+
+
+
+/*photo slider*/
+
+
+.d-block {
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+
+
+
+
+
+
+
+
+/*font awesome*/
+
+
+
+.listing-description .fas {
+  font-size: 18px;
+  color: $orange;
+  padding-right: 10px;
+}
+
+.listing-description .fas.fa-pound-sign {
+  padding-right: 3px;
+  font-size: 20px
+}
+
+.info-icon > .fas {
+  font-size: 14px;
+  padding-right: 5px;
+  color: #efcb00;
+}
+
+
+
+
+
+/*query bar*/
 
 .query-bar {
   display: flex;
@@ -191,4 +218,137 @@ p{
 
 }
 
+
+
+
+
+
+
+@media only screen and  (max-width: 1340px) and (min-width: 992px) {
+
+div.stars img {
+  width: 17px;
+}
+
+.column-listing {
+  width: 20vw;
+}
+
+.price-wrapper {
+  padding-top: 40px;
+  font-size: 18px;
+}
+
+.info-icon {
+  font-size: 12px;
+}
+
+.listing-description .fas.fa-pound-sign {
+  font-size: 18px
+}
+
+
+h4.title {
+  font-size: 17px;
+}
+
+.column-listing {
+  font-size: 13px;
+  .fas {
+    font-size: 14px;
+  }
+}
+
+}
+
+
+
+
+
+
+  @media only screen and  (max-width: 992px) and (min-width: 550px) {
+div.stars img {
+  width: 18px;
+}
+
+.column-listing {
+  width: 40vw;
+}
+
+.col-xs-12.col-sm-12.col-md-12.col-lg-6.col-xl-6 {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.listings-right-column{
+  padding-right: 32px;
+}
+
+}
+
+
+
+
+@media only screen and  (max-width: 550px)  {
+
+.index-listings-wrapper {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.column-listing {
+  width: 45vw;
+  font-size: 13px;
+  .fas{
+    font-size: 13px;
+  }
+}
+
+h4.title {
+  font-size: 16px;
+}
+
+.info-icon {
+  font-size: 12px;
+  .fas {
+    font-size: 12px;
+  }
+}
+
+
+
+.display-listing {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.price-wrapper {
+  padding-top: 20px;
+  font-size: 15px;
+}
+
+.listing-description .fas.fa-pound-sign {
+  font-size: 15px
+}
+
+div.stars img {
+  width: 12px;
+}
+
+.average-rating {
+  font-size: 11px;
+}
+
+.listing-description{
+  padding-bottom: 0px;
+}
+
+.col-xs-12.col-sm-12.col-md-12.col-lg-6.col-xl-6 {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+}
 

@@ -1,11 +1,22 @@
+
+/*main divs*/
+
+
+
+#map {
+  min-width: 30vw;
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
 .mapboxgl-popup {
   width: 250px;
 }
 
-.mapboxgl-popup .info-icon > .fas {
-  font-size: 12px;
-  padding-right: 5px;
-}
+
+/*content inside cards*/
+
 
 .mapboxgl-popup .info-icon {
   font-size: 12px;
@@ -60,12 +71,6 @@
   padding: 0 0;
 }
 
-#map {
-  min-width: 30vw;
-  min-height: 100vh;
-  position: sticky;
-  top: 0;
-}
 
 
 .mapboxgl-popup-close-button {
@@ -73,3 +78,27 @@
   color: white;
   font-size: 20px;
 }
+
+
+
+/*font awesome*/
+
+.mapboxgl-popup .info-icon > .fas {
+  font-size: 12px;
+  padding-right: 5px;
+}
+
+
+
+@media only screen and  (max-width: 550px)  {
+
+.mapboxgl-ctrl-top-right .mapboxgl-ctrl {
+  margin: 0px 0px;
+  margin-right: 5px;
+  margin-top: 10px;
+}
+
+
+
+}
+
