@@ -183,7 +183,7 @@ h4.title {
   border-radius: 8px;
   justify-content: space-evenly;
   align-items: center;
-  width: 26vw;
+  width: 35vw;
   margin: 0 auto;
   box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
   margin-bottom: 30px;
@@ -226,6 +226,10 @@ p{
 
 @media only screen and  (max-width: 1340px) and (min-width: 992px) {
 
+.query-bar {
+  width: 50vw;
+}
+
 div.stars img {
   width: 17px;
 }
@@ -267,6 +271,19 @@ h4.title {
 
 
   @media only screen and  (max-width: 992px) and (min-width: 550px) {
+
+.query-bar{
+  width: 70vw;
+}
+
+.query-field {
+  font-size: 14px;
+}
+
+.small-field {
+  font-size: 10px;
+}
+
 div.stars img {
   width: 18px;
 }
@@ -290,6 +307,25 @@ div.stars img {
 
 
 @media only screen and  (max-width: 550px)  {
+
+.query-bar{
+  width: 90vw;
+}
+
+.query-field {
+  font-size: 11px;
+}
+
+.small-field {
+  font-size: 9px;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.query-field-middle {
+  padding-right: 2px;
+  padding-left: 2px;
+}
 
 .index-listings-wrapper {
   padding-left: 10px;
