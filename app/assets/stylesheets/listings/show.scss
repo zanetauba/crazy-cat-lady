@@ -1,0 +1,23 @@
+.photos-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.fotorama--fullscreen .fotorama__nav, .fotorama--fullscreen .fotorama__stage {
+  background: white !important;
+}
+
+.fotorama img.fotorama__img {
+  min-width: 800px !important;
+}
+
+.fotorama__stage, .fotorama__stage__shaft, .fotorama__wrap.fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
+  min-width: 800px !important;
+}
+
+.fotorama div.fotorama__thumb img.fotorama__img {
+  min-width: inherit !important;
+}
+

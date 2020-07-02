@@ -1,43 +1,66 @@
-<div id="map"
-     style="width: 90%; height: 200px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
-<div class = "grid">
-    <div class="details">
+<div class="photos-wrapper">
+<div class="fotorama" data-allowfullscreen="true" data-transition="crossfade" data-fit="cover" data-loop="true" data-autoplay="3000" data-keyboard="true" data-nav="thumbs" >
+  <% @listing.photos.each do |photo| %>
+    <%=cl_image_tag photo.key%>
+  <%end%>
+</div>
+</div>
+
+
+
+
+
+<div class="container">
+    <div class="row">
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+
         <h4><%=@listing.title%></h4>
         <p><i class="fas fa-map-marker-alt"></i> <%=@listing.location%></p>
         <p><i class="fas fa-user-alt"></i> <%=@listing.description%></p>
         <p><i class="fas fa-dollar-sign"></i> <%=@listing.price_per_day%> per day</p>
         <p>hosted by: <%=@listing.user.name%> <%=@listing.user.surname%></p>
-        <% @listing.photos.each do |photo| %>
-          <p><%=cl_image_tag photo.key %></p>
-        <%end%>
-    </div>
-</div>
+
 
 <% if @listing.reviews.any? %>
-<h4>Reviews (<%=@amount_of_reviews%>), average rating: <%= @average_rating %>:</h4>
+    <h4>Reviews (<%=@amount_of_reviews%>), average rating: <%= @average_rating %>:</h4>
 
-<div id="star-rating">
-  <% render_stars(@average_rating).each do |star| %>
-  <%= image_tag(star, width: '24') %>
-  <% end %>
+    <div id="star-rating">
+      <% render_stars(@average_rating).each do |star| %>
+      <%= image_tag(star, width: '24') %>
+      <% end %>
+    </div>
+
+
+    <% @listing.reviews.each do |review| %>
+      <p><%=review.content%></p>
+      <p><%=review.rating%></p>
+      <% end %>
+    <% else %>
+      <p>This listing doesn't have any reviews</p>
+     <% end %>
 </div>
 
 
-<% @listing.reviews.each do |review| %>
-  <p><%=review.content%></p>
-  <p><%=review.rating%></p>
-  <% end %>
-<% else %>
-  <p>This listing doesn't have any reviews</p>
- <% end %>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+    <% if @listing.user != current_user && @user.pets.any? %>
+      <%= link_to "Book this listing!",  new_listing_booking_path(@listing.id), class: "btn btn-success"  %>
+    <% elsif @listing.user != current_user %>
+      <%= link_to "Add a pet to be able to book a listing", new_pet_path, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+</div>
+</div>
+
+<div id="map"
+     style="width: 90%; height: 200px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 
-<% if @listing.user != current_user && @user.pets.any? %>
-  <%= link_to "Book this listing!",  new_listing_booking_path(@listing.id), class: "btn btn-success"  %>
-<% elsif @listing.user != current_user %>
-  <%= link_to "Add a pet to be able to book a listing", new_pet_path, class: "btn btn-primary" %>
 
-<% end %>
+
+
+
