@@ -12,34 +12,56 @@
 
 
 <div class="container">
-    <div class="row">
+  <div class="row">
 
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 listing-show-details">
+    <div class="listing-title-and-photo">
         <h4><%=@listing.title%></h4>
-        <p><i class="fas fa-map-marker-alt"></i> <%=@listing.location%></p>
-        <p><i class="fas fa-user-alt"></i> <%=@listing.description%></p>
-        <p><i class="fas fa-dollar-sign"></i> <%=@listing.price_per_day%> per day</p>
-        <p>hosted by: <%=@listing.user.name%> <%=@listing.user.surname%></p>
-
-
-<% if @listing.reviews.any? %>
-    <h4>Reviews (<%=@amount_of_reviews%>), average rating: <%= @average_rating %>:</h4>
-
-    <div id="star-rating">
-      <% render_stars(@average_rating).each do |star| %>
-      <%= image_tag(star, width: '24') %>
-      <% end %>
+        <%= link_to user_path(@listing.user.id) do %>
+          <%=cl_image_tag @listing.user.avatar.key, class: "avatar avatar-listing"%>
+        <%end%>
+    </div>
+    <ul class="list-unstyled list-listing-details">
+        <li class="listing-list"><i class="fas fa-search-location"></i> <%=@listing.location%></li>
+        <li class="listing-list"><i class="fas fa-user-alt"></i> <%=@listing.user.name%> <%=@listing.user.surname%></li>
+        <li class="listing-list listing-description-show"><i class="fas fa-info-circle"></i> <%=@listing.description%></li>
+    </ul>
+    <div class="price-wrapper price-wrapper-show">
+      <p class="listing-price"><i class="fas fa-pound-sign"></i> <span class="price"> <%=@listing.price_per_day%></span> per day</p>
     </div>
 
+    <% if @listing.reviews.any? %>
+    <div class="listing-reviews-wrapper">
+      <div class="listing-reviews-title">
+        <div id="star-rating">
+            <% render_stars(@average_rating).each do |star| %>
+            <%= image_tag(star, width: '24') %>
+            <% end %>
+        </div>
+            <p><%= @average_rating %> (<%=@amount_of_reviews%> reviews)</p>
+      </div>
 
-    <% @listing.reviews.each do |review| %>
-      <p><%=review.content%></p>
-      <p><%=review.rating%></p>
-      <% end %>
+            <% @listing.reviews.each do |review| %>
+              <div class="comments-wrapper">
+                <%=cl_image_tag review.user.avatar.key, class: "avatar avatar-listing"%>
+                <div class="comment-details">
+                  <p class="bold-name"><%=review.user.name%></p>
+                  <p class="comment-date"><%=review.created_at.strftime("%d/%m/%Y")%></p>
+                  <div id="star-rating">
+                    <% render_stars(review.rating).each do |star| %>
+                      <%= image_tag(star, width: '18') %>
+                    <% end %>
+                  </div>
+                  <p class="comment-content"><%=review.content%></p>
+                </div>
+              </div>
+            <% end %>
+       </div>
+
     <% else %>
-      <p>This listing doesn't have any reviews</p>
-     <% end %>
+      <p class="info-icon listing-reviews-wrapper empty-reviews-box"><i class="fas fa-question-circle"></i>This listing hasn't been rated yet</p>
+    <% end %>
+
 </div>
 
 
@@ -48,6 +70,8 @@
       <%= link_to "Book this listing!",  new_listing_booking_path(@listing.id), class: "btn btn-success"  %>
     <% elsif @listing.user != current_user %>
       <%= link_to "Add a pet to be able to book a listing", new_pet_path, class: "btn btn-primary" %>
+      <%else%>
+      <p>this is your listing</p>
     <% end %>
   </div>
 

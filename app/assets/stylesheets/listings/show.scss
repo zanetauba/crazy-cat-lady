@@ -21,3 +21,131 @@
   min-width: inherit !important;
 }
 
+
+.listing-show-details {
+  padding: 0px 20px 20px 20px;
+  background-color: white;
+  margin-top: 20px;
+}
+
+.listing-title-and-photo {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 25px;
+  padding-top: 25px;
+  align-items: center;
+  h4{
+    align-self: center;
+    padding-right: 40px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+}
+
+.listing-description-show {
+  font-style: italic;
+}
+
+.list-listing-details {
+  padding-top: 20px;
+  color: grey;
+  li {
+    font-size: 14px;
+    font-weight: 300px;
+  }
+  .fas {
+    font-size: 16px;
+    padding-right: 6px;
+  }
+}
+
+.list-listing-details .fas {
+  color: $orange;
+}
+
+.avatar-listing {
+  height: 70px;
+  width: 70px;
+  align-items: center;
+}
+
+.price-wrapper-show {
+  padding-top: 10px;
+  font-size: 18px;
+  .fas {
+    color: $orange;
+    font-size: 19px;
+  }
+}
+
+.listing-price {
+  text-align: right;
+  padding-bottom: 25px;
+}
+
+
+.listing-reviews-wrapper {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 25px;
+}
+
+.listing-reviews-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 30px;
+  padding-left: 10px;
+  p {
+    align-self: center;
+    margin-bottom: 0px;
+    font-weight: 700;
+    padding-top: 3px;
+    padding-left: 10px;
+  }
+}
+
+.comments-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px 20px 10px 30px;
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.comment-details{
+
+  margin-left: 30px;
+  padding: 10px 40px;
+  p{
+    margin-bottom: 0px;
+  }
+
+  #star-rating{
+    padding-top: 15px;
+    padding-bottom: 7px;
+  }
+}
+
+.bold-name {
+  font-weight: 700;
+}
+
+.comment-date {
+  font-weight: 100;
+  color: grey;
+  font-size: 14px;
+}
+
+.comment-content {
+  color: grey;
+  font-weight: 200;
+}
+
+.empty-reviews-box {
+  padding-top: 35px;
+  padding-left: 20px;
+}
