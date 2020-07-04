@@ -54,13 +54,15 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.listing = @listing
     @booking.user = current_user
+    @user = current_user
     @pets = @booking.user.pets
     if @booking.starting_at < @booking.ending_at && @booking.starting_at >= Date.today && @booking.pet_id != nil
       @booking.save
       redirect_to booking_path(@booking)
 
     else
-      render 'new'
+    render 'listings/show'
+    flash[:alert] = 'Fill out all the required fields'
     end
     end
 

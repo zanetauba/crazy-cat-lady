@@ -1,0 +1,60 @@
+#new_booking {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 30px;
+  padding: 30px 15px 50px 15px;
+  border-radius: 8px;
+  position: sticky;
+  top: 0;
+
+  .form-group.booking_starting_at label,  .form-group.booking_ending_at label{
+    font-weight: 700;
+  }
+
+  legend {
+    font-weight: 700;
+  }
+}
+
+.form-group.booking_starting_at, .form-group.booking_ending_at, .form-group.booking_pet_id {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  input {
+    align-self: center;
+  }
+
+  abbr{
+    display: none;
+  }
+}
+
+.form-group.booking_pet_id {
+  padding-bottom: 15px;
+}
+
+.form-group.booking_ending_at {
+  padding-bottom: 15px;
+}
+
+.btn-book {
+  color: white;
+  width: 100px;
+  align-self: center;
+  border-radius: 20px;
+  background-color: $orange;
+  &hover{
+    background-color: #e56e0d;
+  }
+}
+
+
+.form-group.booking_starting_at input, .form-group.booking_ending_at input {
+  background-color: white !important;
+  border: 1px solid $orange !important;
+  width: 200px;
+  text-align: center;
+}
