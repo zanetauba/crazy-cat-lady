@@ -69,9 +69,18 @@
     <% if @listing.user != current_user && @user.pets.any? %>
       <%=render :partial => 'bookings/new' %>
     <% elsif @listing.user != current_user %>
-      <%= link_to "Add a pet to be able to book a listing", new_pet_path, class: "btn btn-primary" %>
+      <div class="not-able-to-book">
+        <p><i class="fas fa-exclamation-triangle"></i>Add a pet to be able to book a listing</p>
+        <%= link_to "+", new_pet_path, class: "btn btn-default btn-warning btn-book btn-plus" %>
+      </div>
       <%else%>
-      <p>this is your listing</p>
+      <div class="not-able-to-book">
+        <p><i class="fas fa-heart"></i>This is your listing!</p>
+        <div class="listing-button-wrapper">
+          <%= link_to "Go to your dashboard", "/dashboard", class: "btn btn-default btn-warning btn-book" %>
+          <%= link_to "Search", root_path, class: "btn btn-default btn-warning btn-book"%>
+        </div>
+      </div>
     <% end %>
   </div>
 
