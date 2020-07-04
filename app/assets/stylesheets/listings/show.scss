@@ -155,3 +155,44 @@
   position: sticky;
   top: 0;
 }
+
+.not-able-to-book {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 30px;
+  padding: 30px 15px 30px 15px;
+  border-radius: 8px;
+  position: sticky;
+  top: 0;
+  p{
+    align-self: center;
+    font-weight: 500;
+    color: grey;
+  }
+
+  .fas {
+    padding-right: 5px;
+    color: #efcb00;
+  }
+
+  .fas.fa-heart {
+    color: red;
+  }
+}
+
+.btn-book.btn-plus {
+  border-radius: 50px;
+  font-size: 28px;
+  font-weight: 700;
+  padding: 2px;
+  width: 50px;
+}
+
+.listing-button-wrapper .btn-book {
+   width: 200px;
+   font-size: 14px;
+   margin-top: 15px;
+}

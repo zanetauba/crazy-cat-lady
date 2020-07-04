@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
   before_action :initialize_booking
+  before_action :initialize_pet
 
 
 
@@ -7,6 +8,10 @@ class ListingsController < ApplicationController
     @booking = Booking.new
      @user = current_user
     @pets = @user.pets
+  end
+
+  def initialize_pet
+    @pet = Pet.new
   end
 
   def index
