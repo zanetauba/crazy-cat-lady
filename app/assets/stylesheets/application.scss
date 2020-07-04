@@ -10,6 +10,7 @@
 @import 'mapbox-gl/dist/mapbox-gl';
 @import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder';
 @import "flatpickr/dist/flatpickr";
+@import "flatpickr/dist/themes/material_orange";
 @import "jquery-bar-rating/dist/themes/css-stars";
 
 // Your CSS partials
@@ -20,7 +21,7 @@
 @import "users/dashboard";
 @import "listings/index";
 @import "listings/show";
-
+@import "bookings/new";
 
 .yield-wrapper {
   min-height: 86vh;

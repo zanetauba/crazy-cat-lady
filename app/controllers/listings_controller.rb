@@ -1,6 +1,13 @@
 class ListingsController < ApplicationController
+  before_action :initialize_booking
 
 
+
+  def initialize_booking
+    @booking = Booking.new
+     @user = current_user
+    @pets = @user.pets
+  end
 
   def index
   if params[:max_price_query].present? && params[:location_query].present?

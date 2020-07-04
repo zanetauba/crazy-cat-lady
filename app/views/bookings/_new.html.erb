@@ -1,7 +1,7 @@
 <%= simple_form_for [@listing, @booking] do |f| %>
 
-    <%= f.input :starting_at, as: :string, input_html: {id: "range_start"} %>
-    <%= f.input :ending_at, as: :string, input_html: {id: "range_end"} %>
+    <%= f.input :starting_at, as: :string, input_html: {id: "range_start"}, label: 'Start:' %>
+    <%= f.input :ending_at, as: :string, input_html: {id: "range_end"}, label: 'End:' %>
     <%= f.input :pet_id, as: :radio_buttons, required: true, input_html: {class: "hide-checkbox"},label_html: {style: "width: auto; min-width:0;"}, label: 'Choose a pet:', collection: @pets.map { |e| [e.name,e.id] } %>
-    <%= f.submit "Save", class: "btn btn-default btn-primary" %>
+    <%= f.submit "Book", class: "btn btn-default btn-warning btn-book" %>
 <% end %>

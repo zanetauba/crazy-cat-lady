@@ -65,9 +65,9 @@
 </div>
 
 
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 booking-form">
     <% if @listing.user != current_user && @user.pets.any? %>
-      <%= link_to "Book this listing!",  new_listing_booking_path(@listing.id), class: "btn btn-success"  %>
+      <%=render :partial => 'bookings/new' %>
     <% elsif @listing.user != current_user %>
       <%= link_to "Add a pet to be able to book a listing", new_pet_path, class: "btn btn-primary" %>
       <%else%>
