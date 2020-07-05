@@ -7,7 +7,7 @@
 }
 
 .display {
-  height: 530px;
+ /* height: 530px;*/
   width: 350px;
   padding: 20px;
   border-radius: 5px;
@@ -117,14 +117,6 @@ li {
 
 
 /*contents inside cards*/
-
-.dashboard-line-collapse {
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* number of lines to show */
-  -webkit-box-orient: vertical;
-  height: 50px;
-}
 
 .status {
   display: flex;
@@ -252,6 +244,7 @@ li {
   margin-top: 13px;
   text-align: center;
   margin-left: 75px;
+  margin-bottom: 48px;
 }
 
 
