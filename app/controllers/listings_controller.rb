@@ -1,6 +1,5 @@
 class ListingsController < ApplicationController
   before_action :initialize_booking
-  before_action :initialize_pet
 
 
 
@@ -10,9 +9,7 @@ class ListingsController < ApplicationController
     @pets = @user.pets
   end
 
-  def initialize_pet
-    @pet = Pet.new
-  end
+
 
   def index
   if params[:max_price_query].present? && params[:location_query].present?
@@ -75,9 +72,11 @@ end
   def create        # POST /bookings
     @listing = Listing.new(listing_params)
     @listing.user_id = current_user.id
-    if @listing.save
+    if @listing.photos.attached? && @listing.title != "" && @listing.description != "" && @listing.price_per_day != nil
+      @listing.save
       redirect_to listing_path(@listing)
     else
+    flash[:alert] = 'Fill out all the required fields'
       render 'new'
     end
   end

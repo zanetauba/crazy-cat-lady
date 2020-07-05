@@ -14,7 +14,7 @@
                     <li><i class="fas fa-pound-sign"></i><%= (booking.ending_at - booking.starting_at).to_i * booking.listing.price_per_day.to_i %></li>
                     <li><i class="fas fa-search-location"></i><%= booking.listing.location %></li>
                     <li><i class="fas fa-cat"></i><%= booking.pet.name %></li>
-                    <li><i class="fas fa-info-circle"></i><%= booking.listing.description %></li>
+                    <li><i class="fas fa-info-circle"></i><span class="dashboard-line-collapse"><%= booking.listing.description %></span></li>
                   </ul>
                   <%= cl_image_tag(booking.listing.photos.first.key, class: "img-dashboard") %>
                   <%= link_to "Cancel this booking",  delete_booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-cancel"  %>
@@ -163,7 +163,7 @@
               </div>
               <% end %>
               <%end%>
-     <% if @expired_requests.any? %>
+     <% if @expired_requesths.any? %>
                <h5 class="title-cards incoming-cards">Expired Requests:</h5>
 
         <% @expired_requests.each do |booking| %>

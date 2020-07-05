@@ -10,11 +10,11 @@
 }
 
 .fotorama img.fotorama__img {
-  min-width: 800px !important;
+  min-width: 1000px !important;
 }
 
 .fotorama__stage, .fotorama__stage__shaft, .fotorama__wrap.fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
-  min-width: 800px !important;
+  min-width: 1000px !important;
 }
 
 .fotorama div.fotorama__thumb img.fotorama__img {
@@ -195,4 +195,12 @@
    width: 200px;
    font-size: 14px;
    margin-top: 15px;
+}
+
+#map.listing-map {
+  height: 250px !important;
+    margin-left: 390px;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }

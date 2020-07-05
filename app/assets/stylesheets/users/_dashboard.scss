@@ -118,6 +118,14 @@ li {
 
 /*contents inside cards*/
 
+.dashboard-line-collapse {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
+  height: 50px;
+}
+
 .status {
   display: flex;
     justify-content: space-between;
