@@ -1,0 +1,192 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+
+.user-profile-wrapper {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  width: 50vw;
+  align-self: center;
+  padding: 20px 20px 30px 30px;
+  align-items: center;
+  justify-content: left;
+  border-radius: 8px;
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+
+}
+
+
+.profile-photo {
+  height: 230px;
+  width: 230px;
+  object-fit: cover;
+  border-radius: 1000px;
+
+}
+
+.user-details {
+  padding-left: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  div{
+  padding-right: 30px;}
+  #star-rating {
+    padding-top: 20px;
+    p {
+      padding-top: 10px;
+      font-weight: 300;
+      span {
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.name-surname {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 0px;
+}
+
+.user-small-font {
+  font-weight: 300;
+  color: grey;
+  font-size: 14px;
+  span {
+    font-weight: 500;
+    color: black;
+  }
+}
+
+.user-no-rating {
+  padding-top: 30px;
+  .fas {
+    color: $orange;
+    padding-right: 5px;
+  }
+}
+
+.add-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 50px;
+  border-left: 1px solid #e0e0e0;
+  .btn.btn-show-more{
+    margin-bottom: 10px;
+  }
+}
+
+
+.user-pets-listings-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 8px;
+
+  img {
+      object-fit: cover;
+      width: 300px;
+      height: 200px;
+      border-top-right-radius: 8px;
+      border-top-left-radius: 8px;
+      box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+
+  }
+}
+
+.pet-name-card {
+  background-color: white;
+  text-align: center;
+  padding: 20px 30px 20px 30px;
+  width: 300px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+
+}
+
+ .pet-name-card:hover {
+    color: $orange;
+  }
+
+
+.user-row {
+  padding-left: 100px;
+  padding-right: 100px;
+
+}
+
+.user-row.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+
+.user-listings-small-cards {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  text-align: center;
+  padding: 20px 30px 20px 30px;
+  width: 300px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+}
+
+
+.small-cards-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.small-card-detail {
+  color: grey;
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 0px;
+  padding-bottom: 8px;
+  .fas {
+    color: $orange;
+    padding-right: 5px;
+  }
+}
+
+ .small-cards-title:hover, .user-listings-small-cards:hover {
+  color: $orange;
+}
+
+.user-row-bottom {
+  padding-bottom: 50px;
+}
+
+.title-user-profile-section {
+  text-align: center;
+  margin: auto;
+  padding-bottom: 5px;
+  margin-top: 60px;
+  margin-bottom: 35px;
+  padding: 10px 15px 15px 15px;
+  color: white;
+  background-color: $orange;
+  border-radius: 5px;
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+  width: 95vw;
+
+}
+
+
+.no-pets-listings {
+  width: 95vw;
+  margin: auto;
+}
