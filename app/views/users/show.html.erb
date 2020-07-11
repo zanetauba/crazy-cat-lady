@@ -10,7 +10,7 @@
           <% if @user.my_reviews.blank? && @user == current_user%>
           <p class="user-no-rating"><i class="fas fa-exclamation-triangle"></i>You haven't been rated yet</p>
           <%  elsif @user.my_reviews.blank? %>
-          <p>This user hasn't been rated yet</p>
+          <p class="user-no-rating"><i class="fas fa-exclamation-triangle"></i>This user hasn't been rated yet</p>
           <% else %>
           <% render_stars(@average_user_rating).each do |star| %>
           <%= image_tag(star, width: '24') %>
@@ -93,12 +93,12 @@
 <%else%>
   <%if @user == current_user%>
     <p class="title-user-profile-section">Your listings:</p>
-    <div class="no-requests no-pets-listings">
+    <div class="no-requests no-pets-listings no-pets-listings-last">
       <p>You do not have any listings</p>
     </div>
   <%else%>
     <p class="title-user-profile-section"><%=@user.name%>'s listings:</p>
-    <div class="no-requests no-pets-listings">
+    <div class="no-requests no-pets-listings no-pets-listings-last">
       <p><%=@user.name%> doesn't have any listings</p>
     </div>
   <%end%>

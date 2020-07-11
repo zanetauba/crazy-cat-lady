@@ -1,3 +1,5 @@
+/*main divs*/
+
 .profile {
   display: flex;
   flex-direction: column;
@@ -17,17 +19,17 @@
   justify-content: left;
   border-radius: 8px;
   box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
-
 }
 
+/*profile*/
 
 .profile-photo {
   height: 230px;
   width: 230px;
   object-fit: cover;
   border-radius: 1000px;
-
 }
+
 
 .user-details {
   padding-left: 50px;
@@ -84,6 +86,12 @@
 }
 
 
+
+
+/*cards content*/
+
+
+
 .user-pets-listings-card {
   display: flex;
   flex-direction: column;
@@ -112,15 +120,14 @@
 
 }
 
- .pet-name-card:hover {
-    color: $orange;
-  }
+.pet-name-card:hover {
+  color: $orange;
+}
 
 
 .user-row {
   padding-left: 100px;
   padding-right: 100px;
-
 }
 
 .user-row.row {
@@ -139,6 +146,7 @@
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
   box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
 }
 
 
@@ -162,7 +170,7 @@
   }
 }
 
- .small-cards-title:hover, .user-listings-small-cards:hover {
+.small-cards-title:hover, .user-listings-small-cards:hover {
   color: $orange;
 }
 
@@ -182,11 +190,258 @@
   border-radius: 5px;
   box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
   width: 95vw;
-
 }
 
 
 .no-pets-listings {
   width: 95vw;
   margin: auto;
+
+}
+
+.no-pets-listings.no-pets-listings-last {
+  margin-bottom: 50px;
+
+}
+
+
+
+@media only screen and  (max-width: 1400px) and (min-width: 992px) {
+
+  .user-profile-wrapper {
+    width: 75vw;
+  }
+
+  .profile-photo {
+    height: 180px;
+    width: 180px;
+  }
+
+  .user-details #star-rating p {
+    font-size: 15px;
+  }
+
+  .name-surname {
+    font-size: 20px;
+  }
+
+  .user-details #star-rating img {
+    width: 20px;
+  }
+
+ .user-details div {
+  padding-right: 17px;
+ }
+
+ .add-buttons {
+  padding-left: 30px;
+ }
+}
+
+
+
+  @media only screen and  (max-width: 992px) and (min-width: 799px) {
+    .user-profile-wrapper {
+      width: 60vw;
+    }
+
+  .title-user-profile-section{
+    width: 90vw;
+  }
+
+  .no-pets-listings{
+    width: 90vw;
+  }
+
+  .profile-photo {
+    height: 100px;
+    width: 100px;
+  }
+
+  .name-surname {
+    font-size: 16px;
+  }
+
+  .user-small-font {
+    font-size: 12px;
+  }
+
+  .user-no-rating {
+    font-size: 14px;
+  }
+
+  .add-buttons {
+    padding-left: 18px;
+  }
+  .user-details div {
+    padding-right: 13px;
+  }
+
+  .user-details {
+    padding-left: 20px;
+  }
+
+  .btn-show-more {
+    font-size: 12px;
+    width: 150px;
+  }
+
+  .user-details #star-rating p {
+    font-size: 12px;
+  }
+
+  .user-details #star-rating  {
+    font-size: 12px;
+    padding-right: 0px;
+  }
+
+  .user-details #star-rating img {
+    width: 18px;
+  }
+
+}
+
+
+  @media only screen and  (max-width: 799px) and (min-width: 550px) {
+
+  .user-profile-wrapper {
+      width: 80vw;
+    }
+
+  .title-user-profile-section{
+    width: 90vw;
+  }
+
+  .no-pets-listings{
+    width: 90vw;
+  }
+
+  .profile-photo {
+    height: 100px;
+    width: 100px;
+  }
+
+  .name-surname {
+    font-size: 16px;
+  }
+
+  .user-small-font {
+    font-size: 12px;
+  }
+
+  .user-no-rating {
+    font-size: 14px;
+  }
+
+  .add-buttons {
+    padding-left: 18px;
+  }
+  .user-details div {
+    padding-right: 13px;
+  }
+
+  .user-details {
+    padding-left: 20px;
+  }
+
+  .btn-show-more {
+    font-size: 12px;
+    width: 150px;
+  }
+
+  .user-details #star-rating p {
+    font-size: 12px;
+  }
+
+  .user-details #star-rating  {
+    font-size: 12px;
+    padding-right: 0px;
+  }
+
+  .user-details #star-rating img {
+    width: 16px;
+  }
+  }
+
+
+
+  @media only screen and  (max-width: 550px)  {
+
+  .user-profile-wrapper {
+      width: 98vw;
+      padding: 10px;
+    }
+
+  .title-user-profile-section{
+    width: 93vw;
+  }
+
+  .no-pets-listings{
+    width: 90vw;
+  }
+
+  .profile-photo {
+    height: 60px;
+    width: 60px;
+  }
+
+  .name-surname {
+    font-size: 14px;
+  }
+
+  .user-small-font {
+    font-size: 10px;
+  }
+
+  .user-no-rating {
+    font-size: 14px;
+  }
+
+  .add-buttons {
+    padding-left: 10px;
+  }
+  .user-details div {
+    padding-right: 13px;
+  }
+
+  .user-details {
+    padding-left: 20px;
+  }
+
+  .btn-show-more {
+    font-size: 10px;
+    width: 80px;
+    padding: 5px;
+  }
+
+  .user-details #star-rating p {
+    font-size: 12px;
+  }
+
+  .user-details #star-rating  {
+    font-size: 12px;
+    padding-right: 0px;
+  }
+
+  .user-details #star-rating img {
+    width: 13px;
+  }
+
+  .row.user-row {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+
+  .user-pets-listings-card img {
+    width: 87vw;
+    height: 180px;
+  }
+
+  .pet-name-card {
+    width: 87vw;
+  }
+
+  .user-listings-small-cards {
+    width: 87vw;
+  }
 }
