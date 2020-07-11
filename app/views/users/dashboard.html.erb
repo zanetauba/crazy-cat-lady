@@ -13,6 +13,7 @@
                     <li><i class="fas fa-calendar-alt"></i><%= booking.starting_at %> to <%= booking.ending_at %></li>
                     <li><i class="fas fa-pound-sign"></i><%= (booking.ending_at - booking.starting_at).to_i * booking.listing.price_per_day.to_i %></li>
                     <li><i class="fas fa-search-location"></i><%= booking.listing.location %></li>
+                    <li><i class="fas fa-user-alt"></i><%= booking.listing.user.name %> <%= booking.listing.user.surname %></li>
                     <li><i class="fas fa-cat"></i><%= booking.pet.name %></li>
                     <li><i class="fas fa-info-circle"></i><span class="dashboard-line-collapse"><%= booking.listing.description %></span></li>
                   </ul>

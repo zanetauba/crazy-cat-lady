@@ -1,46 +1,108 @@
-<% if @user.id == current_user.id%>
-<%= link_to "Add a new pet", new_pet_path, class: "btn btn-primary" %>
-<%= link_to "Edit your profile", edit_user_registration_path, class: "btn btn-primary" %>
-<%end%>
 
-<p><%=@user.name%> <%=@user.surname%></p>
-<p><%=@user.email%></p>
-<p><%=cl_image_tag @user.avatar.key, height: 300, width: 400, crop: :fill%></p>
-<p>average user's rating: <%= @average_user_rating %> (<%= @number_of_ratings %>) </p>
-
-<div id="star-rating">
-  <% if @user.my_reviews.blank? %>
-  <p>This user hasn't been rated yet</p>
-  <% else %>
-  <% render_stars(@average_user_rating).each do |star| %>
-  <%= image_tag(star, width: '24') %>
-  <%end%>
-  <% end %>
+<div class="profile">
+<div class="user-profile-wrapper">
+  <%=cl_image_tag @user.avatar.key, class: "profile-photo"%>
+  <div class="user-details">
+    <div>
+        <p class="name-surname"><%=@user.name%> <%=@user.surname%></p>
+        <p class="user-small-font">Member since: <%=@user.created_at.strftime("%m/%Y")%></p>
+          <div id="star-rating">
+          <% if @user.my_reviews.blank? && @user == current_user%>
+          <p class="user-no-rating"><i class="fas fa-exclamation-triangle"></i>You haven't been rated yet</p>
+          <%  elsif @user.my_reviews.blank? %>
+          <p>This user hasn't been rated yet</p>
+          <% else %>
+          <% render_stars(@average_user_rating).each do |star| %>
+          <%= image_tag(star, width: '24') %>
+          <%end%>
+          <p>average rating: <span><%= @average_user_rating %> (<%= @number_of_ratings %> reviews)</span> </p>
+         <% end %>
+       </div>
+     </div>
+     <% if @user == current_user%>
+      <div class="add-buttons">
+        <p class="user-small-font"><span>Your email:</span> <%=@user.email%></p>
+        <%= link_to "Edit your profile", edit_user_registration_path, class: "btn btn-show-more" %>
+        <%= link_to "Add a new listing", new_listing_path, class: "btn btn-show-more" %>
+        <%= link_to "Add a new pet", new_pet_path, class: "btn btn-show-more" %>
+      </div>
+      <%else%>
+      <div class="add-buttons">
+        <%= mail_to @user.email, "Contact the user", class: "btn btn-show-more"%>
+      </div>
+      <%end%>
+  </div>
 </div>
 
-<% if @user.pets.any? %>
-<h3>Pets:</h3>
- <div class="row">
-    <% @user.pets.each do |pet| %>
-      <div class="col-xs-12 col-sm-6 col-md-3">
-      <%= link_to pet do  %>
-        <div class="listing-card">
-          <div class="card">
-            <div class="card-content">
-              <div class="content">
-                <h3 class="title"><%= pet.name %></h3>
-                <p class="description">
-                 <ul>
-                  <li>owner: <%=pet.user.name%> <%=pet.user.surname%></li>
-                  <li><%=cl_image_tag pet.photo_url.key, height: 80, width: 100, crop: :fill%></li>
-                 </ul>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-      </div>
+
+
+<%if @user.pets.any?%>
+  <%if @user == current_user%>
+    <p class="title-user-profile-section">Your pets:</p>
+  <%else%>
+    <p class="title-user-profile-section"><%=@user.name%>'s pets:</p>
+  <%end%>
+  <div class="row user-row">
+    <%@user.pets.each do |pet| %>
+    <%= link_to pet_path(pet.id) do  %>
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 user-pets-listings-card">
+      <%= cl_image_tag(pet.photo_url.key) %>
+      <p class="pet-name-card"><%=pet.name%></p>
+    </div>
     <%end%>
+    <%end%>
+  </div>
+<%else%>
+  <%if @user == current_user%>
+    <p class="title-user-profile-section">Your pets:</p>
+      <div class="no-requests no-pets-listings">
+        <p>You do not have any pets</p>
+      </div>
+  <%else%>
+    <p class="title-user-profile-section"><%=@user.name%>'s pets:</p>
+    <div class="no-requests no-pets-listings">
+      <p><%=@user.name%> doesn't have any pets</p>
+    </div>
+  <%end%>
 <%end%>
 
+
+<%if @user.listings.any?%>
+  <%if @user == current_user%>
+  <p class="title-user-profile-section">Your listings:</p>
+
+  <%else%>
+    <p class="title-user-profile-section"><%=@user.name%>'s listings:</p>
+  <%end%>
+  <div class="row user-row user-row-bottom">
+    <%@user.listings.each do |listing| %>
+    <%= link_to listing_path(listing.id) do  %>
+
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 user-pets-listings-card">
+        <%= cl_image_tag(listing.photos.first.key) %>
+      <div class="user-listings-small-cards">
+        <p class="small-cards-title"><%=listing.title%></p>
+        <p class="small-card-detail"><i class="fas fa-search-location"></i><%=listing.location%></p>
+        <p class="small-card-detail"><i class="fas fa-pound-sign"></i><%=listing.price_per_day%> per day</p>
+      </div>
+    </div>
+
+    <%end%>
+    <%end%>
+  </div>
+<%else%>
+  <%if @user == current_user%>
+    <p class="title-user-profile-section">Your listings:</p>
+    <div class="no-requests no-pets-listings">
+      <p>You do not have any listings</p>
+    </div>
+  <%else%>
+    <p class="title-user-profile-section"><%=@user.name%>'s listings:</p>
+    <div class="no-requests no-pets-listings">
+      <p><%=@user.name%> doesn't have any listings</p>
+    </div>
+  <%end%>
+<%end%>
+
+
+</div>
