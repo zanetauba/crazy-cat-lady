@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: row;
   background-color: white;
-  width: 50vw;
+  width: 750px;
   align-self: center;
   padding: 20px 20px 30px 30px;
   align-items: center;
@@ -209,7 +209,7 @@
 @media only screen and  (max-width: 1400px) and (min-width: 992px) {
 
   .user-profile-wrapper {
-    width: 75vw;
+    width: 720px;
   }
 
   .profile-photo {
@@ -305,7 +305,7 @@
   @media only screen and  (max-width: 799px) and (min-width: 550px) {
 
   .user-profile-wrapper {
-      width: 80vw;
+      width: 560px;
     }
 
   .title-user-profile-section{
