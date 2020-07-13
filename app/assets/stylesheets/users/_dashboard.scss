@@ -49,6 +49,11 @@ li {
   color: grey;
   font-size: 14px;
   padding-left: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 7; /* number of lines to show */
+  -webkit-box-orient: vertical;
 
 }
 }
@@ -176,11 +181,16 @@ li {
 
 
 .title-dashboard {
-    text-align: center;
+    text-align: left;
     margin-bottom: 20px;
     font-size: 28px;
     font-weight: 700;
-    padding-left: 20px;
+    padding-left: 65px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-box-orient: vertical;
 }
 
 
