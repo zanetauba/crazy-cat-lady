@@ -1,0 +1,82 @@
+.form-centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 20px 10px 30px 10px;
+  border-radius: 8px;
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  width: 900px;
+  .form-text.text-muted {
+    color: grey;
+    font-size: 12px;
+    font-weight: 300;
+  }
+
+  h5 {
+    color: $orange;
+    padding-bottom: 15px;
+    padding-top: 15px;
+  }
+
+  label {
+    font-size: 14px;
+    margin-top: 20px;
+    font-weight: 700;
+  }
+
+
+}
+
+.form-centered .form-group {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.form-centered .form-control {
+  border: 1px solid #fd7f13 !important;
+}
+
+.form-centered #user_avatar {
+  padding-left: 110px;
+  padding-bottom: 5px;
+}
+
+
+.form-centered .form-actions {
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+
+.delete-account {
+  border-top: 1px solid $orange;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: grey;
+  font-weight: 300;
+  .fas {
+    color: red;
+  }
+  .btn-cancel {
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+
+.back{
+  padding-top: 40px;
+  font-size: 32px;
+  color: #167FFB;
+}
