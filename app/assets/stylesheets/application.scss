@@ -25,6 +25,9 @@
 @import "bookings/new";
 @import "users/show";
 @import "users/edit";
+@import "users/login";
+@import "users/signup";
+@import "users/forgot-password";
 
 .yield-wrapper {
   min-height: 86vh;

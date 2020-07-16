@@ -1,0 +1,92 @@
+.form-centered.form-login {
+  padding: 40px 15px 45px 15px;
+  margin-top: 50px;
+  margin-bottom: 55px;
+ .btn-book {
+  align-self: center;
+ }
+}
+
+
+label.form-check-label {
+  margin-top: 0px;
+  font-weight: 500;
+
+}
+
+.form-check {
+  text-align: center;
+  padding-top: 15px;
+}
+
+
+.btn-sign-up {
+  width: 100px;
+}
+
+.btn-reset-password {
+  color: red;
+  border-color: red;
+}
+
+.btn-reset-password:hover {
+  background-color: red;
+  color: white;
+}
+
+
+.form-actions.login {
+  border-bottom: 1px solid $orange;
+
+}
+
+
+.buttons-login{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 35px;
+}
+
+
+  @media only screen and  (max-width: 992px) and (min-width: 550px) {
+  .btn-reset-password {
+    width: 165px;
+  }
+
+  .form-centered.form-login {
+    margin-top: 40px;
+  }
+
+  .form-actions.login {
+    padding-bottom: 50px;
+  }
+
+  .buttons-login {
+    padding-bottom: 5px;
+  }
+}
+
+
+
+@media only screen and  (max-width: 550px)  {
+
+  .btn-reset-password {
+    width: 165px;
+  }
+
+  .form-centered.form-login {
+    margin-top: 40px;
+  }
+
+  .form-actions.login {
+    padding-bottom: 50px;
+  }
+
+  .buttons-login {
+    padding-bottom: 5px;
+  }
+
+}
