@@ -163,8 +163,7 @@
 
               </div>
               <% end %>
-              <%end%>
-     <% if @expired_requests.any? %>
+     <% elsif @expired_requests.any? %>
                <h5 class="title-cards incoming-cards">Expired Requests:</h5>
 
         <% @expired_requests.each do |booking| %>
@@ -179,7 +178,6 @@
 
               </div>
               <% end %>
-              <%end%>
 
     <% else %>
     <div class="no-requests">
@@ -187,7 +185,7 @@
      </div>
     <% end %>
 </div>
-
+<%end%>
 
 </div>
   </div>
