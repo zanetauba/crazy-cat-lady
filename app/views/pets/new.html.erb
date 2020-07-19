@@ -1,9 +1,14 @@
+
+<div class="form-centered form-pet">
+
       <%= simple_form_for @pet do |f| %>
         <div class="form-inputs">
-          <%= f.input :name %>
-          <%= f.input :photo_url, as: :file%>
+          <%= f.input :name, label: 'Name of your pet' %>
+          <%= f.input :photo_url, as: :file, label: 'Upload a photo'%>
         </div>
         <div class="form-actions">
-          <%= f.button :submit, class: 'btn btn-primary' %>
+          <%= f.button :submit, "Save", class: 'btn btn-default btn-warning btn-book btn-pet-new' %>
         </div>
       <% end %>
+
+</div>

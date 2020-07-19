@@ -1,0 +1,28 @@
+.form-centered.form-pet {
+  margin-top: 60px;
+
+  #pet_photo_url {
+    padding-left: 50px;
+  }
+}
+
+
+  @media only screen and  (max-width: 992px) and (min-width: 550px) {
+
+  .form-centered.form-pet #pet_photo_url {
+    padding-left: 12vw;
+  }
+}
+
+
+@media only screen and  (max-width: 550px)  {
+  .form-centered.form-pet #pet_photo_url {
+    padding-left: 16vw;
+    font-size: 12px;
+    width: 80vw;
+  }
+
+
+
+
+}
