@@ -1,12 +1,12 @@
 
 
-<div class = "grid">
-    <div class="details">
+<div class="show-pet-wrapper">
+        <%=cl_image_tag @pet.photo_url.key%>
+      <div class="pet-details">
         <h4><%=@pet.name%></h4>
+        <p class="pet-created">On Crazy Cat Lady since: <%=@pet.created_at.strftime("%m/%Y")%></p>
         <%= link_to user_path(@pet.user.id) do %>
-        <p>owner: <%=@pet.user.name%> <%=@pet.user.surname%></p>
+        <p class="pet-owner"><span>owner:</span> <%=@pet.user.name%> <%=@pet.user.surname%></p>
         <%end%>
-        <p><%=cl_image_tag @pet.photo_url.key, height: 300, width: 400, crop: :fill%></p>
-
-    </div>
+      </div>
 </div>
