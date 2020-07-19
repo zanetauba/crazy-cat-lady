@@ -1,6 +1,46 @@
 <div class="container container-dashboard">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 dashboard-column left-column">
+
+
+     <h5 class="title-cards">Ongoing bookings:</h5>
+
+        <% if @ongoing_bookings.any? %>
+          <% @ongoing_bookings.each do |booking| %>
+            <%= link_to booking_path(booking.id) do  %>
+                <div class="display link-to-card">
+                  <%= cl_image_tag(booking.pet.photo_url.key, height: 100, width: 100, class: 'radius') %>
+                  <p class="title-dashboard"><%= booking.listing.title %></p>
+                  <ul class="decription-dashboard list-unstyled">
+                    <li><i class="fas fa-calendar-alt"></i><%= booking.starting_at %> to <%= booking.ending_at %></li>
+                    <li><i class="fas fa-pound-sign"></i><%= (booking.ending_at - booking.starting_at).to_i * booking.listing.price_per_day.to_i %></li>
+                    <li><i class="fas fa-search-location"></i><%= booking.listing.location %></li>
+                    <li><i class="fas fa-user-alt"></i><%= booking.listing.user.name %> <%= booking.listing.user.surname %></li>
+                    <li><i class="fas fa-cat"></i><%= booking.pet.name %></li>
+                    <li><i class="fas fa-info-circle"></i><span class="dashboard-line-collapse"><%= booking.listing.description %></span></li>
+                  </ul>
+                  <%= cl_image_tag(booking.listing.photos.first.key, class: "img-dashboard") %>
+                  <%= link_to "Cancel this booking",  delete_booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-cancel"  %>
+
+                  <div class="status-wrapper">
+                    <% if booking.accepted %>
+                      <div class="status accepted">Status: <i class="fas fa-check-circle"> (confirmed)</i></div>
+                    <% else %>
+                      <div class="status pending">Status: <i class="fas fa-clock"> (pending) </i></div>
+                    <% end %>
+                  </div>
+                </div>
+              <%end%>
+            <%end%>
+          <% else  %>
+            <div class="no-content">
+              <p>You don't have any ongoing bookings</p>
+              <%= link_to "Explore", listings_path, class: "btn btn-show-more" %>
+          </div>
+          <% end %>
+
+
+
       <h5 class="title-cards">Your upcoming bookings:</h5>
 
         <% if @upcoming_bookings.any? %>
@@ -50,6 +90,7 @@
                     <li><i class="fas fa-calendar-alt"></i><%= booking.starting_at %> to <%= booking.ending_at %></li>
                     <li><i class="fas fa-pound-sign"></i><%= (booking.ending_at - booking.starting_at).to_i * booking.listing.price_per_day.to_i %></li>
                     <li><i class="fas fa-search-location"></i><%= booking.listing.location %></li>
+                    <li><i class="fas fa-user-alt"></i><%= booking.listing.user.name %> <%= booking.listing.user.surname %></li>
                     <li><i class="fas fa-cat"></i><%= booking.pet.name %></li>
                     <li><i class="fas fa-info-circle"></i><%= booking.listing.description %></li>
                   </ul>
