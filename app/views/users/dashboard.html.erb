@@ -59,7 +59,7 @@
                    <% elsif booking.reviews.any? == false && booking.accepted == false %>
                    <p class="review-blocked"><i class="fas fa-exclamation-circle"></i>You can't review a booking that was not accepted</p>
                    <%else%>
-<%= link_to "Show my review", listing_booking_review_path(booking.listing_id, booking.id, booking.reviews.first.id), class: "btn btn-outline-success btn-cancel btn-review" %>                   <%end%>
+<%= link_to "Show my review", listing_path(booking.listing_id), class: "btn btn-outline-success btn-cancel btn-review" %>                   <%end%>
                   <div class="status-wrapper">
                     <% if booking.accepted %>
                       <div class="status accepted">Status: <i class="fas fa-check-circle"> (confirmed)</i></div>
