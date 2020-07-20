@@ -1,12 +1,15 @@
 class ListingsController < ApplicationController
   before_action :initialize_booking
+  skip_before_action :authenticate_user!, only: [:index, :initialize_booking]
 
 
 
   def initialize_booking
     @booking = Booking.new
      @user = current_user
-    @pets = @user.pets
+     if user_signed_in?
+      @pets = @user.pets
+     end
   end
 
 
