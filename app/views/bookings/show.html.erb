@@ -3,7 +3,7 @@
     <div class="booking-details">
 
     <p class="date-of-stay">Enjoy your stay from <%=@booking.starting_at%> until <%=@booking.ending_at%></p>
-    <p><span class="bold"><i class="fas fa-pound-sign"></i> (total):</span> <%= @to_pay%> (<%=(@booking.ending_at - @booking.starting_at).to_i%> days, <%=@booking.listing.price_per_day%> per day)</p>
+    <p class="price-of-booking"><span class="bold"><i class="fas fa-pound-sign"></i> (total):</span> <%= @to_pay%> (<%=(@booking.ending_at - @booking.starting_at).to_i%> days, <%=@booking.listing.price_per_day%> per day)</p>
       <p class="pet-link"><span class="bold">Guest pet:</span>
         <%= link_to pet_path(@guest_pet.id) do  %>
         <%= @guest_pet.name %>
@@ -29,7 +29,7 @@
 
     <div class="booking-details">
       <p class="date-of-stay">You stayed from <%=@booking.starting_at%> to <%=@booking.ending_at%></p>
-      <p><span class="bold"><i class="fas fa-pound-sign"></i> (total):</span> <%= @to_pay%> (<%=(@booking.ending_at - @booking.starting_at).to_i%> days, <%=@booking.listing.price_per_day%> per day)</p>
+      <p class="price-of-booking"><span class="bold"><i class="fas fa-pound-sign"></i> (total):</span> <%= @to_pay%> (<%=(@booking.ending_at - @booking.starting_at).to_i%> days, <%=@booking.listing.price_per_day%> per day)</p>
       <p class="pet-link"><span class="bold">Guest pet:</span>
         <%= link_to pet_path(@guest_pet.id) do  %>
         <%= @guest_pet.name %>
@@ -59,7 +59,7 @@
     <div class="booking-details">
     <p class="pending-booking"><i class="fas fa-question-circle"></i>Your request is still pending </p>
     <p class="date-of-stay">You requested to stay from <%=@booking.starting_at%> until <%=@booking.ending_at%></p>
-      <p><span class="bold"><i class="fas fa-pound-sign"></i> (total):</span> <%= @to_pay%> (<%=(@booking.ending_at - @booking.starting_at).to_i%> days, <%=@booking.listing.price_per_day%> per day)</p>
+      <p class="price-of-booking"><span class="bold"><i class="fas fa-pound-sign"></i> (total):</span> <%= @to_pay%> (<%=(@booking.ending_at - @booking.starting_at).to_i%> days, <%=@booking.listing.price_per_day%> per day)</p>
       <p class="pet-link"><span class="bold">Guest pet:</span>
         <%= link_to pet_path(@guest_pet.id) do  %>
         <%= @guest_pet.name %>
@@ -87,7 +87,7 @@
 
         <p class="missed-booking"><i class="fas fa-exclamation-circle"></i>You missed it! Your request was not accepted on time. </p>
         <p class="date-of-stay">You requested to stay from <%=@booking.starting_at%> until <%=@booking.ending_at%></p>
-        <p><span class="bold"><i class="fas fa-pound-sign"></i> (total): </span><%= @to_pay%> (<%=(@booking.ending_at - @booking.starting_at).to_i%> days, <%=@booking.listing.price_per_day%> per day)</p>
+        <p class="price-of-booking"><span class="bold"><i class="fas fa-pound-sign"></i> (total): </span><%= @to_pay%> (<%=(@booking.ending_at - @booking.starting_at).to_i%> days, <%=@booking.listing.price_per_day%> per day)</p>
         <p class="pet-link"><span class="bold">Guest pet:</span>
         <%= link_to pet_path(@guest_pet.id) do  %>
         <%= @guest_pet.name %>
@@ -110,28 +110,96 @@
 
 </div>
 
-<% elsif @other_user_accepted_guest_future_stay%>
 
-<p><%=@user.name%> will stay from <%=@booking.starting_at%> until <%=@booking.ending_at%></p>
-<p>To pay: <%= @to_pay%></p>
-<p>Guest pet: <%= @guest_pet.name %> </p>
+
+
+
+
+
+
+
+<% elsif @other_user_accepted_guest_future_stay%>
+<div class="booking-show-wrapper form-centered">
+    <div class="booking-details">
+        <p class="date-of-stay"><%=@user.name%> will stay from <%=@booking.starting_at%> until <%=@booking.ending_at%></p>
+        <p class="price-of-booking"><span class="bold"><i class="fas fa-pound-sign"></i> (total): </span><%= @to_pay%> (<%=(@booking.ending_at - @booking.starting_at).to_i%> days, <%=@booking.listing.price_per_day%> per day)</p>
+         <p class="pet-link"><span class="bold">Guest pet:</span>
+        <%= link_to pet_path(@guest_pet.id) do  %>
+        <%= @guest_pet.name %>
+        <%end%></p>
+    </div>
+    <div class="booking-photos">
+    <div class="fotorama" data-allowfullscreen="true" data-transition="crossfade" data-fit="cover" data-loop="true" data-autoplay="3000" data-keyboard="true" data-nav="thumbs" >
+      <% @booking.listing.photos.each do |photo| %>
+        <%=cl_image_tag photo.key%>
+      <%end%>
+    </div>
+    </div>
+</div>
+
 
 <% elsif @other_user_accepted_guest_past_stay %>
-<p><%=@user.name%> stayed from <%=@booking.starting_at%> to <%=@booking.ending_at%></p>
-<p>Paid: <%= @to_pay%></p>
-<p>Guest pet: <%= @guest_pet.name %> </p>
+<div class="booking-show-wrapper form-centered">
+    <div class="booking-details">
+      <p class="date-of-stay"><%=@user.name%> stayed from <%=@booking.starting_at%> to <%=@booking.ending_at%></p>
+      <p class="price-of-booking"><span class="bold"><i class="fas fa-pound-sign"></i> (total): </span><%= @to_pay%> (<%=(@booking.ending_at - @booking.starting_at).to_i%> days, <%=@booking.listing.price_per_day%> per day)</p>
+        <p class="pet-link"><span class="bold">Guest pet:</span>
+        <%= link_to pet_path(@guest_pet.id) do  %>
+        <%= @guest_pet.name %>
+        <%end%></p>
+    </div>
+    <div class="booking-photos">
+    <div class="fotorama" data-allowfullscreen="true" data-transition="crossfade" data-fit="cover" data-loop="true" data-autoplay="3000" data-keyboard="true" data-nav="thumbs" >
+      <% @booking.listing.photos.each do |photo| %>
+        <%=cl_image_tag photo.key%>
+      <%end%>
+    </div>
+    </div>
+</div>
 
 <% elsif @other_user_pending_guest_future_stay %>
-<p><%=@user.name%>'s request is still pending </p>
-<p>Requested to stay from <%=@booking.starting_at%> until <%=@booking.ending_at%></p>
-<p>To pay: <%= @to_pay%></p>
-<p>Guest pet: <%= @guest_pet.name %> </p>
+<div class="booking-show-wrapper form-centered">
+    <div class="booking-details">
+      <p class="pending-booking"><i class="fas fa-question-circle"></i><%=@user.name%>'s request is still pending </p>
+      <p class="date-of-stay">Requested to stay from <%=@booking.starting_at%> until <%=@booking.ending_at%></p>
+      <p class="price-of-booking"><span class="bold"><i class="fas fa-pound-sign"></i> (total): </span><%= @to_pay%> (<%=(@booking.ending_at - @booking.starting_at).to_i%> days, <%=@booking.listing.price_per_day%> per day)</p>
+        <p class="pet-link"><span class="bold">Guest pet:</span>
+        <%= link_to pet_path(@guest_pet.id) do  %>
+        <%= @guest_pet.name %>
+        <%end%></p>
+    </div>
+
+    <div class="booking-photos">
+    <div class="fotorama" data-allowfullscreen="true" data-transition="crossfade" data-fit="cover" data-loop="true" data-autoplay="3000" data-keyboard="true" data-nav="thumbs" >
+      <% @booking.listing.photos.each do |photo| %>
+        <%=cl_image_tag photo.key%>
+      <%end%>
+    </div>
+    </div>
+</div>
+
+
 
 <% else @other_user_pending_guest_past_stay %>
-<p><%=@user.name%> missed it! The request was not accepted on time. </p>
-<p>Requested to stay from <%=@booking.starting_at%> until <%=@booking.ending_at%></p>
-<p>To pay: <%= @to_pay%></p>
-<p>Guest pet: <%= @guest_pet.name %> </p>
+
+<div class="booking-show-wrapper form-centered">
+    <div class="booking-details">
+      <p class="missed-booking"><i class="fas fa-exclamation-circle"></i><%=@user.name%> missed it! The request was not accepted on time. </p>
+      <p class="date-of-stay">Requested to stay from <%=@booking.starting_at%> until <%=@booking.ending_at%></p>
+      <p class="price-of-booking"><span class="bold"><i class="fas fa-pound-sign"></i> (total): </span><%= @to_pay%> (<%=(@booking.ending_at - @booking.starting_at).to_i%> days, <%=@booking.listing.price_per_day%> per day)</p>
+        <p class="pet-link"><span class="bold">Guest pet:</span>
+        <%= link_to pet_path(@guest_pet.id) do  %>
+        <%= @guest_pet.name %>
+        <%end%></p>
+    </div>
+    <div class="booking-photos">
+    <div class="fotorama" data-allowfullscreen="true" data-transition="crossfade" data-fit="cover" data-loop="true" data-autoplay="3000" data-keyboard="true" data-nav="thumbs" >
+      <% @booking.listing.photos.each do |photo| %>
+        <%=cl_image_tag photo.key%>
+      <%end%>
+    </div>
+    </div>
+</div>
 
 <%end%>
 

@@ -1,7 +1,7 @@
 .booking-show-wrapper.form-centered {
   flex-direction: row;
   width: inherit;
-  margin: 40px 200px;
+  margin: 40px 10vw;
   justify-content: space-evenly;
 
   .fas {
@@ -95,4 +95,177 @@
   .fas {
     padding-right: 5px;
   }
+}
+
+
+
+@media only screen and  (max-width: 1340px) and (min-width: 992px) {
+.booking-show-wrapper.form-centered {
+  margin: 40px 5vw;
+}
+
+
+.booking-show-wrapper.form-centered {
+
+.fotorama img.fotorama__img {
+  min-width: 200px !important;
+  max-width: 300px !important;
+}
+
+.fotorama__stage, .fotorama__stage__shaft, .fotorama__wrap.fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
+  min-width: 200px !important;
+  max-width: 300px !important;
+}
+
+.fotorama div.fotorama__thumb img.fotorama__img {
+  min-width: inherit !important;
+}
+
+
+
+}
+
+
+.booking-photos {
+  padding-left: 20px;
+}
+
+.date-of-stay {
+  font-size: 18px;
+}
+
+}
+
+
+
+
+  @media only screen and  (max-width: 992px) and (min-width: 550px) {
+
+ .booking-show-wrapper.form-centered {
+  margin: 40px 5vw;
+}
+
+.missed-booking, .pending-booking {
+  text-align: center;
+  font-size: 14px;
+
+}
+
+.booking-show-wrapper.form-centered {
+
+.fotorama img.fotorama__img {
+  min-width: 150px !important;
+  max-width: 250px !important;
+}
+
+.fotorama__stage, .fotorama__stage__shaft, .fotorama__wrap.fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
+  min-width: 150px !important;
+  max-width: 250px !important;
+}
+
+.fotorama div.fotorama__thumb img.fotorama__img {
+  min-width: inherit !important;
+}
+
+
+
+}
+
+
+.booking-details  {
+  align-items: flex-start;
+  }
+
+.pet-link {
+  text-align: left;
+  align-self: left;
+}
+
+.booking-photos {
+  padding-left: 20px;
+}
+
+.date-of-stay {
+  font-size: 16px;
+  white-space: normal;
+}
+
+
+}
+
+
+
+
+
+@media only screen and  (max-width: 550px)  {
+
+ .booking-show-wrapper.form-centered {
+  margin: 40px 5vw;
+  flex-direction: column;
+}
+
+
+.booking-show-wrapper.form-centered {
+
+.fotorama img.fotorama__img {
+  min-width: 150px !important;
+  max-width: 250px !important;
+}
+
+.fotorama__stage, .fotorama__stage__shaft, .fotorama__wrap.fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
+  min-width: 150px !important;
+  max-width: 250px !important;
+}
+
+.fotorama div.fotorama__thumb img.fotorama__img {
+  min-width: inherit !important;
+}
+
+
+
+}
+
+
+.booking-buttons-wrapper {
+  margin-top: 15px;
+}
+
+.booking-buttons-wrapper .btn-show-more {
+  width: 90px;
+}
+
+
+.booking-details  {
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 15px;
+  }
+
+
+
+.booking-photos {
+  padding-left: 20px;
+}
+
+.date-of-stay {
+  font-size: 16px;
+  white-space: normal;
+  text-align: center;
+
+}
+
+
+
+.pending-booking, .missed-booking {
+  text-align: center;
+  font-size: 14px;
+}
+.price-of-booking{
+  text-align: center;
+}
+
+.booking-photos {
+  padding: 20px 10px 20px 10px;
+}
+
 }
