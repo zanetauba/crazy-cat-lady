@@ -12,10 +12,12 @@ class UsersController < ApplicationController
     @upcoming_bookings = @user.bookings.where(['starting_at >= ?',  DateTime.now])
     @expired_bookings = @user.bookings.where(['starting_at < ? and ending_at < ? and accepted = true', DateTime.now, DateTime.now]) + @user.bookings.where(['starting_at < ? and accepted = false', DateTime.now])
 
-    @upcoming_hostings = @booking_info.where(['ending_at >= ?', DateTime.now])
-    @expired_hostings = @booking_info.where(['ending_at < ?', DateTime.now])
-    @requests_to_accept = @requests.where(['starting_at >= ?',  DateTime.now])
-    @expired_requests = @requests.where(['starting_at < ?', DateTime.now])
+    @ongoing_hostings = @booking_info.where(['ending_at >= ? and starting_at <= ? and accepted = true',  DateTime.now, DateTime.now])
+    @upcoming_hostings = @booking_info.where(['starting_at > ?',  DateTime.now])
+    @expired_hostings = @booking_info.where(['starting_at < ? and ending_at < ? and accepted = true', DateTime.now, DateTime.now])
+
+    @requests_to_accept = @requests.where(['starting_at >= ? and accepted = false',  DateTime.now])
+    @expired_requests = @requests.where(['starting_at < ? and accepted = false', DateTime.now])
 
     #@pet_id_booking = @booking_info.pet_id
     #@guest_pet = Pet.find(@pet_id_booking)

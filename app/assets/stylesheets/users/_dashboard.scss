@@ -29,9 +29,7 @@
 
 }
 
-.upcoming-hostings {
-  height: 445px;
-}
+
 
 .expired-hostings {
   height: 410px;
@@ -154,6 +152,10 @@ li {
 
   }
 
+.img-dashboard.img-ongoing {
+  margin-bottom: 50px;
+}
+
 .radius {
   border-radius: 50%;
     box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
@@ -258,7 +260,9 @@ li {
   margin-bottom: 48px;
 }
 
-
+.btn-cancel.btn-upcoming-hosting {
+  margin-bottom: 5px;
+}
 
 /*Font awesome*/
 
