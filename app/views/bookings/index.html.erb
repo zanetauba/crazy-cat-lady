@@ -1,9 +1,9 @@
-    <% @bookings.each do |booking| %>
-      <%= booking.listing.title %></h3>
-        <ul>
-          <li><%=booking.starting_at%></li>
-          <li><%=booking.ending_at%></li>
-          <li>Hosted by: <%=booking.listing.user.email%></li>
-        </ul>
-    <% end %>
+<% @bookings.each do |booking| %>
+  <%= booking.listing.title %></h3>
+    <ul>
+      <li><%=booking.starting_at%></li>
+      <li><%=booking.ending_at%></li>
+      <li>Hosted by: <%=booking.listing.user.email%></li>
+    </ul>
+<% end %>
 

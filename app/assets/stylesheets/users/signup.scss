@@ -1,5 +1,5 @@
 .form-signup {
-   .form-text.text-muted {
+  .form-text.text-muted {
     color: grey !important;
     padding-top: 5px;
   }
@@ -8,48 +8,40 @@
 
 
 @media only screen and  (max-width: 1340px) and (min-width: 992px) {
-.form-centered.form-signup {
-  margin-top: 60px;
-}
+
+  .form-centered.form-signup {
+    margin-top: 60px;
+  }
 
 }
 
 @media only screen and  (max-width: 992px) and (min-width: 550px) {
 
-.form-centered.form-signup {
-  padding-left: 30px;
-  padding-right: 30px;
-
-  .form-actions.login {
-    margin-left: 6vw;
-    margin-right: 6vw;
+  .form-centered.form-signup {
+    padding-left: 30px;
+    padding-right: 30px;
+    .form-actions.login {
+      margin-left: 6vw;
+      margin-right: 6vw;
+    }
   }
-
-}
-
 
 }
 
 
 @media only screen and  (max-width: 550px)  {
 
-.form-signup {
-  margin-top: 30px;
-
-  padding-left: 30px;
-  padding-right: 30px;
-
-  .form-actions.login {
-    margin-left: 12vw;
-    margin-right: 12vw;
+  .form-signup {
+    margin-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    .form-actions.login {
+      margin-left: 12vw;
+      margin-right: 12vw;
+    }
+    .form-centered #user_avatar {
+      padding-left: 12vw;
+    }
   }
-
-  .form-centered #user_avatar {
-    padding-left: 12vw;
-  }
-
-
-}
-
 
 }

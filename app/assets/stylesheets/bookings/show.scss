@@ -1,34 +1,21 @@
+/*main divs*/
+
 .booking-show-wrapper.form-centered {
   flex-direction: row;
   width: inherit;
   margin: 40px 10vw;
   justify-content: space-evenly;
-
   .fas {
     color: $orange;
   }
 }
 
+
+
+/*card content*/
+
 .bold {
   font-weight: 700;
-}
-
-
-.booking-show-wrapper.form-centered {
-
-.fotorama img.fotorama__img {
-  min-width: 500px !important;
-}
-
-.fotorama__stage, .fotorama__stage__shaft, .fotorama__wrap.fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
-  min-width: 500px !important;
-}
-
-.fotorama div.fotorama__thumb img.fotorama__img {
-  min-width: inherit !important;
-}
-
-
 }
 
 
@@ -44,6 +31,7 @@
   margin-bottom: 40px;
 }
 
+
 .booking-details {
   display: flex;
   flex-direction: column;
@@ -51,6 +39,7 @@
   align-items: center;
   padding: 20px 20px 30px 20px;
 }
+
 
 .booking-photos {
   padding: 20px 20px 30px 70px;
@@ -64,7 +53,6 @@
 .btn-rate-booking {
   border-color: #1EDD88;
   color: #1EDD88;
-
   &:hover {
     color: white;
     background-color: #1EDD88;
@@ -72,16 +60,13 @@
 }
 
 
-
 .pet-link a:hover {
   color: $orange;
 }
 
 
-
 .missed-booking {
   color: red;
-
   .fas.fa-exclamation-circle {
     color: red;
     padding-right: 5px;
@@ -91,7 +76,6 @@
 
 .pending-booking {
   color: $orange;
-
   .fas {
     padding-right: 5px;
   }
@@ -99,173 +83,167 @@
 
 
 
-@media only screen and  (max-width: 1340px) and (min-width: 992px) {
-.booking-show-wrapper.form-centered {
-  margin: 40px 5vw;
-}
-
+/*photos*/
 
 .booking-show-wrapper.form-centered {
 
-.fotorama img.fotorama__img {
-  min-width: 200px !important;
-  max-width: 300px !important;
-}
-
-.fotorama__stage, .fotorama__stage__shaft, .fotorama__wrap.fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
-  min-width: 200px !important;
-  max-width: 300px !important;
-}
-
-.fotorama div.fotorama__thumb img.fotorama__img {
-  min-width: inherit !important;
-}
-
-
-
-}
-
-
-.booking-photos {
-  padding-left: 20px;
-}
-
-.date-of-stay {
-  font-size: 18px;
-}
-
-}
-
-
-
-
-  @media only screen and  (max-width: 992px) and (min-width: 550px) {
-
- .booking-show-wrapper.form-centered {
-  margin: 40px 5vw;
-}
-
-.missed-booking, .pending-booking {
-  text-align: center;
-  font-size: 14px;
-
-}
-
-.booking-show-wrapper.form-centered {
-
-.fotorama img.fotorama__img {
-  min-width: 150px !important;
-  max-width: 250px !important;
-}
-
-.fotorama__stage, .fotorama__stage__shaft, .fotorama__wrap.fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
-  min-width: 150px !important;
-  max-width: 250px !important;
-}
-
-.fotorama div.fotorama__thumb img.fotorama__img {
-  min-width: inherit !important;
-}
-
-
-
-}
-
-
-.booking-details  {
-  align-items: flex-start;
+  .fotorama img.fotorama__img {
+    min-width: 500px !important;
   }
 
-.pet-link {
-  text-align: left;
-  align-self: left;
-}
+  .fotorama__stage, .fotorama__stage__shaft, .fotorama__wrap.fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
+    min-width: 500px !important;
+  }
 
-.booking-photos {
-  padding-left: 20px;
-}
-
-.date-of-stay {
-  font-size: 16px;
-  white-space: normal;
-}
-
+  .fotorama div.fotorama__thumb img.fotorama__img {
+    min-width: inherit !important;
+  }
 
 }
 
+
+
+
+
+@media only screen and  (max-width: 1340px) and (min-width: 992px) {
+
+
+  .booking-show-wrapper.form-centered {
+    margin: 40px 5vw;
+
+  .fotorama img.fotorama__img {
+    min-width: 200px !important;
+    max-width: 300px !important;
+  }
+
+  .fotorama__stage, .fotorama__stage__shaft, .fotorama__wrap.fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
+    min-width: 200px !important;
+    max-width: 300px !important;
+  }
+
+  .fotorama div.fotorama__thumb img.fotorama__img {
+    min-width: inherit !important;
+  }
+
+  }
+
+
+  .booking-photos {
+    padding-left: 20px;
+  }
+
+  .date-of-stay {
+    font-size: 18px;
+  }
+
+}
+
+
+
+
+@media only screen and  (max-width: 992px) and (min-width: 550px) {
+
+  .missed-booking, .pending-booking {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .booking-show-wrapper.form-centered {
+    margin: 40px 5vw;
+
+  .fotorama img.fotorama__img {
+    min-width: 150px !important;
+    max-width: 250px !important;
+  }
+
+  .fotorama__stage, .fotorama__stage__shaft, .fotorama__wrap.fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
+    min-width: 150px !important;
+    max-width: 250px !important;
+  }
+
+  .fotorama div.fotorama__thumb img.fotorama__img {
+    min-width: inherit !important;
+  }
+
+  }
+
+  .booking-details  {
+    align-items: flex-start;
+  }
+
+  .pet-link {
+    text-align: left;
+    align-self: left;
+  }
+
+  .booking-photos {
+    padding-left: 20px;
+  }
+
+  .date-of-stay {
+    font-size: 16px;
+    white-space: normal;
+  }
+
+}
 
 
 
 
 @media only screen and  (max-width: 550px)  {
 
- .booking-show-wrapper.form-centered {
-  margin: 40px 5vw;
-  flex-direction: column;
-}
 
-
-.booking-show-wrapper.form-centered {
-
-.fotorama img.fotorama__img {
-  min-width: 150px !important;
-  max-width: 250px !important;
-}
-
-.fotorama__stage, .fotorama__stage__shaft, .fotorama__wrap.fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
-  min-width: 150px !important;
-  max-width: 250px !important;
-}
-
-.fotorama div.fotorama__thumb img.fotorama__img {
-  min-width: inherit !important;
-}
-
-
-
-}
-
-
-.booking-buttons-wrapper {
-  margin-top: 15px;
-}
-
-.booking-buttons-wrapper .btn-show-more {
-  width: 90px;
-}
-
-
-.booking-details  {
-  align-items: center;
-  flex-direction: column;
-  padding-bottom: 15px;
+  .booking-show-wrapper.form-centered {
+      margin: 40px 5vw;
+      flex-direction: column;
+    .fotorama img.fotorama__img {
+      min-width: 150px !important;
+      max-width: 250px !important;
+    }
+    .fotorama__stage, .fotorama__stage__shaft, .fotorama__wrap.fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
+      min-width: 150px !important;
+      max-width: 250px !important;
+    }
+    .fotorama div.fotorama__thumb img.fotorama__img {
+      min-width: inherit !important;
+    }
   }
 
+  .booking-buttons-wrapper {
+    margin-top: 15px;
+  }
 
+  .booking-buttons-wrapper .btn-show-more {
+    width: 90px;
+  }
 
-.booking-photos {
-  padding-left: 20px;
-}
+  .booking-details  {
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 15px;
+  }
 
-.date-of-stay {
-  font-size: 16px;
-  white-space: normal;
-  text-align: center;
+  .booking-photos {
+    padding-left: 20px;
+  }
 
-}
+  .date-of-stay {
+    font-size: 16px;
+    white-space: normal;
+    text-align: center;
+  }
 
+  .pending-booking, .missed-booking {
+    text-align: center;
+    font-size: 14px;
+  }
 
+  .price-of-booking{
+    text-align: center;
+  }
 
-.pending-booking, .missed-booking {
-  text-align: center;
-  font-size: 14px;
-}
-.price-of-booking{
-  text-align: center;
-}
-
-.booking-photos {
-  padding: 20px 10px 20px 10px;
-}
+  .booking-photos {
+    padding: 20px 10px 20px 10px;
+  }
 
 }

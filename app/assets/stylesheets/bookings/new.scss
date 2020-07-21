@@ -8,15 +8,14 @@
   border-radius: 8px;
   position: sticky;
   top: 0;
-
   .form-group.booking_starting_at label,  .form-group.booking_ending_at label{
     font-weight: 700;
   }
-
   legend {
     font-weight: 700;
   }
 }
+
 
 .form-group.booking_starting_at, .form-group.booking_ending_at, .form-group.booking_pet_id {
   display: flex;
@@ -26,19 +25,16 @@
   input {
     align-self: center;
   }
-
   abbr{
     display: none;
   }
 }
 
-.form-group.booking_pet_id {
+
+.form-group.booking_pet_id, .form-group.booking_ending_at {
   padding-bottom: 15px;
 }
 
-.form-group.booking_ending_at {
-  padding-bottom: 15px;
-}
 
 .btn-book {
   color: white;
@@ -46,7 +42,7 @@
   align-self: center;
   border-radius: 20px;
   background-color: $orange;
-  &hover{
+  &:hover{
     background-color: #e56e0d;
   }
 }

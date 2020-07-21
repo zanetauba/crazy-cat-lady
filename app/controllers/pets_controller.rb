@@ -8,23 +8,16 @@ class PetsController < ApplicationController
     @pet = Pet.new
   end
 
-
-
-
   def create
     @pet = Pet.new(pet_params)
     @pet.user = current_user
-
-
     if @pet.name !=nil && @pet.photo_url != nil && @pet.name != "" && @pet.photo_url.attached?
-     @pet.save
+      @pet.save
       redirect_to pet_path(@pet)
-
     else
-    flash[:alert] = 'Fill out all the required fields'
-
-    render 'new'
-  end
+      flash[:alert] = 'Fill out all the required fields'
+      render 'new'
+    end
   end
 
   def edit

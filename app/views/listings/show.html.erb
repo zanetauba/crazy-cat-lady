@@ -1,90 +1,86 @@
 
 <div class="photos-wrapper">
-<div class="fotorama" data-allowfullscreen="true" data-transition="crossfade" data-fit="cover" data-loop="true" data-autoplay="3000" data-keyboard="true" data-nav="thumbs" >
+  <div class="fotorama" data-allowfullscreen="true" data-transition="crossfade" data-fit="cover" data-loop="true" data-autoplay="3000" data-keyboard="true" data-nav="thumbs" >
   <% @listing.photos.each do |photo| %>
     <%=cl_image_tag photo.key%>
   <%end%>
+  </div>
 </div>
-</div>
-
-
-
 
 
 <div class="container">
   <div class="row">
-
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 listing-show-details">
-    <div class="listing-title-and-photo">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 listing-show-details">
+      <div class="listing-title-and-photo">
         <h4><%=@listing.title%></h4>
         <%= link_to user_path(@listing.user.id) do %>
           <%=cl_image_tag @listing.user.avatar.key, class: "avatar avatar-listing"%>
         <%end%>
-    </div>
-    <ul class="list-unstyled list-listing-details">
+      </div>
+      <ul class="list-unstyled list-listing-details">
         <li class="listing-list"><i class="fas fa-search-location"></i> <%=@listing.location%></li>
         <li class="listing-list"><i class="fas fa-user-alt"></i> <%=@listing.user.name%> <%=@listing.user.surname%></li>
         <li class="listing-list listing-description-show"><i class="fas fa-info-circle"></i> <%=@listing.description%></li>
-    </ul>
-    <div class="price-wrapper price-wrapper-show">
-      <p class="listing-price"><i class="fas fa-pound-sign"></i> <span class="price"> <%=@listing.price_per_day%></span> per day</p>
+      </ul>
+      <div class="price-wrapper price-wrapper-show">
+        <p class="listing-price"><i class="fas fa-pound-sign"></i> <span class="price"> <%=@listing.price_per_day%></span> per day</p>
+      </div>
+
+      <% if @listing.reviews.any? %>
+        <div class="listing-reviews-wrapper">
+          <div class="listing-reviews-title">
+            <div id="star-rating">
+            <% render_stars(@average_rating).each do |star| %>
+              <%= image_tag(star, width: '24') %>
+            <% end %>
+            </div>
+            <p><%= @average_rating %> (<%=@amount_of_reviews%> reviews)</p>
+          </div>
+
+          <% @listing.reviews.each do |review| %>
+          <div class="comments-wrapper">
+            <%=cl_image_tag review.user.avatar.key, class: "avatar avatar-listing"%>
+              <div class="comment-details">
+                <p class="bold-name"><%=review.user.name%></p>
+                <p class="comment-date"><%=review.created_at.strftime("%d/%m/%Y")%></p>
+                <div id="star-rating">
+                <% render_stars(review.rating).each do |star| %>
+                  <%= image_tag(star, width: '18') %>
+                <% end %>
+                </div>
+                <p class="comment-content"><%=review.content%></p>
+              </div>
+          </div>
+          <% end %>
+      </div>
+
+      <% else %>
+        <p class="info-icon listing-reviews-wrapper empty-reviews-box"><i class="fas fa-question-circle"></i>This listing hasn't been rated yet</p>
+      <% end %>
+
     </div>
 
-    <% if @listing.reviews.any? %>
-    <div class="listing-reviews-wrapper">
-      <div class="listing-reviews-title">
-        <div id="star-rating">
-            <% render_stars(@average_rating).each do |star| %>
-            <%= image_tag(star, width: '24') %>
-            <% end %>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 booking-form">
+      <% if @listing.user != current_user && @user.pets.any? %>
+        <%=render :partial => 'bookings/new' %>
+      <% elsif @listing.user != current_user %>
+        <div class="not-able-to-book">
+          <p><i class="fas fa-exclamation-triangle"></i>Add a pet to be able to book a listing</p>
+          <%= link_to "+", new_pet_path, class: "btn btn-default btn-warning btn-book btn-plus" %>
         </div>
-            <p><%= @average_rating %> (<%=@amount_of_reviews%> reviews)</p>
-      </div>
-
-            <% @listing.reviews.each do |review| %>
-              <div class="comments-wrapper">
-                <%=cl_image_tag review.user.avatar.key, class: "avatar avatar-listing"%>
-                <div class="comment-details">
-                  <p class="bold-name"><%=review.user.name%></p>
-                  <p class="comment-date"><%=review.created_at.strftime("%d/%m/%Y")%></p>
-                  <div id="star-rating">
-                    <% render_stars(review.rating).each do |star| %>
-                      <%= image_tag(star, width: '18') %>
-                    <% end %>
-                  </div>
-                  <p class="comment-content"><%=review.content%></p>
-                </div>
-              </div>
-            <% end %>
-       </div>
-
-    <% else %>
-      <p class="info-icon listing-reviews-wrapper empty-reviews-box"><i class="fas fa-question-circle"></i>This listing hasn't been rated yet</p>
-    <% end %>
-
-</div>
-
-
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 booking-form">
-    <% if @listing.user != current_user && @user.pets.any? %>
-      <%=render :partial => 'bookings/new' %>
-    <% elsif @listing.user != current_user %>
-      <div class="not-able-to-book">
-        <p><i class="fas fa-exclamation-triangle"></i>Add a pet to be able to book a listing</p>
-        <%= link_to "+", new_pet_path, class: "btn btn-default btn-warning btn-book btn-plus" %>
-      </div>
       <%else%>
-      <div class="not-able-to-book">
-        <p><i class="fas fa-heart"></i>This is your listing!</p>
-        <div class="listing-button-wrapper">
-          <%= link_to "Go to your dashboard", "/dashboard", class: "btn btn-default btn-warning btn-book" %>
-          <%= link_to "Search", root_path, class: "btn btn-default btn-warning btn-book"%>
+        <div class="not-able-to-book">
+          <p><i class="fas fa-heart"></i>This is your listing!</p>
+          <div class="listing-button-wrapper">
+            <%= link_to "Go to your dashboard", "/dashboard", class: "btn btn-default btn-warning btn-book" %>
+            <%= link_to "Search", root_path, class: "btn btn-default btn-warning btn-book"%>
+          </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
 
-</div>
+  </div>
 </div>
 
 <div id="map", class="listing-map"

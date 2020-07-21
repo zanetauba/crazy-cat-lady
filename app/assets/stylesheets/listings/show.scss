@@ -1,6 +1,5 @@
 /*main divs*/
 
-
 .listing-show-details {
   padding: 0px 20px 20px 20px;
   background-color: white;
@@ -12,8 +11,6 @@
   position: sticky;
   top: 0;
 }
-
-
 
 
 
@@ -32,8 +29,6 @@
 
 .fotorama img.fotorama__img {
   min-width: 1000px !important;
-
-
 }
 
 .fotorama__stage, .fotorama__stage__shaft, .fotorama__wrap.fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
@@ -45,11 +40,11 @@
 }
 
 .fotorama--fullscreen .fotorama__loaded img {
-    width: 100vw !important;
-    height: 100vh !important;
-    object-fit: contain !important;
-    top: 0px !important;
-    left: 0px !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  object-fit: contain !important;
+  top: 0px !important;
+  left: 0px !important;
 }
 
 .fotorama--fullscreen .fotorama__nav-wrap {
@@ -120,8 +115,8 @@
 /*reviews*/
 
 .listing-reviews-wrapper {
-    border-top: 1px solid #e0e0e0;
-    padding-top: 25px;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 25px;
 }
 
 .listing-reviews-title {
@@ -151,13 +146,11 @@
 }
 
 .comment-details{
-
   margin-left: 30px;
   padding: 10px 40px;
   p{
     margin-bottom: 0px;
   }
-
   #star-rating{
     padding-top: 15px;
     padding-bottom: 7px;
@@ -187,7 +180,6 @@
 
 /*booking form*/
 
-
 .not-able-to-book {
   background-color: white;
   display: flex;
@@ -204,12 +196,10 @@
     font-weight: 500;
     color: grey;
   }
-
   .fas {
     padding-right: 5px;
     color: #efcb00;
   }
-
   .fas.fa-heart {
     color: red;
   }
@@ -223,40 +213,35 @@
   width: 50px;
 }
 
-
-
-   .listing-button-wrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-   }
+.listing-button-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 .listing-button-wrapper .btn-book {
-   width: 200px;
-   font-size: 14px;
-   margin-top: 15px;
+  width: 200px;
+  font-size: 14px;
+  margin-top: 15px;
 }
 
 
 /*map*/
 
 #map.listing-map {
-    height: 250px !important;
-    margin-left: 3vw;
-    margin-right: auto;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    width: 94vw !important;
-
-    .mapboxgl-popup {
-      display: none;
-    }
+  height: 250px !important;
+  margin-left: 3vw;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 94vw !important;
+  .mapboxgl-popup {
+    display: none;
+  }
 }
 
 
-
-
-  @media only screen and  (max-width: 992px) and (min-width: 550px) {
+@media only screen and  (max-width: 992px) and (min-width: 550px) {
 
   .fotorama img.fotorama__img {
     min-width: 550px !important;
@@ -267,43 +252,44 @@
   }
 
   .col-xs-12.col-sm-12.col-md-12.col-lg-6.col-xl-6.listing-show-details {
-     padding-left: 25px;
-     padding-right: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
    }
 
-   .listing-title-and-photo h4 {
+  .listing-title-and-photo h4 {
     font-size: 18px;
-   }
+  }
 
-   .price-wrapper-show .fas {
+  .price-wrapper-show .fas {
     font-size: 18px;
-   }
+  }
 
-   .price-wrapper-show {
+  .price-wrapper-show {
     font-size: 17px;
-   }
+  }
 
-   .not-able-to-book {
+  .not-able-to-book {
     margin-left: 0px;
-   }
+  }
 
-   #new_booking {
+  #new_booking {
     margin-left: 0px !important;
     padding-top: 15px !important;
     padding-bottom: 25px !important;
     .form-control {
       margin-top: 5px;
     }
-   }
+  }
 
-   .form-group.booking_pet_id {
+  .form-group.booking_pet_id {
     padding-bottom: 5px !important;
-   }
+  }
 }
 
 
 @media only screen and  (max-width: 550px)  {
-    .fotorama img.fotorama__img {
+
+  .fotorama img.fotorama__img {
     min-width: 100vw !important;
   }
 
@@ -312,9 +298,9 @@
   }
 
   .col-xs-12.col-sm-12.col-md-12.col-lg-6.col-xl-6.listing-show-details {
-     padding-left: 18px;
-     padding-right: 18px;
-     padding-bottom: 2px;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-bottom: 2px;
    }
 
 
@@ -331,19 +317,19 @@
     padding-top: 15px;
   }
 
-   .listing-title-and-photo h4 {
+  .listing-title-and-photo h4 {
     font-size: 16px;
-   }
+  }
 
-   .price-wrapper-show .fas {
+  .price-wrapper-show .fas {
     font-size: 16px;
-   }
+  }
 
-   .price-wrapper-show {
+  .price-wrapper-show {
     font-size: 15px;
-   }
+  }
 
-   .not-able-to-book {
+  .not-able-to-book {
     margin-left: 0px;
     padding-top: 15px;
     padding-bottom: 25px;
@@ -351,25 +337,25 @@
       font-size: 14px;
       margin-bottom: 6px;
     }
-   }
+  }
 
-   .btn-book.btn-plus {
+  .btn-book.btn-plus {
     font-size: 20px;
     width: 36px;
-   }
+  }
 
-   #new_booking {
+  #new_booking {
     margin-left: 0px !important;
     padding-top: 15px !important;
     padding-bottom: 25px !important;
     .form-control {
       margin-top: 5px;
     }
-   }
+  }
 
-   .form-group.booking_pet_id {
+  .form-group.booking_pet_id {
     padding-bottom: 5px !important;
-   }
+  }
 
   .comments-wrapper {
     padding: 5px 10px 7px 10px;
@@ -390,11 +376,9 @@
 
   .listing-reviews-title {
     font-size: 16px;
-
     #star-rating img {
       width: 20px;
     }
-
     p {
       padding-top: 5px;
     }

@@ -1,6 +1,4 @@
 class Booking < ApplicationRecord
-
-
   belongs_to :user
   belongs_to :listing
   validates :starting_at, presence: true
@@ -8,9 +6,4 @@ class Booking < ApplicationRecord
   validates :pet_id, presence: true
   has_many :reviews, dependent: :destroy
   belongs_to :pet
-  #has_many :pets, through: :user, source: :pets
-
-
-
-
 end

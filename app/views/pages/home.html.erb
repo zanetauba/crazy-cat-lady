@@ -1,11 +1,8 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(https://res.cloudinary.com/zaneta111uba111shula111/image/upload/v1590929285/yerlin-matu-GtwiBmtJvaU-unsplash.jpg);">
   <div class="container-home">
-
-  <h5 class="small-device-title">Find a perfect hotel for your cat!</h5>
-
+    <h5 class="small-device-title">Find a perfect hotel for your cat!</h5>
 
     <%= form_tag listings_path, method: :get do %>
-
       <%= text_field_tag :location_query,
         params[:query],
         :required => true,
@@ -19,7 +16,6 @@
         class: "form-control",
         placeholder: "Maximum distance (in km)"
       %>
-
 
       <%= number_field_tag :max_price_query,
         params[:query],
@@ -36,10 +32,12 @@
     <% end %>
 
   </div>
+
   <div class="type-wrapper">
-  <h3 class="type">Find a hotel for your cat in: </h3>
-  <div class="js-wrapper"><h3 id="type"></h3></div>
-</div>
+    <h3 class="type">Find a hotel for your cat in: </h3>
+    <div class="js-wrapper"><h3 id="type"></h3></div>
+  </div>
+
 </div>
 
 

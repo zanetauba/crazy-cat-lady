@@ -8,4 +8,5 @@ class PagesController < ApplicationController
       @locations << l.location
     end
   end
+
 end

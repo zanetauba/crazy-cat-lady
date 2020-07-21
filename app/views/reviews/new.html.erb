@@ -1,8 +1,7 @@
-
-    <div class="form-centered new-review">
-      <%= simple_form_for [@listing, @booking, @review] do |f| %>
-        <%= f.input :content, required: true %>
-        <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", required: true %>
-          <%= f.submit "Send your review", class: 'btn btn-default btn-warning btn-book btn-review' %>
-      <% end %>
-    </div>
+<div class="form-centered new-review">
+  <%= simple_form_for [@listing, @booking, @review] do |f| %>
+    <%= f.input :content, required: true %>
+    <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", required: true %>
+    <%= f.submit "Send your review", class: 'btn btn-default btn-warning btn-book btn-review' %>
+  <% end %>
+</div>

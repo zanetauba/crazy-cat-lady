@@ -17,8 +17,6 @@ class User < ApplicationRecord
   has_many :hosted_listings, class_name: 'Listing', dependent: :destroy
   has_many :my_reviews, through: :listings, source: :reviews, dependent: :destroy
 
-
-
    def requests # Booking request for meals I own
     Booking.joins(:listing).where('listings.user_id' => id).where(accepted: false)
    end
@@ -26,8 +24,5 @@ class User < ApplicationRecord
    def booking_info # Booking request for meals I own
     Booking.joins(:listing).where('listings.user_id' => id).where(accepted: true)
    end
-
-
-
 
 end

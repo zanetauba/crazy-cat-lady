@@ -19,31 +19,31 @@
 
 @media only screen  and (max-width: 1340px) and (min-width: 812px) {
 
-.form-control {
-  width: 70vw;
-  margin-top: 18px;
-  position: relative;
-}
+  .form-control {
+    width: 70vw;
+    margin-top: 18px;
+    position: relative;
+  }
 
-.btn-primary, .btn-success {
-  width: 15vw;
-  margin-top: 18px;
-}
+  .btn-primary, .btn-success {
+    width: 15vw;
+    margin-top: 18px;
+  }
 
 }
 
 @media only screen and  (max-width: 812px) {
 
-.form-control {
-  width: 70vw;
-  margin-top: 18px;
-  position: relative;
-}
+  .form-control {
+    width: 70vw;
+    margin-top: 18px;
+    position: relative;
+  }
 
-.btn-primary, .btn-success {
-  width: 22vw;
-  font-size: 12px;
-  margin-top: 20px;
-}
+  .btn-primary, .btn-success {
+    width: 22vw;
+    font-size: 12px;
+    margin-top: 20px;
+  }
 
 }

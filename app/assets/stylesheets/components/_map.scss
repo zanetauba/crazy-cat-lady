@@ -1,8 +1,6 @@
 
 /*main divs*/
 
-
-
 #map.index-map {
   min-width: 30vw;
   min-height: 100vh;
@@ -16,7 +14,6 @@
 
 
 /*content inside cards*/
-
 
 .mapboxgl-popup .info-icon {
   font-size: 12px;
@@ -43,7 +40,6 @@
   &:hover {
     color: $orange;
   }
-
 }
 
 .map-card-info {
@@ -71,8 +67,6 @@
   padding: 0 0;
 }
 
-
-
 .mapboxgl-popup-close-button {
   z-index: 100;
   color: white;
@@ -92,13 +86,11 @@
 
 @media only screen and  (max-width: 550px)  {
 
-.mapboxgl-ctrl-top-right .mapboxgl-ctrl {
-  margin: 0px 0px;
-  margin-right: 5px;
-  margin-top: 10px;
-}
-
-
+  .mapboxgl-ctrl-top-right .mapboxgl-ctrl {
+    margin: 0px 0px;
+    margin-right: 5px;
+    margin-top: 10px;
+  }
 
 }
 

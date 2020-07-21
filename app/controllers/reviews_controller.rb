@@ -11,7 +11,6 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.listing = @listing
     @review.booking = @booking
-
     if @review.save
       redirect_to listing_path(@review.listing)
     else
@@ -24,6 +23,8 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
   end
 
+
+
   private
 
     def set_listing
@@ -34,8 +35,8 @@ class ReviewsController < ApplicationController
       @booking = Booking.find(params[:booking_id])
     end
 
-  def review_params
-    params.require(:review).permit(:content, :rating, :user_id, :listing_id, :booking_id)
-  end
+    def review_params
+      params.require(:review).permit(:content, :rating, :user_id, :listing_id, :booking_id)
+    end
 
 end

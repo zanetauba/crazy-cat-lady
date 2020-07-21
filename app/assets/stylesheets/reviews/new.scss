@@ -1,12 +1,10 @@
 .form-centered.new-review {
   margin-top: 60px;
-
   input#review_content {
     height: 120px;
     text-align: left;
   }
 }
-
 
 .btn-book.btn-review {
   width: 170px;
@@ -14,7 +12,6 @@
   margin-top: 40px;
   margin-bottom: 30px;
 }
-
 
 #new_review {
   display: flex;
@@ -26,8 +23,8 @@
 
 @media only screen and  (max-width: 550px)  {
 
-.form-centered.new-review {
-  margin-top: 30px;
-}
+  .form-centered.new-review {
+    margin-top: 30px;
+  }
 
 }

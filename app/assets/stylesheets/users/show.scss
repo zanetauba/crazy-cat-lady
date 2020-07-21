@@ -7,7 +7,6 @@
   padding-top: 30px;
 }
 
-
 .user-profile-wrapper {
   display: flex;
   flex-direction: row;
@@ -21,6 +20,8 @@
   box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
 }
 
+
+
 /*profile*/
 
 .profile-photo {
@@ -30,14 +31,14 @@
   border-radius: 1000px;
 }
 
-
 .user-details {
   padding-left: 20px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   div{
-  padding-right: 20px;}
+    padding-right: 20px;
+  }
   #star-rating {
     padding-top: 20px;
     p {
@@ -86,26 +87,20 @@
 }
 
 
-
-
 /*cards content*/
-
-
 
 .user-pets-listings-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
   border-radius: 8px;
-
   img {
-      object-fit: cover;
-      width: 300px;
-      height: 200px;
-      border-top-right-radius: 8px;
-      border-top-left-radius: 8px;
-      box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
-
+    object-fit: cover;
+    width: 300px;
+    height: 200px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
   }
 }
 
@@ -117,13 +112,11 @@
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
   box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
-
 }
 
 .pet-name-card:hover {
   color: $orange;
 }
-
 
 .user-row {
   padding-left: 100px;
@@ -134,7 +127,6 @@
   margin-left: 0px;
   margin-right: 0px;
 }
-
 
 .user-listings-small-cards {
   display: flex;
@@ -196,12 +188,10 @@
 .no-pets-listings {
   width: 95vw;
   margin: auto;
-
 }
 
 .no-pets-listings.no-pets-listings-last {
   margin-bottom: 50px;
-
 }
 
 
@@ -229,21 +219,23 @@
     width: 20px;
   }
 
- .user-details div {
-  padding-right: 17px;
- }
+  .user-details div {
+    padding-right: 17px;
+  }
 
- .add-buttons {
-  padding-left: 30px;
- }
+  .add-buttons {
+    padding-left: 30px;
+  }
+
 }
 
 
 
-  @media only screen and  (max-width: 992px) and (min-width: 799px) {
-    .user-profile-wrapper {
-      width: 60vw;
-    }
+@media only screen and  (max-width: 992px) and (min-width: 799px) {
+
+  .user-profile-wrapper {
+    width: 60vw;
+  }
 
   .title-user-profile-section{
     width: 90vw;
@@ -273,6 +265,7 @@
   .add-buttons {
     padding-left: 18px;
   }
+
   .user-details div {
     padding-right: 13px;
   }
@@ -302,11 +295,11 @@
 }
 
 
-  @media only screen and  (max-width: 799px) and (min-width: 550px) {
+@media only screen and  (max-width: 799px) and (min-width: 550px) {
 
   .user-profile-wrapper {
-      width: 560px;
-    }
+    width: 560px;
+  }
 
   .title-user-profile-section{
     width: 90vw;
@@ -336,6 +329,7 @@
   .add-buttons {
     padding-left: 18px;
   }
+
   .user-details div {
     padding-right: 13px;
   }
@@ -361,16 +355,17 @@
   .user-details #star-rating img {
     width: 16px;
   }
-  }
+
+}
 
 
 
-  @media only screen and  (max-width: 550px)  {
+@media only screen and  (max-width: 550px)  {
 
   .user-profile-wrapper {
-      width: 98vw;
-      padding: 10px;
-    }
+    width: 98vw;
+    padding: 10px;
+  }
 
   .title-user-profile-section{
     width: 93vw;
@@ -400,6 +395,7 @@
   .add-buttons {
     padding-left: 10px;
   }
+
   .user-details div {
     padding-right: 13px;
   }
