@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :initialize_booking
+  before_action :initialize_booking, only: [:show]
   skip_before_action :authenticate_user!, only: [:index, :initialize_booking]
 
 

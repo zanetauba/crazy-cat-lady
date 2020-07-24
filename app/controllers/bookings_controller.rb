@@ -52,11 +52,11 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @user = current_user
     @pets = @booking.user.pets
-    if @booking.pet_id != nil && @booking.starting_at != nil && @booking.ending_at != nil
+    if @booking.pet_id != nil && @booking.starting_at != nil && @booking.ending_at != nil && @booking.starting_at >= Date.today && @booking.ending_at > Date.today && @booking.ending_at > @booking.starting_at
       @booking.save
       redirect_to booking_path(@booking)
     else
-      render 'listings/show'
+      redirect_to listing_path(@booking.listing_id)
       flash[:alert] = 'Fill out all the required fields'
     end
   end
