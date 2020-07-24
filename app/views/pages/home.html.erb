@@ -2,6 +2,7 @@
   <div class="container-home">
     <h5 class="small-device-title">Find a perfect hotel for your cat!</h5>
 
+    <div class="search-form">
     <%= form_tag listings_path, method: :get do %>
       <%= text_field_tag :location_query,
         params[:query],
@@ -24,9 +25,17 @@
         placeholder: "Maximum price per day"
       %>
 
-      <div class="btn-wrapper">
-        <%= submit_tag 'Search', class: "btn btn-primary"  %>
+        <div class="btn-wrapper-big-screen">
+          <%= submit_tag 'Search', class: "btn btn-primary"  %>
+          <%= link_to "Show all",  listings_path, class: "btn btn-success"  %>
+        </div>
+
+      </div>
+
+
+      <div class="btn-wrapper-small-screen">
         <%= link_to "Show all",  listings_path, class: "btn btn-success"  %>
+        <%= submit_tag 'Search', class: "btn btn-primary"  %>
       </div>
 
     <% end %>
