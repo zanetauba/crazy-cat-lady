@@ -3,7 +3,7 @@
 .booking-show-wrapper.form-centered {
   flex-direction: row;
   width: inherit;
-  margin: 40px 10vw;
+  margin: 40px 5vw;
   justify-content: space-evenly;
   .fas {
     color: $orange;
@@ -29,6 +29,7 @@
   font-weight: 700;
   white-space: nowrap;
   margin-bottom: 40px;
+  text-align: center;
 }
 
 
@@ -45,6 +46,9 @@
   padding: 20px 20px 30px 70px;
 }
 
+.price-of-booking{
+   text-align: center;
+ }
 
 .booking-buttons-wrapper {
   margin-top: 30px;
@@ -89,10 +93,12 @@
 
   .fotorama img.fotorama__img {
     min-width: 500px !important;
+    max-width: 500px !important;
   }
 
   .fotorama__stage, .fotorama__stage__shaft, .fotorama__wrap.fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
     min-width: 500px !important;
+    max-width: 500px !important;
   }
 
   .fotorama div.fotorama__thumb img.fotorama__img {
@@ -112,12 +118,12 @@
     margin: 40px 5vw;
 
   .fotorama img.fotorama__img {
-    min-width: 200px !important;
+    min-width: 300px !important;
     max-width: 300px !important;
   }
 
   .fotorama__stage, .fotorama__stage__shaft, .fotorama__wrap.fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
-    min-width: 200px !important;
+    min-width: 300px !important;
     max-width: 300px !important;
   }
 
@@ -146,18 +152,19 @@
   .missed-booking, .pending-booking {
     text-align: center;
     font-size: 14px;
+    align-self: center;
   }
 
   .booking-show-wrapper.form-centered {
     margin: 40px 5vw;
 
   .fotorama img.fotorama__img {
-    min-width: 150px !important;
+    min-width: 250px !important;
     max-width: 250px !important;
   }
 
   .fotorama__stage, .fotorama__stage__shaft, .fotorama__wrap.fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
-    min-width: 150px !important;
+    min-width: 250px !important;
     max-width: 250px !important;
   }
 
@@ -168,7 +175,7 @@
   }
 
   .booking-details  {
-    align-items: flex-start;
+    align-items: center;
   }
 
   .pet-link {
@@ -197,11 +204,11 @@
       margin: 40px 5vw;
       flex-direction: column;
     .fotorama img.fotorama__img {
-      min-width: 150px !important;
+      min-width: 250px !important;
       max-width: 250px !important;
     }
     .fotorama__stage, .fotorama__stage__shaft, .fotorama__wrap.fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
-      min-width: 150px !important;
+      min-width: 250px !important;
       max-width: 250px !important;
     }
     .fotorama div.fotorama__thumb img.fotorama__img {
@@ -236,10 +243,6 @@
   .pending-booking, .missed-booking {
     text-align: center;
     font-size: 14px;
-  }
-
-  .price-of-booking{
-    text-align: center;
   }
 
   .booking-photos {

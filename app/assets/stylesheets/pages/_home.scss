@@ -49,6 +49,10 @@
   display: none;
 }
 
+.btn-wrapper-small-screen {
+  display: none;
+}
+
 @media only screen and  (max-width: 1340px) and (min-width: 812px) {
 
   .container-home form {
@@ -76,6 +80,18 @@
     padding-bottom: 10vh;
   }
 
+  .btn-wrapper-big-screen {
+    display: none;
+  }
+
+  .btn-wrapper-small-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+  }
 }
 
 
@@ -105,6 +121,23 @@
     padding-top: 10vh;
     color: white;
     font-size: 20px;
+  }
+
+  .btn-wrapper-big-screen {
+    display: none;
+  }
+
+  .btn-wrapper-small-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    .btn-primary, .btn-success {
+      width: inherit;
+      font-size: 14px;
+    }
   }
 
 }
