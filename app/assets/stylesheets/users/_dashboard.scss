@@ -29,7 +29,9 @@
 }
 
 .expired-hostings {
-  height: 410px;
+  .img-dashboard {
+    margin-bottom: 10px;
+  }
 }
 
 .requests > .incoming-cards {
