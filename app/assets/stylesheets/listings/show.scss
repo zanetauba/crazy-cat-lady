@@ -48,11 +48,13 @@
 
 .fotorama img.fotorama__img {
   left: 0px !important;
+  object-fit: contain !important;
+
   /*min-width: 1100px !important;
   max-width: 1100px !important;*/
 }
 
-.fotorama__wrap.fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
+.fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
   /*min-width: 1100px !important;*/
   max-width: 1100px !important;
 }
@@ -274,7 +276,7 @@
   max-width: 900px !important;*/
 }
 
-.fotorama__stage, .fotorama__stage__shaft, .fotorama__wrap.fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
+.fotorama__stage, .fotorama__stage__shaft, .fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
   min-width: 900px !important;
   max-width: 900px !important;
 }
@@ -293,7 +295,7 @@
 
   }
 
-  .fotorama__stage, .fotorama__stage__shaft, .fotorama__wrap.fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
+  .fotorama__stage, .fotorama__stage__shaft, .fotorama__wrap--css3.fotorama__wrap--fade.fotorama__wrap--toggle-arrows {
     min-width: 550px !important;
     max-width: 550px !important;
   }
