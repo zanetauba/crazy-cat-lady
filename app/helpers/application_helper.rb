@@ -1,8 +1,8 @@
 module ApplicationHelper
 
-ZERO_STAR_ICON_NAME =   'star_empty'
-FULL_STAR_ICON_NAME =  'star_full'
-HALF_STAR_ICON_NAME =  'star_half_full'
+ZERO_STAR_ICON_NAME =   'https://res.cloudinary.com/zaneta111uba111shula111/image/upload/v1595672127/star_empty.png'
+FULL_STAR_ICON_NAME =  'https://res.cloudinary.com/zaneta111uba111shula111/image/upload/v1595672127/star_full.png'
+HALF_STAR_ICON_NAME =  'https://res.cloudinary.com/zaneta111uba111shula111/image/upload/v1595672127/star_half_full.png'
 
   def render_stars(rating)
     round_by_half = (rating * 2).round / 2.0
